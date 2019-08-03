@@ -18,70 +18,69 @@ const BlogPost = ({ data, pageContext, location }) => {
 
 	return (
 		<ThemeProvider>
-			<ThemeContext.Consumer>
-				{({ theme }) => (
-					<Layout location={location} title={siteTitle}>
-						<Seo
-							title={post.frontmatter.title}
-							description={post.frontmatter.description || post.excerpt}
-						/>
-						<BlogInfo date={post.frontmatter.date} timeToRead={post.timeToRead} />
-						<h1
-							style={{
-								marginTop: rhythm(1 / 4),
-								marginBottom: rhythm(1),
-							}}
-						>
-							{post.frontmatter.title}
-						</h1>
-						<div
-							css={{
-								a: {
-									borderBottomColor: getTheme(theme).color,
-									'&:hover, &:focus': {
-										borderBottomStyle: 'solid',
+			<section css={{ height: '100%', minHeight: '100vh' }}>
+				<ThemeContext.Consumer>
+					{({ theme }) => (
+						<Layout location={location} title={siteTitle}>
+							<Seo
+								title={post.frontmatter.title}
+								description={post.frontmatter.description || post.excerpt}
+								ogImage={`/og-image/${post.frontmatter.ogImage}`}
+							/>
+							<BlogInfo date={post.frontmatter.date} timeToRead={post.timeToRead} />
+							<h1
+								style={{
+									marginTop: rhythm(1 / 4),
+									marginBottom: rhythm(1),
+								}}
+							>
+								{post.frontmatter.title}
+							</h1>
+							<div
+								css={{
+									a: {
 										borderBottomColor: getTheme(theme).color,
 									},
-								},
-							}}
-							dangerouslySetInnerHTML={{ __html: post.html }}
-						/>
-						<hr
-							style={{
-								borderBottom: `1px solid ${getTheme(theme).borderColor}`,
-								height: 0,
-								marginBottom: rhythm(1),
-							}}
-						/>
-						<Bio />
+								}}
+								dangerouslySetInnerHTML={{ __html: post.html }}
+							/>
+							<hr
+								style={{
+									borderBottom: `1px solid ${getTheme(theme).borderColor}`,
+									height: 0,
+									marginBottom: rhythm(1),
+								}}
+							/>
+							<Bio />
 
-						<ul
-							style={{
-								display: `flex`,
-								flexWrap: `wrap`,
-								justifyContent: `space-between`,
-								listStyle: `none`,
-								padding: 0,
-							}}
-						>
-							<li>
-								{previous && (
-									<Link to={previous.fields.slug} rel="prev">
-										← {previous.frontmatter.title}
-									</Link>
-								)}
-							</li>
-							<li>
-								{next && (
-									<Link to={next.fields.slug} rel="next">
-										{next.frontmatter.title} →
-									</Link>
-								)}
-							</li>
-						</ul>
-					</Layout>
-				)}
-			</ThemeContext.Consumer>
+							<ul
+								style={{
+									display: `flex`,
+									flexWrap: `wrap`,
+									justifyContent: `space-between`,
+									listStyle: `none`,
+									padding: 0,
+								}}
+							>
+								<li>
+									{previous && (
+										<Link to={previous.fields.slug} rel="prev">
+											← {previous.frontmatter.title}
+										</Link>
+									)}
+								</li>
+								<li>
+									{next && (
+										<Link to={next.fields.slug} rel="next">
+											{next.frontmatter.title} →
+										</Link>
+									)}
+								</li>
+							</ul>
+						</Layout>
+					)}
+				</ThemeContext.Consumer>
+			</section>
 		</ThemeProvider>
 	);
 };
@@ -108,6 +107,7 @@ export const pageQuery = graphql`
 				title
 				date(formatString: "MMMM DD, YYYY")
 				description
+				ogImage
 			}
 			timeToRead
 		}
