@@ -21,10 +21,8 @@ const Bio = () => {
 				siteMetadata {
 					author
 					social {
-						twitter
 						github
-						youtube
-						newsletter
+						linkedin
 					}
 				}
 			}
@@ -63,6 +61,7 @@ const Bio = () => {
 					[mediaMax.small]: {
 						marginBottom: 8,
 					},
+					backgroundColor: `none`,
 				}}
 				imgStyle={{
 					borderRadius: `50%`,
@@ -70,14 +69,10 @@ const Bio = () => {
 			/>
 			<div css={{ fontSize: 16, color: secondary }}>
 				<p>
-					Personal blog of <a href={social.twitter}>{author}</a>. I’m a{' '}
-					<a href={social.github}>JavaScript engineer</a> working with React, React Native, GraphQL
-					and Node. I also create <a href={social.youtube}>programming videos</a> with my friend. In
-					my spare time I play music and DoTA.
-				</p>
-				<p>
-					You may follow me on <a href={social.twitter}>twitter</a> or join my{' '}
-					<a href={social.newsletter}>newsletter</a> for latest updates.
+					Personal blog of <a href={social.linkedin}>{author}</a>. I’m a{' '}
+					<a href={social.github}>software engineer</a> currently working with{' '}
+					<a href="https://expressjs.com/">Express</a>, <a href="https://vuejs.org/">Vue</a> and
+					Node. I love learning about InfoSec, DevOps, ML, and Full Stack.
 				</p>
 			</div>
 		</div>
