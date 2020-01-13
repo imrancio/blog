@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
-import { FiTwitter, FiGithub, FiInstagram, FiYoutube, FiMail } from 'react-icons/fi';
-import { FaSoundcloud, FaStackOverflow } from 'react-icons/fa';
+import { FiTwitter, FiGithub, FiYoutube, FiMail, FiLinkedin } from 'react-icons/fi';
+import { FaStackOverflow } from 'react-icons/fa';
 import { mediaMax } from '@divyanshu013/media';
 
 import Button from './Button';
@@ -24,12 +24,11 @@ const SIDEBAR_QUERY = graphql`
 				author
 				bio
 				social {
+					linkedin
 					twitter
 					github
-					soundcloud
 					youtube
 					email
-					instagram
 					stackoverflow
 				}
 			}
@@ -101,14 +100,14 @@ const Sidebar = () => {
 				}}
 			>
 				<Button
-					aria-label="Link to my Twitter"
+					aria-label="Link to my LinkedIn"
 					as="a"
 					circular
-					href={social.twitter}
+					href={social.linkedin}
 					target="_blank"
 					rel="noopener noreferrer"
 				>
-					<FiTwitter />
+					<FiLinkedin />
 				</Button>
 				<Button
 					aria-label="Link to my GitHub"
@@ -129,36 +128,6 @@ const Sidebar = () => {
 					rel="noopener noreferrer"
 				>
 					<FaStackOverflow />
-				</Button>
-				<Button
-					aria-label="Link to my JavaScript YouTube channel"
-					as="a"
-					circular
-					href={social.youtube}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<FiYoutube />
-				</Button>
-				<Button
-					aria-label="Link to my Instagram"
-					as="a"
-					circular
-					href={social.instagram}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<FiInstagram />
-				</Button>
-				<Button
-					aria-label="Link to my Soundcloud"
-					as="a"
-					circular
-					href={social.soundcloud}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<FaSoundcloud />
 				</Button>
 				<Button
 					aria-label="Email me"

@@ -1,12 +1,12 @@
-# Div’s Blog
+# Imran C’s Blog
 
-[![Deploy Status](https://api.netlify.com/api/v1/badges/4020d01b-1c29-48f6-bbd2-a030292b406e/deploy-status)](https://app.netlify.com/sites/divyanshu-blog/deploys)
+Personal blog of Imran Chowdhury
 
 ## About me
 
-I’m a JavaScript engineer working with React, React Native, GraphQL and Node. I also create [programming videos](https://youtube.com/c/WhatTheJavaScript) with my friend. In my spare time I play music and DoTA.
+I’m a software engineer currently working with [Express](https://expressjs.com), [Vue](https://vuejs.org) and Node. I love learning about InfoSec, DevOps, ML, and Full Stack.
 
-You may follow me on [twitter](https://twitter.com/divyanshu013) for latest updates.
+You may follow me on [LinkedIn](https://www.linkedin.com/in/imran-chowdhury-110865196/) for latest updates.
 
 ## ToDo
 
