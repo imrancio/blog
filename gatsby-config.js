@@ -1,19 +1,17 @@
 module.exports = {
 	siteMetadata: {
 		bio: 'Life, music, code and things in between…',
-		title: `Divyanshu Maithani`,
-		author: `Divyanshu Maithani`,
-		description: `Personal blog of Divyanshu Maithani`,
-		siteUrl: `https://divyanshu013.dev`,
+		title: `Imran Chowdhury`,
+		author: `Imran Chowdhury`,
+		description: `Personal blog of Imran Chowdhury`,
+		siteUrl: `https://imranc.io`,
 		social: {
-			twitter: `https://twitter.com/divyanshu013`,
-			github: 'https://github.com/divyanshu013',
-			youtube: 'https://youtube.com/WhatTheJavaScript',
-			soundcloud: 'https://soundcloud.com/divyanshu-maithani',
-			instagram: 'https://instagram.com/divyanshu013',
-			email: 'mailto:div.blackcat@gmail.com',
-			stackoverflow: 'https://stackoverflow.com/users/4952669/divyanshu-maithani',
-			newsletter: 'https://tinyletter.com/divyanshu',
+			linkedin: `https://www.linkedin.com/in/imran-chowdhury-110865196/`,
+			twitter: `https://twitter.com/imrancio`,
+			github: 'https://github.com/imrancio',
+			youtube: 'https://youtube.com/Imran51408s',
+			email: 'mailto:imran@imranc.io',
+			stackoverflow: 'https://stackoverflow.com/users/12705130/imran-chowdhury',
 		},
 	},
 	plugins: [
@@ -61,8 +59,8 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-manifest`,
 			options: {
-				name: `Div's Blog`,
-				short_name: `Div`,
+				name: `Imran C’s Blog`,
+				short_name: `Imran`,
 				start_url: `/`,
 				background_color: `#121212`,
 				theme_color: `#1d1d1d`,
@@ -100,5 +98,14 @@ module.exports = {
 			},
 		},
 		'gatsby-plugin-catch-links',
+		{
+			resolve: 'gatsby-plugin-page-progress',
+			options: {
+				includePaths: [{ regex: '^/blog' }],
+				height: 3,
+				prependToBody: false,
+				color: `salmon`,
+			},
+		},
 	],
 };
