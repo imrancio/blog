@@ -1,6 +1,6 @@
 module.exports = {
 	siteMetadata: {
-		bio: 'Life, music, code and things in between…',
+		bio: `Life, music, code and things in between…`,
 		title: `Imran Chowdhury`,
 		author: `Imran Chowdhury`,
 		description: `Personal blog of Imran Chowdhury`,
@@ -8,10 +8,10 @@ module.exports = {
 		social: {
 			linkedin: `https://www.linkedin.com/in/imran-chowdhury-110865196/`,
 			twitter: `https://twitter.com/imrancio`,
-			github: 'https://github.com/imrancio',
-			youtube: 'https://youtube.com/',
-			email: 'mailto:imran@imranc.io',
-			stackoverflow: 'https://stackoverflow.com/users/12705130/imran-chowdhury',
+			github: `https://github.com/imrancio`,
+			youtube: `https://youtube.com/`,
+			email: `mailto:imran@imranc.io`,
+			stackoverflow: `https://stackoverflow.com/users/12705130/imran-chowdhury`,
 		},
 	},
 	plugins: [
