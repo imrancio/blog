@@ -47,6 +47,11 @@ const BlogPost = ({ data, pageContext, location }) => {
 									a: {
 										borderBottomColor: getTheme(theme).color,
 									},
+									hr: {
+										borderBottom: `1px solid ${getTheme(theme).borderColor}`,
+										height: 0,
+										marginBottom: rhythm(1),
+									},
 								}}
 								dangerouslySetInnerHTML={{ __html: post.html }}
 							/>
