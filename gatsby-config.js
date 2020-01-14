@@ -46,6 +46,12 @@ module.exports = {
 							wrapperStyle: `margin-bottom: 1.0725rem`,
 						},
 					},
+					{
+						resolve: `gatsby-remark-autolink-headers`,
+						options: {
+							icon: ``,
+						},
+					},
 					`gatsby-remark-prismjs`,
 					`gatsby-remark-copy-linked-files`,
 					`gatsby-remark-smartypants`,
