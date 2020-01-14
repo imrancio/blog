@@ -53,6 +53,10 @@ const BlogPost = ({ data, pageContext, location }) => {
 										marginBottom: rhythm(1),
 									},
 
+									'table td, th': {
+										borderBottom: `1px solid ${getTheme(theme).borderColor}`,
+									},
+
 									'.autolink': {
 										borderBottom: `none`,
 										WebkitTapHighlightColor: `transparent`,
