@@ -17,7 +17,7 @@ function Seo({ description, lang, meta, title, ogImage: ogImageProp }) {
 				}
 				ogImageDefault: file(absolutePath: { regex: "/assets/og-image/" }) {
 					childImageSharp {
-						fixed(height: 630, width: 1200) {
+						fixed(height: 512, width: 512) {
 							src
 						}
 					}
