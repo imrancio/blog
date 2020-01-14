@@ -55,6 +55,7 @@ const BlogPost = ({ data, pageContext, location }) => {
 
 									'.autolink': {
 										borderBottom: `none`,
+										WebkitTapHighlightColor: `transparent`,
 										'&:hover, &:focus': {
 											borderBottom: `none`,
 										},
