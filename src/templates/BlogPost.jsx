@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import { object } from 'prop-types';
+import { object, nominalTypeHack } from 'prop-types';
 
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
@@ -51,6 +51,17 @@ const BlogPost = ({ data, pageContext, location }) => {
 										borderBottom: `1px solid ${getTheme(theme).borderColor}`,
 										height: 0,
 										marginBottom: rhythm(1),
+									},
+
+									'.autolink': {
+										borderBottom: `none`,
+										'&:hover, &:focus': {
+											borderBottom: `none`,
+										},
+									},
+
+									'.autolink svg': {
+										fill: getTheme(theme).muted,
 									},
 								}}
 								dangerouslySetInnerHTML={{ __html: post.html }}
