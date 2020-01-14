@@ -77,6 +77,7 @@ const Layout = ({ location, children }) => {
 					aria-label="Light and dark mode switch"
 					circular
 					onClick={toggleTheme}
+					className="container no-highlights"
 					css={{
 						background,
 						transitionDuration: '0s',
