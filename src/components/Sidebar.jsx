@@ -55,6 +55,7 @@ const Sidebar = () => {
 					borderBottom: '1px solid',
 					borderImage: `linear-gradient(to right, ${borderStartingColor}, hsla(0, 0%, 0%, 0)) 1 100%`,
 					borderImageSlice: 1,
+					borderImageWidth: `0 0 1px 0`,
 					padding: `16px 0 ${rhythm(2)} 0`,
 					margin: '24px 32px',
 				},
