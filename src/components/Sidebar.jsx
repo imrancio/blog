@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
 import Image from 'gatsby-image';
 import { FiGithub, FiMail, FiLinkedin } from 'react-icons/fi';
-import { FaStackOverflow } from 'react-icons/fa';
+import { FaAddressCard } from 'react-icons/fa';
 import { mediaMax } from '@divyanshu013/media';
 
 import Button from './Button';
@@ -123,17 +123,6 @@ const Sidebar = () => {
 				</Button>
 				<Button
 					className="no-highlights"
-					aria-label="Link to my Stackoverflow"
-					as="a"
-					circular
-					href={social.stackoverflow}
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<FaStackOverflow />
-				</Button>
-				<Button
-					className="no-highlights"
 					aria-label="Email me"
 					as="a"
 					circular
@@ -142,6 +131,16 @@ const Sidebar = () => {
 					rel="noopener noreferrer"
 				>
 					<FiMail />
+				</Button>
+				<Button
+					className="no-highlights"
+					aria-label="Link to my Resume"
+					as="a"
+					circular
+					href="/resume.pdf"
+					rel="noopener noreferrer"
+				>
+					<FaAddressCard />
 				</Button>
 			</div>
 		</nav>
