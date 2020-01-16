@@ -40,13 +40,13 @@ module.exports = {
 							// Deactivate the plugin globally (default: true)
 							active: true,
 							// Select the size (available size: 16, 24, 32, 64)
-							size: 32,
+							size: 64,
 							// Add custom styles
 							styles: {
 								display: 'inline',
 								margin: '0',
 								position: 'relative',
-								top: '5px',
+								width: '1.2em',
 								'vertical-align': 'text-bottom',
 							},
 						},

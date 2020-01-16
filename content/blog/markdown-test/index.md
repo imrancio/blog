@@ -154,6 +154,8 @@ Local Image via HTML with width applied:
 
 :wink: :cry: :heart: :laughing: :yum:
 
+Made with :heart: with GatsbyJS
+
 ### Footnotes
 
 Footnote 1 link[^first].
