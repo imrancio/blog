@@ -2,7 +2,7 @@
 title: 'Auto boxing'
 description: 'How are we able to call object methods on primitive values in JavaScript?'
 date: 2020-01-03
-categories: ['javascript']
+tags: ['javascript']
 ogImage: ./og-image.png
 ---
 

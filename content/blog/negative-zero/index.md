@@ -2,7 +2,7 @@
 title: 'Negative Zero in JavaScript'
 description: ''
 date: 2019-08-11
-categories: ['javascript']
+tags: ['javascript']
 ogImage: ./og-image.png
 ---
 

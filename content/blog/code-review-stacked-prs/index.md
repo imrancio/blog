@@ -2,7 +2,7 @@
 title: 'Stacked Pull Requests'
 description: 'Effective code review on merging large changes with stacked PRs'
 date: 2019-11-02
-categories: ['software-engineering']
+tags: ['software-engineering']
 ogImage: ./og-image.png
 ---
 

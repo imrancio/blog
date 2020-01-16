@@ -2,6 +2,19 @@
 title: 'Markdown Test'
 date: '2020-01-14'
 description: 'This blog entry is meant to give an overview of Markdown syntax supported through currently installed plugins'
+tags:
+  [
+    'markdown',
+    'md',
+    'test',
+    'software-engineering',
+    'tags',
+    'categories',
+    'programming',
+    'computer-science',
+    'GatsbyJS',
+    'Vue',
+  ]
 ---
 
 ## Content

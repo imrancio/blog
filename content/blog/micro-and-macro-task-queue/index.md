@@ -2,7 +2,7 @@
 title: 'Micro and macro task queue'
 description: 'Micro and macro task queues within JavaScript’s event loop context'
 date: 2019-09-02
-categories: ['javascript']
+tags: ['javascript']
 ogImage: ./og-image.png
 ---
 

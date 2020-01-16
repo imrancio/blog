@@ -2,7 +2,7 @@
 title: 'Functional programming constructs'
 description: ''
 date: 2019-10-21
-categories: ['javascript', 'functional-programming']
+tags: ['javascript', 'functional-programming']
 ogImage: ./og-image.png
 ---
 

@@ -2,7 +2,7 @@
 title: 'OG tags in Gatsby'
 description: 'A comprehensive guide on implementing open graph tags in GatsbyJS.'
 date: 2019-08-10
-categories: ['gatsby']
+tags: ['gatsby']
 ogImage: ./og-image.png
 ---
 
@@ -218,7 +218,7 @@ I've added a new field in the frontmatter of my markdown files called `ogImage` 
 title: 'OG tags in Gatsby'
 description: 'A comprehensive guide on implementing open graph tags in GatsbyJS.'
 date: 2019-08-09
-categories: ['gatsby']
+tags: ['gatsby']
 ogImage: ./og-image.png // highlight-line
 ```
 

@@ -2,7 +2,7 @@
 title: 'Function arity and partial application'
 description: ''
 date: 2019-12-01
-categories: ['javascript', 'functional-programming']
+tags: ['javascript', 'functional-programming']
 ogImage: ./og-image.png
 ---
 
