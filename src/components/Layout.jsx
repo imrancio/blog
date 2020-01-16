@@ -61,6 +61,10 @@ const Layout = ({ location, children }) => {
 				blockquote: {
 					color: secondary,
 					borderColor: secondary,
+					[mediaMax.small]: {
+						marginLeft: rhythm(-12 / 16),
+						marginRight: 0,
+					},
 				},
 			}}
 		>
