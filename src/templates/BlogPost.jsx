@@ -6,6 +6,7 @@ import Bio from '../components/Bio';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import BlogInfo from '../components/BlogInfo';
+import Tags from '../components/Tags';
 import { rhythm } from '../utils/typography';
 import ThemeProvider from '../components/ThemeProvider';
 import ThemeContext from '../components/ThemeContext';
@@ -42,6 +43,7 @@ const BlogPost = ({ data, pageContext, location }) => {
 							>
 								{post.frontmatter.title}
 							</h1>
+							<Tags list={post.frontmatter.tags} />
 							<div
 								css={{
 									a: {
@@ -140,6 +142,7 @@ export const pageQuery = graphql`
 				title
 				date(formatString: "MMMM DD, YYYY")
 				description
+				tags
 				ogImage {
 					childImageSharp {
 						fixed(height: 512, width: 512) {

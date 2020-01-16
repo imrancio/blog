@@ -34,6 +34,8 @@ export const getTheme = theme =>
 				muted: 'hsla(0, 0%, 0%, 0.6)',
 				borderColor: '#eee',
 				borderHoverColor: 'transparent',
+				chipColor: 'rgba(0, 0, 0, 0.1)',
+				chipHoverColor: 'rgba(0, 0, 0, 0.2)',
 		  }
 		: {
 				background: '#121212',
@@ -42,4 +44,6 @@ export const getTheme = theme =>
 				muted: 'hsla(0, 0%, 100%, 0.60)',
 				borderColor: 'hsla(0, 0%, 100%, 0.60)',
 				borderHoverColor: COLOR_PRIMARY,
+				chipColor: 'rgba(255, 255, 255, 0.1)',
+				chipHoverColor: 'rgba(255, 255, 255, 0.2)',
 		  };
