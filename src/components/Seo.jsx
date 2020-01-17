@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { useStaticQuery, graphql } from 'gatsby';
 
-function Seo({ description, lang, meta, title, ogImage: ogImageProp }) {
-	const { site, ogImageDefault } = useStaticQuery(
+function Seo({ description, lang, meta, title, image: imageProp }) {
+	const { site, imageDefault } = useStaticQuery(
 		graphql`
 			query {
 				site {
@@ -15,7 +15,7 @@ function Seo({ description, lang, meta, title, ogImage: ogImageProp }) {
 						siteUrl
 					}
 				}
-				ogImageDefault: file(absolutePath: { regex: "/assets/og-image/" }) {
+				imageDefault: file(absolutePath: { regex: "/assets/og-image/" }) {
 					childImageSharp {
 						fixed(height: 512, width: 512) {
 							src
@@ -28,7 +28,7 @@ function Seo({ description, lang, meta, title, ogImage: ogImageProp }) {
 
 	const metaDescription = description || site.siteMetadata.description;
 	const ogImage =
-		ogImageProp || site.siteMetadata.siteUrl.concat(ogImageDefault.childImageSharp.fixed.src);
+		imageProp || site.siteMetadata.siteUrl.concat(imageDefault.childImageSharp.fixed.src);
 	const ogTitle = title || site.siteMetadata.title;
 
 	return (
@@ -95,7 +95,7 @@ Seo.propTypes = {
 	lang: PropTypes.string,
 	meta: PropTypes.arrayOf(PropTypes.object),
 	title: PropTypes.string,
-	ogImage: PropTypes.string,
+	image: PropTypes.string,
 };
 
 export default Seo;
