@@ -27,11 +27,11 @@ const BlogPost = ({ data, pageContext, location }) => {
 								title={post.frontmatter.title}
 								description={post.frontmatter.description || post.excerpt}
 								ogImage={
-									post.frontmatter.ogImage
+									post.frontmatter.ogImage !== null
 										? data.site.siteMetadata.siteUrl.concat(
 												post.frontmatter.ogImage.childImageSharp.fixed.src,
 										  )
-										: null
+										: post.frontmatter.ogImage
 								}
 							/>
 							<BlogInfo date={post.frontmatter.date} timeToRead={post.timeToRead} />
