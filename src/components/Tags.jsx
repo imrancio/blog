@@ -1,53 +1,81 @@
 import React, { useContext } from 'react';
-import { array } from 'prop-types';
+import { array, bool } from 'prop-types';
+import { Link } from 'gatsby';
+import { kebabCase } from 'lodash';
+import { FaTimes } from 'react-icons/fa';
 
 import { getTheme, CUBIC_BEZIER_TRANSITION } from '../utils/theme';
 import { rhythm } from '../utils/typography';
 import ThemeContext from './ThemeContext';
 
-const Tags = ({ list }) => {
+const Tags = ({ list, cancel }) => {
 	const { theme } = useContext(ThemeContext);
 	const { muted } = getTheme(theme);
 	return Array.isArray(list) && list.length ? (
 		<div
-			className="muted"
 			css={{
 				display: 'flex',
-				alignItems: 'center',
-				color: muted,
-				marginTop: rhythm(-3 / 4),
-				marginBottom: rhythm(1),
-				flexWrap: 'wrap',
-				'*': {
-					marginTop: rhythm(0.1),
-				},
+				flexDirection: 'column',
 			}}
 		>
-			{list.map((item, index) => (
-				<small
-					key={index}
-					css={{
-						display: 'inline-block',
-						marginRight: rhythm(0.1),
-						height: `2em`,
-						lineHeight: `2em`,
-						backgroundColor: getTheme(theme).chipColor,
-						padding: `0 12px`,
-						borderRadius: `32px`,
-						transition: CUBIC_BEZIER_TRANSITION,
-						// fontSize: `1em`,
-						'&:hover': { backgroundColor: getTheme(theme).chipHoverColor },
-					}}
-				>
-					{item}
-				</small>
-			))}
+			<div
+				className="muted"
+				css={{
+					display: 'flex',
+					alignItems: 'center',
+					color: muted,
+					marginTop: rhythm(-3 / 4),
+					marginBottom: rhythm(1),
+					flexWrap: 'wrap',
+					'*': {
+						marginTop: rhythm(0.1),
+					},
+				}}
+			>
+				{list.map((item, index) => (
+					<small
+						key={index}
+						css={{
+							marginRight: rhythm(0.1),
+							lineHeight: `2em`,
+							backgroundColor: getTheme(theme).chipColor,
+							padding: `0 12px`,
+							borderRadius: `32px`,
+							transition: CUBIC_BEZIER_TRANSITION,
+							cursor: 'pointer',
+							'&:hover, &:focus': { backgroundColor: getTheme(theme).chipHoverColor },
+						}}
+					>
+						{typeof item === 'string' ? (
+							<Link
+								to={cancel ? `/tags/` : `/tags/${kebabCase(item)}`}
+								css={{ borderBottom: `none !important` }}
+							>
+								{item}
+								{cancel && (
+									<span css={{ lineHeight: `normal`, verticalAlign: `middle`, float: `right` }}>
+										{<FaTimes />}
+									</span>
+								)}
+							</Link>
+						) : (
+							<Link
+								to={`/tags/${kebabCase(item.fieldValue)}`}
+								css={{ borderBottom: `none !important` }}
+							>
+								{item.fieldValue} ({item.totalCount})
+							</Link>
+						)}
+					</small>
+				))}
+			</div>
 		</div>
 	) : null;
 };
 
 Tags.propTypes = {
-	list: array.isRequired,
+	list: array,
+	cancel: bool,
 };
 
 export default Tags;

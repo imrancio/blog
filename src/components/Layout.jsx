@@ -7,6 +7,7 @@ import { FiTerminal, FiSun, FiMoon } from 'react-icons/fi';
 import ThemeContext from './ThemeContext';
 import Button from './Button';
 import { rhythm } from '../utils/typography';
+import { isIndexPage } from '../utils';
 import { BACKGROUND_TRANSITION_TIME, EASE_IN_OUT_TRANSITION, getTheme } from '../utils/theme';
 
 const Layout = ({ location, children }) => {
@@ -15,8 +16,7 @@ const Layout = ({ location, children }) => {
 	const { theme, toggleTheme } = useContext(ThemeContext);
 	const { color, background, secondary } = getTheme(theme);
 	const darkTheme = getTheme('dark');
-
-	if (location.pathname !== rootPath) {
+	if (!isIndexPage(location.pathname, rootPath)) {
 		header = (
 			<h2
 				style={{
@@ -41,8 +41,8 @@ const Layout = ({ location, children }) => {
 	return (
 		<div
 			css={{
-				marginLeft: location.pathname === rootPath ? 64 : `auto`,
-				marginRight: location.pathname === rootPath ? 64 : `auto`,
+				marginLeft: isIndexPage(location.pathname, rootPath) ? 64 : `auto`,
+				marginRight: isIndexPage(location.pathname, rootPath) ? 64 : `auto`,
 				[mediaMax.small]: {
 					marginLeft: 'auto',
 					marginRight: 'auto',
@@ -71,7 +71,7 @@ const Layout = ({ location, children }) => {
 			<header
 				css={{
 					display: 'flex',
-					flexDirection: location.pathname === rootPath ? 'row-reverse' : 'row',
+					flexDirection: isIndexPage(location.pathname, rootPath) ? 'row-reverse' : 'row',
 					alignItems: 'center',
 					justifyContent: 'space-between',
 				}}

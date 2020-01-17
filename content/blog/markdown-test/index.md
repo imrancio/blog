@@ -8,12 +8,10 @@ tags:
     'md',
     'test',
     'software-engineering',
-    'tags',
-    'categories',
     'programming',
-    'computer-science',
-    'GatsbyJS',
+    'gatsby',
     'Vue',
+    'javascript',
   ]
 ---
 
@@ -136,12 +134,12 @@ console.log(foo(5));
 ## Images
 
 Inline-style:
-![alt text](https://pbs.twimg.com/profile_images/875556871427375106/Xuq8DypK_bigger.jpg 'Logo Title Text 1')
+![alt text](https://www.wikipedia.org/static/apple-touch/wikipedia.png 'Logo Title Text 1')
 
 Reference-style:
 ![alt text][logo]
 
-[logo]: https://pbs.twimg.com/profile_images/875556871427375106/Xuq8DypK_bigger.jpg 'Logo Title Text 2'
+[logo]: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png 'Logo Title Text 2'
 
 Local Image:
 ![local image](./gatsby.jpg 'local imgae')

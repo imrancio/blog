@@ -2,7 +2,7 @@
 title: 'Point free programming and function composition'
 description: ''
 date: 2019-12-04
-categories: ['javascript', 'functional-programming']
+tags: ['javascript', 'functional-programming']
 ogImage: ./og-image.png
 ---
 
@@ -94,10 +94,7 @@ const compose = (...fns) => arg =>
 const add1 = num => num + 1;
 const mul2 = num => num * 2;
 
-const addAndMultiply = compose(
-	mul2,
-	add1,
-); // right to left order
+const addAndMultiply = compose(mul2, add1); // right to left order
 
 console.log(addAndMultiply(2)); // 6 - first add1 then mul2
 ```
@@ -113,10 +110,7 @@ const pipe = (...fns) => arg =>
 const add1 = num => num + 1;
 const mul2 = num => num * 2;
 
-const multiplyAndAdd = pipe(
-	mul2,
-	add1,
-); // left to right order
+const multiplyAndAdd = pipe(mul2, add1); // left to right order
 
 console.log(multiplyAndAdd(2)); // 5 - first mul2 then add1
 ```
