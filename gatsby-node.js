@@ -80,3 +80,17 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 		});
 	}
 };
+
+// create file type for ogImage
+exports.sourceNodes = ({ actions }) => {
+	const { createTypes } = actions;
+	createTypes(`
+	  type MarkdownRemarkFrontmatter {
+		ogImage: File
+	  }
+  
+	  type MarkdownRemark implements Node {
+		frontmatter: MarkdownRemarkFrontmatter
+	  }
+	`);
+};

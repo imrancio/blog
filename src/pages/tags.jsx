@@ -8,12 +8,10 @@ import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import Tags from '../components/Tags';
-import BlogInfo from '../components/BlogInfo';
 import { rhythm } from '../utils/typography';
 
 const TagsIndex = ({ data, location }) => {
 	const tags = data.allMarkdownRemark.group;
-	tags.sort((t1, t2) => t2.totalCount - t1.totalCount);
 	return (
 		<ThemeProvider>
 			<section
