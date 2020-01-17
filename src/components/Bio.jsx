@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import Image from 'gatsby-image';
 
 import { mediaMax } from '@divyanshu013/media';
@@ -69,10 +70,11 @@ const Bio = () => {
 			/>
 			<div css={{ fontSize: 16, color: secondary }}>
 				<p>
-					Personal blog of <a href={social.linkedin}>{author}</a>. I’m a{' '}
-					<a href={social.github}>software engineer</a> currently working with{' '}
-					<a href="https://expressjs.com/">Express</a>, <a href="https://vuejs.org/">Vue</a> and
-					Node. I love learning about InfoSec, DevOps, ML, and Full Stack.
+					Personal blog of <OutboundLink href={social.linkedin}>{author}</OutboundLink>. I’m a{' '}
+					<OutboundLink href={social.github}>software engineer</OutboundLink> currently working with{' '}
+					<OutboundLink href="https://expressjs.com/">Express</OutboundLink>,{' '}
+					<OutboundLink href="https://vuejs.org/">Vue</OutboundLink> and Node. I love learning about
+					InfoSec, DevOps, ML, and Full Stack.
 				</p>
 			</div>
 		</div>
