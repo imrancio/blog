@@ -34,7 +34,7 @@ const TagsPage = ({ data, pageContext, location }) => {
 			>
 				<Sidebar />
 				<Layout location={location}>
-					<Seo />
+					<Seo description={`Personal blog of Imran Chowdhury: ${tag} posts`} />
 					<div css={{ marginTop: rhythm(1) }}>
 						<Tags list={[tag]} cancel />
 					</div>

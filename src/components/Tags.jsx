@@ -32,42 +32,44 @@ const Tags = ({ list, cancel }) => {
 					},
 				}}
 			>
-				{list.map((item, index) => (
-					<small
-						key={index}
-						css={{
-							marginRight: rhythm(0.1),
-							lineHeight: `2em`,
-							backgroundColor: getTheme(theme).chipColor,
-							padding: `0 12px`,
-							borderRadius: `32px`,
-							transition: CUBIC_BEZIER_TRANSITION,
-							cursor: 'pointer',
-							'&:hover, &:focus': { backgroundColor: getTheme(theme).chipHoverColor },
-						}}
-					>
-						{typeof item === 'string' ? (
-							<Link
-								to={cancel ? `/tags/` : `/tags/${kebabCase(item)}`}
-								css={{ borderBottom: `none !important` }}
-							>
-								{item}
-								{cancel && (
-									<span css={{ lineHeight: `normal`, verticalAlign: `middle`, float: `right` }}>
-										{<FaTimes />}
-									</span>
-								)}
-							</Link>
-						) : (
-							<Link
-								to={`/tags/${kebabCase(item.fieldValue)}`}
-								css={{ borderBottom: `none !important` }}
-							>
-								{item.fieldValue} ({item.totalCount})
-							</Link>
-						)}
-					</small>
-				))}
+				{list
+					.sort((a, b) => a.localeCompare(b)) // sorted tags
+					.map((item, index) => (
+						<small
+							key={index}
+							css={{
+								marginRight: rhythm(0.1),
+								lineHeight: `2em`,
+								backgroundColor: getTheme(theme).chipColor,
+								padding: `0 12px`,
+								borderRadius: `32px`,
+								transition: CUBIC_BEZIER_TRANSITION,
+								cursor: 'pointer',
+								'&:hover, &:focus': { backgroundColor: getTheme(theme).chipHoverColor },
+							}}
+						>
+							{typeof item === 'string' ? (
+								<Link
+									to={cancel ? `/tags/` : `/tags/${kebabCase(item)}/`}
+									css={{ borderBottom: `none !important` }}
+								>
+									{item}
+									{cancel && (
+										<span css={{ lineHeight: `normal`, verticalAlign: `middle`, float: `right` }}>
+											<FaTimes />
+										</span>
+									)}
+								</Link>
+							) : (
+								<Link
+									to={`/tags/${kebabCase(item.fieldValue)}/`}
+									css={{ borderBottom: `none !important` }}
+								>
+									{item.fieldValue} ({item.totalCount})
+								</Link>
+							)}
+						</small>
+					))}
 			</div>
 		</div>
 	) : null;

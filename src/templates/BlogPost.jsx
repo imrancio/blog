@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
-import { object, nominalTypeHack } from 'prop-types';
+import { object } from 'prop-types';
 
 import Bio from '../components/Bio';
 import Layout from '../components/Layout';
