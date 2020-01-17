@@ -26,12 +26,12 @@ const BlogPost = ({ data, pageContext, location }) => {
 							<Seo
 								title={post.frontmatter.title}
 								description={post.frontmatter.description || post.excerpt}
-								ogImage={
-									post.frontmatter.ogImage !== null
+								image={
+									post.frontmatter.image !== null
 										? data.site.siteMetadata.siteUrl.concat(
-												post.frontmatter.ogImage.childImageSharp.fixed.src,
+												post.frontmatter.image.childImageSharp.fluid.src,
 										  )
-										: post.frontmatter.ogImage
+										: null
 								}
 							/>
 							<BlogInfo date={post.frontmatter.date} timeToRead={post.timeToRead} />
@@ -143,9 +143,9 @@ export const pageQuery = graphql`
 				date(formatString: "MMMM DD, YYYY")
 				description
 				tags
-				ogImage {
+				image {
 					childImageSharp {
-						fixed(height: 512, width: 512) {
+						fluid(maxWidth: 512) {
 							src
 						}
 					}
