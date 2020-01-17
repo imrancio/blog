@@ -33,7 +33,12 @@ const Tags = ({ list, cancel }) => {
 				}}
 			>
 				{list
-					.sort((a, b) => a.localeCompare(b)) // sorted tags
+					.sort(
+						(a, b) =>
+							typeof a === 'string' && typeof b === 'string'
+								? a.localeCompare(b) // sort alphabetically
+								: b.totalCount - a.totalCount, // reverse sort by tag count
+					) // sorted tags
 					.map((item, index) => (
 						<small
 							key={index}
