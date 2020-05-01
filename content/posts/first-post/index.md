@@ -1,7 +1,7 @@
 ---
 title: 'First Blog Post'
 date: 2020-01-17
-description: 'This is the first official blog post detailing the development and deployment of this site'
+description: 'This is the first official blog post detailing the development of this static blog site'
 tags:
   [
     'gatsby',
@@ -33,7 +33,7 @@ The main features I was interested in were:
 >
 > So I forked the repo and added some features to it. Read along to learn more...
 
-My friend Stuart frequently told me about [Jekyll](https://jekyllrb.com/) as he shamelessly plugged his site, [SigSec](https://sigsec.net). He also told me he's moving to [GatsbyJS](https://www.gatsbyjs.org/) which is developed with more modern web technologies.
+My friend Stuart frequently told me about [Jekyll](https://jekyllrb.com/) as he shamelessly plugged his site, [SigSec](https://blog.sigsec.net/). He also told me he's moving to [GatsbyJS](https://www.gatsbyjs.org/) which is developed with more modern web technologies.
 
 They are both **static site generators**. The idea is, you provide some content, such as blog posts in the form of `markdown` files, and it will generate a static site for you with all your content. They allow styling the layout and presentation of your content as you see fit.
 
@@ -100,7 +100,7 @@ The plugins I found most useful are plug-and-play and should work with any Gatsb
 
 - **[gatsby-plugin-google-gtag](https://www.gatsbyjs.org/packages/gatsby-plugin-google-gtag/):** Google Analytics for your Gatsby site with gtag.js
 
-- **[gatsby-plugin-manifest](https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/):** Enables web app manifest as part of the [WPA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) specification
+- **[gatsby-plugin-manifest](https://www.gatsbyjs.org/packages/gatsby-plugin-manifest/):** Enables web app manifest as part of the [PWA](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) specification
 
 - **[gatsby-plugin-offline](https://www.gatsbyjs.org/packages/gatsby-plugin-offline/):** Offline support for cached content
 
@@ -122,7 +122,7 @@ While this site is exactly how I like it at this point, there are a few features
 
 ## Related
 
-- [Markdown Test](/blog/markdown-test)
+- [Markdown Test](/posts/markdown-test)
 
 ## External links
 

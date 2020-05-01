@@ -40,8 +40,8 @@ module.exports = {
 		{
 			resolve: `gatsby-source-filesystem`,
 			options: {
-				path: `${__dirname}/content/blog`,
-				name: `blog`,
+				path: `${__dirname}/content/posts`,
+				name: `posts`,
 			},
 		},
 		{
@@ -140,7 +140,7 @@ module.exports = {
 		{
 			resolve: 'gatsby-plugin-page-progress',
 			options: {
-				includePaths: [{ regex: '^/blog' }],
+				includePaths: [{ regex: '^/posts' }],
 				height: 3,
 				prependToBody: false,
 				color: `salmon`,
