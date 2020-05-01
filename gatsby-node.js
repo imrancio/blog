@@ -32,7 +32,7 @@ exports.createPages = ({ graphql, actions }) => {
 				}
 			}
 		`,
-	).then(result => {
+	).then((result) => {
 		if (result.errors) {
 			throw result.errors;
 		}
@@ -55,7 +55,7 @@ exports.createPages = ({ graphql, actions }) => {
 		});
 		// Create tag pages
 		const tags = result.data.tagsGroup.group;
-		tags.forEach(tag => {
+		tags.forEach((tag) => {
 			createPage({
 				path: `/tags/${kebabCase(tag.fieldValue)}/`,
 				component: tagsTemplate,
@@ -76,7 +76,7 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
 		createNodeField({
 			name: `slug`,
 			node,
-			value,
+			value: `/posts${relativePath}`,
 		});
 	}
 };
