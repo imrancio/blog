@@ -6,7 +6,7 @@ module.exports = {
 		description: `Personal blog of Imran Chowdhury`,
 		siteUrl: `https://imranc.io`,
 		social: {
-			linkedin: `https://www.linkedin.com/in/imran-chowdhury-110865196/`,
+			linkedin: `https://www.linkedin.com/in/imrancio/`,
 			twitter: `https://twitter.com/imrancio`,
 			github: `https://github.com/imrancio`,
 			youtube: `https://youtube.com/Imran51408s`,
