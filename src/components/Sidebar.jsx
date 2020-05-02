@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from 'gatsby-plugin-image';
 import { FiGithub, FiMail, FiLinkedin } from 'react-icons/fi';
 import { FaAddressCard } from 'react-icons/fa';
 import { mediaMax } from '@divyanshu013/media';
@@ -10,28 +10,29 @@ import { rhythm } from '../utils/typography';
 import { getTheme } from '../utils/theme';
 import ThemeContext from './ThemeContext';
 
-const SIDEBAR_QUERY = graphql`{
-  avatar: file(absolutePath: {regex: "/profile-pic.png/"}) {
-    childImageSharp {
-      gatsbyImageData(width: 128, height: 128, layout: FIXED)
-    }
-  }
-  site {
-    siteMetadata {
-      author
-      bio
-      social {
-        linkedin
-        twitter
-        github
-        youtube
-        email
-        stackoverflow
-        resume
-      }
-    }
-  }
-}
+const SIDEBAR_QUERY = graphql`
+	{
+		avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
+			childImageSharp {
+				gatsbyImageData(width: 128, height: 128, layout: FIXED)
+			}
+		}
+		site {
+			siteMetadata {
+				author
+				bio
+				social {
+					linkedin
+					twitter
+					github
+					youtube
+					email
+					stackoverflow
+					resume
+				}
+			}
+		}
+	}
 `;
 
 const Sidebar = () => {
@@ -42,7 +43,7 @@ const Sidebar = () => {
 	const { muted } = getTheme(theme);
 	const borderStartingColor = theme === 'light' ? 'hsla(0, 0%, 0%, 0.1)' : 'hsla(0, 0%, 100%, 0.1)';
 	return (
-        <nav
+		<nav
 			css={{
 				borderRight: '1px solid',
 				margin: '24px 0',
@@ -71,10 +72,10 @@ const Sidebar = () => {
 				}}
 			>
 				<GatsbyImage
-                    image={avatar.childImageSharp.gatsbyImageData}
-                    alt={author}
-                    imgStyle={{ borderRadius: '50%' }}
-                    css={{
+					image={avatar.childImageSharp.gatsbyImageData}
+					alt={author}
+					imgStyle={{ borderRadius: '50%' }}
+					css={{
 						marginBottom: rhythm(0.8),
 						opacity: 0.87,
 						[mediaMax.small]: {
@@ -82,7 +83,8 @@ const Sidebar = () => {
 							height: '64px !important',
 							order: 1,
 						},
-					}} />
+					}}
+				/>
 				<h3>{author}</h3>
 			</div>
 			<p className="muted" css={{ color: muted }}>
@@ -143,7 +145,7 @@ const Sidebar = () => {
 				</Button>
 			</div>
 		</nav>
-    );
+	);
 };
 
 export default Sidebar;
