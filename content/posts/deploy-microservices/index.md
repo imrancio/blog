@@ -39,14 +39,15 @@ Just a quick primer on some of the technologies being used for deployment:
 Currently, the way I've been deploying changes to my blog is the following:
 
 1. Make new markdown files in my blog [repo](https://github.com/imrancio/blog)
-2. Commit changes and push to GitHub
-3. Use `gatsby-cli` to build production files
-4. Production files get symlinked to Nginx site folders
-5. Nginx serves new production files
+2. Commit blog changes and push to GitHub
+3. SSH into my server and pull blog changes
+4. Use `gatsby-cli` to build production files
+5. Production files get symlinked to Nginx site folders
+6. Nginx serves new production files
 
-The problem with that is everything after 3 is a bit limiting. Nginx requires a lot of fiddling around with to configure everything correctly. I have to write server code for every application I want deployed and it's been years since I messed around with Nginx.
+The problem with that is everything after 3 is done manually and a bit limiting. Nginx requires a lot of fiddling around with to configure everything correctly. I have to write server code for every application I want deployed and it's been years since I messed around with Nginx.
 
-Docker simplifies the process of setting up a server to serve static files for my blog. Nginx itself is a containerised service in Docker Hub. That means using Docker Compose, it's quite easy to set up my blog as a service that builds all the Gatsby static files and serves them on my domain using a single configuration file.
+Docker simplifies the process of setting up a server to serve static files for my blog. Nginx itself is a containerised service in Docker Hub. That means using Docker, it's quite easy to set up my blog as a service that builds all the Gatsby static files and serves them on my domain using a single configuration file.
 
 ```Dockerfile
 ARG GATSBY_ACTIVE_ENV=production
@@ -81,11 +82,11 @@ Essentially, what it does is the following:
 
 #### On an Nginx server Docker image
 
-5. Copies over static Gatsby files from Node.js image
+5. Copies over static blog files from Node.js image
 6. Copies over Nginx config to run the server
-7. Server is exposed via HTTP (port 80)
+7. Blog server is exposed via HTTP (port 80)
 
-In Docker, you can start from a variety of base _images_. These are basically minimal OSes with certain packages and applications pre-installed. Then, you keep adding _layers_ to this base image by running each command in the `Dockerfile` to build your service. Finally, you can use Docker Compose to spin up multiple _containers_ running from these built _images_.
+In Docker, you can start from a variety of base _images_. These are basically minimal OSes with certain packages and applications pre-installed. Then, you keep adding _layers_ to this base image by running each command in the `Dockerfile` to build your service. Finally, you can use Docker Compose to spin up multiple _containers_ (instances) running from these built _images_.
 
 ## Traefik Routing
 
@@ -171,6 +172,22 @@ There's a lot going on there but the main thing to note is there are 2 services,
 - There's some redirect routes setup for [imranc.io](https://imranc.io) and [www.imranc.io](https://www.imranc.io), which both point to [blog.imranc.io](https://blog.imranc.io)
 
 The idea is I can keep adding services here and routing them all via `labels` with very little configuration required.
+
+## Deployments => Piece of :cake:
+
+With the current setup of using containerised services and Traefik to route everything, I have simplified deployments to the following:
+
+1. Make new markdown files in my blog [repo](https://github.com/imrancio/blog)
+2. Commit blog changes and push to GitHub
+3. SSH into my server and pull blog changes
+4. Build new `blog` image using Docker
+5. Restart my `imrancio-blog` container using Docker Compose
+
+In fact, I've condensed steps 3-5 into a one-liner:
+
+```bash
+ssh imranc.io './my-unnamed-script.sh'
+```
 
 ## Additional Services
 
