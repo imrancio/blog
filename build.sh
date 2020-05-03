@@ -1,1 +1,4 @@
-docker build -t blog .
+#! /bin/bash
+
+docker build --rm -t blog .
+
