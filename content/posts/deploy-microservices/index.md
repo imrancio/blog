@@ -165,6 +165,7 @@ services:
 There's a lot going on there but the main thing to note is there are 2 services, **traefik** and **blog**:
 
 - Traefik service is configured in the `commands` section and all the Traefik routes for services are configured via their respective `labels` sections
+- All HTTP entrypoint routes are redirected to HTTPS
 - There is a route setup for Traefik Dashboard at [traefik.imranc.io](https://traefik.imranc.io), which is hidden behind a basic auth wall.
 - There is a route setup for my blog server image at [blog.imranc.io](https://blog.imranc.io)
 - There's some redirect routes setup for [imranc.io](https://imranc.io) and [www.imranc.io](https://www.imranc.io), which both point to [blog.imranc.io](https://blog.imranc.io)
