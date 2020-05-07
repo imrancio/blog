@@ -1,4 +1,6 @@
 #! /bin/bash
 
-docker build -t gatsbyjs:blog -f gatsby.Dockerfile .
+# build gatsby image with plugins
+docker build -t gatsbyjs:blog -f Dockerfile.gatsby .
+# build blog image from gatsby image
 docker build -t blog:latest .
