@@ -1,4 +1,4 @@
 #! /bin/bash
 
-docker build --rm -t blog .
-
+docker build -t gatsbyjs:blog -f gatsbyjs.Dockerfile .
+docker build -t blog:latest .
