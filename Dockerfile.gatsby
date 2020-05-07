@@ -1,7 +1,10 @@
 FROM node:12-alpine
 RUN yarn global add gatsby-cli
 
-WORKDIR /app
 # install dependencies
+WORKDIR /app
 COPY package.json package.json
-RUN yarn install
+RUN yarn install --no-lockfile
+
+# bundle source and blog posts on build
+ONBUILD COPY . /app
