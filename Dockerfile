@@ -1,15 +1,9 @@
+FROM gatsbyjs:blog AS build
 ARG GATSBY_ACTIVE_ENV=production
-FROM node:12-alpine AS build
-
-ARG GATSBY_ACTIVE_ENV
 ENV GATSBY_ACTIVE_ENV=$GATSBY_ACTIVE_ENV
-RUN yarn global add gatsby-cli
 
 WORKDIR /app
-# install dependencies
-COPY package.json package.json
-RUN yarn install
-# bundle source
+# bundle source and blog posts
 COPY . .
 # build production files
 RUN gatsby build
