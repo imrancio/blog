@@ -7,4 +7,4 @@ COPY package.json package.json
 RUN yarn install --no-lockfile
 
 # bundle source and blog posts on build
-ONBUILD COPY . /app
+ONBUILD COPY . .
