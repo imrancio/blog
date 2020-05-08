@@ -4,7 +4,7 @@ RUN yarn global add gatsby-cli
 # install dependencies
 WORKDIR /app
 COPY package.json package.json
-RUN yarn install --no-lockfile
+RUN yarn install --no-lockfile && gatsby telemetry --disable
 
 # bundle source and blog posts on build
 ONBUILD COPY . .
