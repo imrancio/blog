@@ -3,7 +3,7 @@ ARG GATSBY_ACTIVE_ENV=production
 ENV GATSBY_ACTIVE_ENV=$GATSBY_ACTIVE_ENV
 
 # build production files
-RUN gatsby build
+RUN gatsby build --no-color
 
 FROM nginx
 # serve production files
