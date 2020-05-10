@@ -8,6 +8,8 @@ I’m a software engineer currently working with [Express](https://expressjs.com
 
 You may follow me on [LinkedIn](https://www.linkedin.com/in/imran-chowdhury-110865196/) for latest updates.
 
+If you're using this as a starter or template for your own blog, I would be happy to add a link here. Please create a PR or issue with a link to your blog if you would like to feature it here :)
+
 ## ToDo
 
 - [ ] Creating series of blog posts. An easy way to link them.
@@ -19,6 +21,7 @@ You may follow me on [LinkedIn](https://www.linkedin.com/in/imran-chowdhury-1108
 - [ ] Favorite quotes
 - [ ] Interesting lists (games, podcasts, etc.)
 - [ ] Dynamically switch dark mode based on system settings
+- [ ] Offline ready
 
 ## Licenses
 
