@@ -6,6 +6,7 @@ import { FiTerminal, FiSun, FiMoon } from 'react-icons/fi';
 
 import ThemeContext from './ThemeContext';
 import Button from './Button';
+import Footer from './Footer';
 import { rhythm } from '../utils/typography';
 import { isIndexPage } from '../utils';
 import { BACKGROUND_TRANSITION_TIME, EASE_IN_OUT_TRANSITION, getTheme } from '../utils/theme';
@@ -109,6 +110,7 @@ const Layout = ({ location, children }) => {
 				</Button>
 			</header>
 			<main>{children}</main>
+			<Footer />
 		</div>
 	);
 };
