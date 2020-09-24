@@ -30,6 +30,7 @@ const SIDEBAR_QUERY = graphql`
 					youtube
 					email
 					stackoverflow
+					resume
 				}
 			}
 		}
@@ -138,7 +139,8 @@ const Sidebar = () => {
 					aria-label="Link to my Resume"
 					as="a"
 					circular
-					href="/resume.pdf"
+					href={social.resume}
+					target="_blank"
 					rel="noopener noreferrer"
 				>
 					<FaAddressCard />
