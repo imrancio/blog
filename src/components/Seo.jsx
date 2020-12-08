@@ -5,22 +5,26 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 function Seo({ description, lang, meta, title, image: imageProp }) {
 	const { site, imageDefault } = useStaticQuery(
-		graphql`{
-  site {
-    siteMetadata {
-      title
-      description
-      author
-      siteUrl
-    }
-  }
-  imageDefault: file(absolutePath: {regex: "/assets/og-image/"}) {
-    childImageSharp {
-      gatsbyImageData(height: 512, width: 512, placeholder: BLURRED, layout: FIXED)
-    }
-  }
-}
-`,
+		graphql`
+			{
+				site {
+					siteMetadata {
+						title
+						description
+						author
+						siteUrl
+						domain
+					}
+				}
+				imageDefault: file(absolutePath: { regex: "/assets/og-image/" }) {
+					childImageSharp {
+						fixed(height: 512, width: 512) {
+							src
+						}
+					}
+				}
+			}
+		`,
 	);
 
 	const metaDescription = description || site.siteMetadata.description;
@@ -77,7 +81,14 @@ function Seo({ description, lang, meta, title, image: imageProp }) {
 					content: ogImage,
 				},
 			].concat(meta)}
-		/>
+		>
+			<script
+				async
+				defer
+				data-domain={site.siteMetadata.domain}
+				src="https://plausible.io/js/plausible.js"
+			/>
+		</Helmet>
 	);
 }
 

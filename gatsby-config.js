@@ -4,6 +4,7 @@ module.exports = {
 		title: `Imran Chowdhury`,
 		author: `Imran Chowdhury`,
 		description: `Personal blog of Imran Chowdhury`,
+		domain: 'imranc.io',
 		siteUrl: `https://imranc.io`,
 		repo: 'imrancio/blog',
 		social: {
