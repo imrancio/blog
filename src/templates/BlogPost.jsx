@@ -18,7 +18,7 @@ const BlogPost = ({ data, pageContext, location }) => {
 	const { previous, next } = pageContext;
 
 	return (
-		<ThemeProvider>
+        <ThemeProvider>
 			<section css={{ height: '100%', minHeight: '100vh' }}>
 				<ThemeContext.Consumer>
 					{({ theme }) => (
@@ -29,7 +29,7 @@ const BlogPost = ({ data, pageContext, location }) => {
 								image={
 									post.frontmatter.image !== null
 										? data.site.siteMetadata.siteUrl.concat(
-												post.frontmatter.image.childImageSharp.fluid.src,
+												post.frontmatter.image.childImageSharp.gatsbyImageData.src,
 										  )
 										: null
 								}
@@ -116,7 +116,7 @@ const BlogPost = ({ data, pageContext, location }) => {
 				</ThemeContext.Consumer>
 			</section>
 		</ThemeProvider>
-	);
+    );
 };
 
 BlogPost.propTypes = {
@@ -125,35 +125,32 @@ BlogPost.propTypes = {
 	location: object.isRequired,
 };
 
-export const pageQuery = graphql`
-	query BlogPostBySlug($slug: String!) {
-		site {
-			siteMetadata {
-				title
-				author
-				siteUrl
-			}
-		}
-		markdownRemark(fields: { slug: { eq: $slug } }) {
-			id
-			excerpt(pruneLength: 160)
-			html
-			frontmatter {
-				title
-				date(formatString: "MMMM DD, YYYY")
-				description
-				tags
-				image {
-					childImageSharp {
-						fluid(maxWidth: 512) {
-							src
-						}
-					}
-				}
-			}
-			timeToRead
-		}
-	}
+export const pageQuery = graphql`query BlogPostBySlug($slug: String!) {
+  site {
+    siteMetadata {
+      title
+      author
+      siteUrl
+    }
+  }
+  markdownRemark(fields: {slug: {eq: $slug}}) {
+    id
+    excerpt(pruneLength: 160)
+    html
+    frontmatter {
+      title
+      date(formatString: "MMMM DD, YYYY")
+      description
+      tags
+      image {
+        childImageSharp {
+          gatsbyImageData(width: 512, placeholder: BLURRED, layout: CONSTRAINED)
+        }
+      }
+    }
+    timeToRead
+  }
+}
 `;
 
 export default BlogPost;

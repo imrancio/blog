@@ -5,30 +5,27 @@ import { useStaticQuery, graphql } from 'gatsby';
 
 function Seo({ description, lang, meta, title, image: imageProp }) {
 	const { site, imageDefault } = useStaticQuery(
-		graphql`
-			query {
-				site {
-					siteMetadata {
-						title
-						description
-						author
-						siteUrl
-					}
-				}
-				imageDefault: file(absolutePath: { regex: "/assets/og-image/" }) {
-					childImageSharp {
-						fixed(height: 512, width: 512) {
-							src
-						}
-					}
-				}
-			}
-		`,
+		graphql`{
+  site {
+    siteMetadata {
+      title
+      description
+      author
+      siteUrl
+    }
+  }
+  imageDefault: file(absolutePath: {regex: "/assets/og-image/"}) {
+    childImageSharp {
+      gatsbyImageData(height: 512, width: 512, placeholder: BLURRED, layout: FIXED)
+    }
+  }
+}
+`,
 	);
 
 	const metaDescription = description || site.siteMetadata.description;
 	const ogImage =
-		imageProp || site.siteMetadata.siteUrl.concat(imageDefault.childImageSharp.fixed.src);
+		imageProp || site.siteMetadata.siteUrl.concat(imageDefault.childImageSharp.gatsbyImageData.src);
 	const ogTitle = title || site.siteMetadata.title;
 
 	return (

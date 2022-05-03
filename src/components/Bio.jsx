@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import Image from 'gatsby-image';
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import { mediaMax } from '@divyanshu013/media';
 import { rhythm } from '../utils/typography';
@@ -9,32 +9,29 @@ import { getTheme } from '../utils/theme';
 import ThemeContext from './ThemeContext';
 
 const Bio = () => {
-	const data = useStaticQuery(graphql`
-		query BioQuery {
-			avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
-				childImageSharp {
-					fixed(width: 64, height: 64) {
-						...GatsbyImageSharpFixed
-					}
-				}
-			}
-			site {
-				siteMetadata {
-					author
-					social {
-						github
-						linkedin
-					}
-				}
-			}
-		}
-	`);
+	const data = useStaticQuery(graphql`query BioQuery {
+  avatar: file(absolutePath: {regex: "/profile-pic.png/"}) {
+    childImageSharp {
+      gatsbyImageData(width: 64, height: 64, layout: FIXED)
+    }
+  }
+  site {
+    siteMetadata {
+      author
+      social {
+        github
+        linkedin
+      }
+    }
+  }
+}
+`);
 
 	const { author, social } = data.site.siteMetadata;
 	const { theme } = useContext(ThemeContext);
 	const { color, secondary } = getTheme(theme);
 	return (
-		<div
+        <div
 			css={{
 				display: `grid`,
 				gridTemplateColumns: 'auto auto',
@@ -51,10 +48,10 @@ const Bio = () => {
 				},
 			}}
 		>
-			<Image
-				fixed={data.avatar.childImageSharp.fixed}
-				alt={author}
-				css={{
+			<GatsbyImage
+                image={data.avatar.childImageSharp.gatsbyImageData}
+                alt={author}
+                css={{
 					marginTop: 8,
 					marginRight: rhythm(1),
 					borderRadius: `100%`,
@@ -64,10 +61,9 @@ const Bio = () => {
 					},
 					backgroundColor: `none`,
 				}}
-				imgStyle={{
+                imgStyle={{
 					borderRadius: `50%`,
-				}}
-			/>
+				}} />
 			<div css={{ fontSize: 16, color: secondary }}>
 				<p>
 					Personal blog of <OutboundLink href={social.linkedin}>{author}</OutboundLink>. I’m a{' '}
@@ -78,7 +74,7 @@ const Bio = () => {
 				</p>
 			</div>
 		</div>
-	);
+    );
 };
 
 export default Bio;
