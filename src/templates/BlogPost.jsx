@@ -34,7 +34,10 @@ const BlogPost = ({ data, pageContext, location }) => {
 									)
 								}
 							/>
-							<BlogInfo date={post.frontmatter.date} timeToRead={post.timeToRead} />
+							<BlogInfo
+								date={post.frontmatter.date}
+								timeToRead={post.frontmatter.time || post.timeToRead}
+							/>
 							<h1
 								style={{
 									marginTop: rhythm(1 / 4),
