@@ -139,8 +139,8 @@ services:
       # highlight-end
 
   blog:
-    image: blog
-    container_name: imrancio-blog
+    image: imrancio-blog
+    container_name: blog
     labels:
       # highlight-start
       - 'traefik.enable=true'
@@ -183,8 +183,8 @@ With the current setup of using containerised services and Traefik to route ever
 1. Make new markdown files in my blog [repo](https://github.com/imrancio/blog)
 2. Commit blog changes and push to GitHub
 3. SSH into my server and pull blog changes
-4. Build new `blog` image using Docker
-5. Restart my `imrancio-blog` container using Docker Compose
+4. Build new `imrancio-blog` image using Docker
+5. Restart my `blog` container using Docker Compose
 
 In fact, I've condensed steps 3-5 into a one-liner:
 
@@ -194,7 +194,7 @@ ssh imranc.io './update-blog.sh'
 
 ## Additional Services
 
-As an example of additional services I can deploy, I went ahead and set up my own self-hosted instance of [Bitwaden](https://bitwarden.com/) at [bitwarden.imranc.io](https://bitwarden.imranc.io) using the [bitwarden_rs](https://github.com/dani-garcia/bitwarden_rs) Docker image. I am the sole user of the service and have disabled registration. As such, I can store all my credentials in my own server and have it sync across all my devices anywhere in the world from my private vault that no one else can access. I really :heart: that I can do that!
+As an example of additional services I can deploy, I went ahead and set up my own self-hosted instance of [Bitwaden](https://bitwarden.com/) at [vault.imranc.io](https://vault.imranc.io) using the [vaultwarden](https://github.com/dani-garcia/vaultwarden) Docker image. I am the sole user of the service and have disabled registration. As such, I can store all my credentials in my own server and have it sync across all my devices anywhere in the world from my private vault that no one else can access. I really :heart: that I can do that!
 
 ## Update
 
@@ -202,13 +202,10 @@ Since I wrote this post, I have hosted several different services on my domain. 
 
 Here is a list of all the services currently hosted on my domain:
 
-| Service                                            | Description           |
-| -------------------------------------------------- | --------------------- |
-| [bitwarden.imranc.io](https://bitwarden.imranc.io) | password manager      |
-| [blog.imranc.io](https://blog.imranc.io)           | my personal blog      |
-| [files.imranc.io](https://files.imranc.io)         | h5ai file hosting     |
-| [git.imranc.io](https://git.imranc.io)             | gitea code repository |
-| [notes.imranc.io](https://notes.imranc.io)         | standard notes        |
-| [traefik.imranc.io](https://traefik.imranc.io)     | traefik dashboard     |
-
-<img src="https://files.imranc.io/blog/deploy-microservices/thats-all-folks.webp" alt="That's all folks!" style="display:block;margin:2em auto;">
+| Service                                               | Description           |
+| ----------------------------------------------------- | --------------------- |
+| [vault.imranc.io](https://vault.imranc.io)            | password manager      |
+| [blog.imranc.io](https://blog.imranc.io)              | my personal blog      |
+| [files.imranc.io](https://files.imranc.io)            | static file hosting   |
+| [notes.imranc.io](https://notes.imranc.io)            | standard notes        |
+| [proxy.imranc.io](https://proxy.imranc.io/dashboard/) | traefik dashboard     |
