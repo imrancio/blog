@@ -69,6 +69,7 @@ const Sidebar = () => {
 					src="https://files.imranc.io/static/blog/profile-pic.png"
 					alt={author}
 					layout="fixed"
+					placeholder="none"
 					width={128}
 					height={128}
 					imgStyle={{ borderRadius: '50%' }}

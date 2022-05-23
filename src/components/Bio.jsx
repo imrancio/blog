@@ -50,6 +50,7 @@ const Bio = () => {
 				src="https://files.imranc.io/static/blog/profile-pic.png"
 				alt={author}
 				layout="fixed"
+				placeholder="none"
 				width={64}
 				height={64}
 				css={{
