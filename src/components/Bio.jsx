@@ -1,32 +1,29 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 import { OutboundLink } from 'gatsby-plugin-google-gtag';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 
 import { mediaMax } from '@divyanshu013/media';
 import { rhythm } from '../utils/typography';
 import { getTheme } from '../utils/theme';
 import ThemeContext from './ThemeContext';
 
-const Bio = () => {
-	const data = useStaticQuery(graphql`
-		query BioQuery {
-			avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
-				childImageSharp {
-					gatsbyImageData(width: 64, height: 64, layout: FIXED)
-				}
-			}
-			site {
-				siteMetadata {
-					author
-					social {
-						github
-						linkedin
-					}
+const BIO_QUERY = graphql`
+	query BioQuery {
+		site {
+			siteMetadata {
+				author
+				social {
+					github
+					linkedin
 				}
 			}
 		}
-	`);
+	}
+`;
+
+const Bio = () => {
+	const data = useStaticQuery(BIO_QUERY);
 
 	const { author, social } = data.site.siteMetadata;
 	const { theme } = useContext(ThemeContext);
@@ -49,9 +46,12 @@ const Bio = () => {
 				},
 			}}
 		>
-			<GatsbyImage
-				image={data.avatar.childImageSharp.gatsbyImageData}
+			<StaticImage
+				src="https://files.imranc.io/static/blog/profile-pic.png"
 				alt={author}
+				layout="fixed"
+				width={64}
+				height={64}
 				css={{
 					marginTop: 8,
 					marginRight: rhythm(1),

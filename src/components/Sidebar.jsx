@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { graphql, useStaticQuery } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { StaticImage } from 'gatsby-plugin-image';
 import { FiGithub, FiMail, FiLinkedin } from 'react-icons/fi';
 import { FaAddressCard } from 'react-icons/fa';
 import { mediaMax } from '@divyanshu013/media';
@@ -12,11 +12,6 @@ import ThemeContext from './ThemeContext';
 
 const SIDEBAR_QUERY = graphql`
 	{
-		avatar: file(absolutePath: { regex: "/profile-pic.png/" }) {
-			childImageSharp {
-				gatsbyImageData(width: 128, height: 128, layout: FIXED)
-			}
-		}
 		site {
 			siteMetadata {
 				author
@@ -37,7 +32,6 @@ const SIDEBAR_QUERY = graphql`
 
 const Sidebar = () => {
 	const data = useStaticQuery(SIDEBAR_QUERY);
-	const { avatar } = data;
 	const { author, bio, social } = data.site.siteMetadata;
 	const { theme } = useContext(ThemeContext);
 	const { muted } = getTheme(theme);
@@ -71,9 +65,12 @@ const Sidebar = () => {
 					},
 				}}
 			>
-				<GatsbyImage
-					image={avatar.childImageSharp.gatsbyImageData}
+				<StaticImage
+					src="https://files.imranc.io/static/blog/profile-pic.png"
 					alt={author}
+					layout="fixed"
+					width={128}
+					height={128}
 					imgStyle={{ borderRadius: '50%' }}
 					css={{
 						marginBottom: rhythm(0.8),

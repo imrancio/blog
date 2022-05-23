@@ -127,12 +127,12 @@ console.log(foo(5));
 ## Images
 
 Inline-style:
-![alt text](https://www.wikipedia.org/static/apple-touch/wikipedia.png 'Logo Title Text 1')
+![alt text](https://files.imranc.io/static/blog/posts/markdown-test/wikipedia.png 'Logo Title Text 1')
 
 Reference-style:
 ![alt text][logo]
 
-[logo]: https://www.google.com/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png 'Logo Title Text 2'
+[logo]: https://files.imranc.io/static/blog/posts/markdown-test/google.png 'Logo Title Text 2'
 
 Local Image:
 ![local image](./gatsby.jpg 'local imgae')
