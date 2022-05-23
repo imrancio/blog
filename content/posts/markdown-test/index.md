@@ -4,6 +4,8 @@ date: '2020-01-14'
 description: 'This blog entry is meant to give an overview of Markdown syntax supported through currently installed plugins'
 tags: ['markdown', 'test']
 image: ./og-image.jpg
+time: 2
+external: 'https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax'
 ---
 
 ## Content
@@ -107,7 +109,7 @@ Sample text here...
 Syntax highlighting for Javascript code
 
 ```javascript
-var foo = function(bar) {
+var foo = function (bar) {
 	return bar++;
 };
 
