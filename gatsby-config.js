@@ -117,18 +117,17 @@ module.exports = {
 		{
 			resolve: `gatsby-plugin-feed`,
 			options: {
-				query: `
-				{
-				  site {
-					siteMetadata {
-					  title
-					  description
-					  siteUrl
-					  site_url: siteUrl
+				query: `{
+					site {
+						siteMetadata {
+							title
+							description
+							siteUrl
+							site_url: siteUrl
+						}
 					}
-				  }
 				}
-			  `,
+				`,
 				feeds: [
 					{
 						serialize: ({ query: { site, allMarkdownRemark } }) => {
@@ -142,25 +141,22 @@ module.exports = {
 								});
 							});
 						},
-						query: `
-					{
-					  allMarkdownRemark(
-						sort: { order: DESC, fields: [frontmatter___date] },
-					  ) {
-						nodes {
-						  excerpt
-						  html
-						  fields {
-							slug
-						  }
-						  frontmatter {
-							title
-							date
-						  }
+						query: `{
+							allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+								nodes {
+									excerpt
+									html
+									fields {
+										slug
+									}
+									frontmatter {
+										title
+										date
+									}
+								}
+							}
 						}
-					  }
-					}
-				  `,
+						`,
 						output: '/rss.xml',
 						title: 'Imran C’s RSS Feed',
 						// optional configuration to insert feed reference in pages:
@@ -182,6 +178,11 @@ module.exports = {
 				theme_color: `#1d1d1d`,
 				display: `minimal-ui`,
 				icon: `static/favicon.png`,
+				icon_options: {
+					// For all the options available,
+					// please see https://www.gatsbyjs.com/plugins/gatsby-plugin-manifest/#additional-resources.
+					purpose: `any maskable`,
+				},
 			},
 		},
 		`gatsby-plugin-offline`,
