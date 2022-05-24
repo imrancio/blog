@@ -2,16 +2,7 @@
 title: 'First Blog Post'
 date: 2020-01-17
 description: 'This is the first official blog post detailing the development of this static blog site'
-tags:
-  [
-    'gatsby',
-    'react',
-    'graphql',
-    'software-development',
-    'web',
-    'markdown',
-    'design',
-  ]
+tags: ['Gatsby', 'React', 'GraphQL', 'software', 'web', 'markdown', 'design']
 ---
 
 ## Intro
