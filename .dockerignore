@@ -1,3 +1,11 @@
 .cache/
 node_modules/
 public/
+.vscode/
+CONTRIBUTING.md
+LICENSE*
+README.md
+*.sh
+.eslintrc
+.prettierrc
+.editorconfig
