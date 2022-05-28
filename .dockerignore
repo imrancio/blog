@@ -6,7 +6,6 @@ public/
 CONTRIBUTING.md
 LICENSE*
 README.md
-*.sh
 .eslintrc
 .prettierrc
 .editorconfig
