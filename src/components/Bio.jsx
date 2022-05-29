@@ -71,9 +71,10 @@ const Bio = () => {
 				<p>
 					Personal blog of <OutboundLink href={social.linkedin}>{author}</OutboundLink>. I’m a{' '}
 					<OutboundLink href={social.github}>software engineer</OutboundLink> currently working with{' '}
-					<OutboundLink href="https://expressjs.com/">Express</OutboundLink>,{' '}
-					<OutboundLink href="https://vuejs.org/">Vue</OutboundLink> and Node. I love learning about
-					InfoSec, DevOps, ML, and Full Stack.
+					<OutboundLink href="https://www.mongodb.com/">MongoDB</OutboundLink>,{' '}
+					<OutboundLink href="https://nestjs.com/">NestJS</OutboundLink> and{' '}
+					<OutboundLink href="https://reactjs.org/">React</OutboundLink>. I love learning about
+					InfoSec, DevOps, ML, and Full Stack Web.
 				</p>
 			</div>
 		</div>
