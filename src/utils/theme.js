@@ -11,8 +11,19 @@ export const BACKGROUND_TRANSITION_TIME = '0.75s';
  * @returns [theme, toggleTheme] - [current theme, function to toggle theme]
  */
 export const useTheme = () => {
-	const storedTheme = typeof window !== 'undefined' && window.localStorage.getItem('theme');
-	const [theme, setTheme] = useState(storedTheme || 'light');
+	let prefersTheme;
+	if (typeof window !== 'undefined') {
+		const storedTheme = window.localStorage.getItem('theme')
+		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+		prefersTheme = storedTheme
+		  ? storedTheme
+			: prefersDark
+			  ? 'dark'
+				: 'light';
+	} else {
+		prefersTheme = 'light';
+	}
+	const [theme, setTheme] = useState(prefersTheme);
 	const toggleTheme = () =>
 		setTheme(prevTheme => {
 			return prevTheme === 'light' ? 'dark' : 'light';
