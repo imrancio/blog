@@ -8,7 +8,6 @@ tags:
 		'JavaScript',
 		'python',
     'software',
-    'web',
   ]
 ---
 
