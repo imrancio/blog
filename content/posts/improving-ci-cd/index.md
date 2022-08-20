@@ -142,6 +142,10 @@ The idea is we can have end-users doing uninterrupted work in stable production 
 
 For any bugs found in production environments, we can branch off `main`, fix the bug and merge back into `main` and `develop` branches to deliver the fix to both production and pre-production environments.
 
+> **Update Aug 20, 2022:** We have since switched back to a [trunk-based development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development) workflow. It’s much more simpler to maintain and similar concept as feature branches and enables CI/CD automation.
+>
+> Always branch off main and merge back to main. Rely on automated testing and feature flags to ensure main branch is always stable. Separate infrastructure for dev and prod environments. Merge/push on main branch triggers CD pipelines after CI steps pass.
+
 ### Conventional commits and automating Versioning/Releases
 
 For all our Git commits during the development cycle, we use the [conventional commit message syntax](https://www.conventionalcommits.org/en/v1.0.0/). This is a way to structure your commit messages to be more meaningful. It also enables using tools that can read these commit messages and automatically version and release your applications in GitHub depending on how you structured your commit messages.
@@ -162,11 +166,15 @@ There are also secondary backend components needed to make the Fabric V2 service
 
 ## Containerisation
 
-_Containerisation_ is a way to package software into standardised units for development, shipment and deployment.
+_Containerisation_ is a way to package software into standardised units for development, shipment and deployment. It is a form of OS virtualization that leverages the features of the host operating system to isolate processes and control their access to memory, disk space, and CPUs. It allows us to deploy multiple applications using the same operating system on a single virtual machine or server.
+
+In contrast, traditional _virtualisation_ (VMs) allows running multiple operating systems on the hardware of a single physical server.
 
 ### Docker
 
 The Fabric V2 GraphQL API is containerised with [Docker](https://www.docker.com/). Essentially, there is a _Dockerfile_ for the API, which is like a blueprint for all the things needed for the API to function and how to build/run the API (based off other standardised units). The Docker _image_ built from this blueprint can be pushed to a container registry, like [AWS ECR](https://aws.amazon.com/ecr/). The images can be _tagged_ under a variety of versions according to our release/deploy cycles and CI/CD pipelines. You can then run instances of the images in Docker _containers_ in a variety of different hardware/OS configurations.
+
+> The main difference between Docker and VM is that Docker provides container virtualisation while VM provides hardware-level virtualisation.
 
 ## Container Orchestration
 
