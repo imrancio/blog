@@ -3,7 +3,18 @@ title: 'Improving CI/CD'
 date: 2022-08-09
 description: 'A comparison of several CI/CD platforms and overview of DevOps practices used to continously deliver full-stack web applications to end-users at Abyss Solutions'
 tags:
-  ['CI/CD', 'DevOps', 'React', 'GraphQL', 'NextJS', 'NestJS', 'software', 'web']
+  [
+    'CI/CD',
+    'DevOps',
+    'Docker',
+    'K8s',
+    'GraphQL',
+    'NextJS',
+    'NestJS',
+    'React',
+    'software',
+    'web',
+  ]
 ---
 
 > This is a post written by me for my work at [Abyss Solutions](https://abysssolutions.co/). Some Github links are to private repositories not accessible by the public. But the concepts described here are transferrable to many software development projects.
