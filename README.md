@@ -1,5 +1,9 @@
 # Imran C’s Blog
 
+<p>
+  <a href="https://github.com/imrancio/blog/actions" target="blank"><img src="https://github.com/imrancio/blog/actions/workflows/docker-publish.yml/badge.svg" alt="docker workflow" /></a>
+</p>
+
 Personal blog of Imran Chowdhury
 
 ## About me
