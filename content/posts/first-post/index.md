@@ -20,7 +20,7 @@ The main features I was interested in were:
    - theme should apply to most elements on-screen, including code blocks
 5. Tagging posts with keywords and filtering by keywords
 
-> tl;dr - I found an [open-source](https://github.com/divyanshu013/blog) blog site generator that had most of the features I was looking for, with beautiful design aestethics.
+> tl;dr - I found an [open-source](https://github.com/divyanshu013/blog) blog site generator that had most of the features I was looking for, with beautiful design aesthetics.
 >
 > So I forked the repo and added some features to it. Read along to learn more...
 
@@ -69,11 +69,11 @@ query {
 
 ## Developing a Blog Site Generator
 
-The first three [features](#intro) I wanted are quite simple to get started with, as Gatsby documentation includes [tutorials](https://www.gatsbyjs.org/tutorial/) for this common blog site generator use-case. It's quite easy to follow along and their website featured many of the clean design aestethics I was after, including light/dark theme support, beautiful font and colors for text and code blocks, etc. They are using their own technology to power the content in their site as well, so it was good for design inspiration.
+The first three [features](#intro) I wanted are quite simple to get started with, as Gatsby documentation includes [tutorials](https://www.gatsbyjs.org/tutorial/) for this common blog site generator use-case. It's quite easy to follow along and their website featured many of the clean design aesthetics I was after, including light/dark theme support, beautiful font and colors for text and code blocks, etc. They are using their own technology to power the content in their site as well, so it was good for design inspiration.
 
 The Gatsby documentation also includes many [starters](https://www.gatsbyjs.org/starters/gatsbyjs/gatsby-starter-blog/) to get your blog site generator going and I initially used one with Material design to get my blog started. However, I soon realised that light/dark theme support required extensive code redesign for these starter blogs, which felt cumbersome to me as I was getting familiar with so many new technologies at once. Also, it has been a while since I did frontend work using React, as I've been mainly using [Vue.js](https://vue.org) for frontend design at work.
 
-I then found a few blog posts that were quite helpful in figuring out how to add dark mode support for GatsbyJS sites. His blog site already had most of the features I wanted and he was kind enough to make the code open-source, and I absolutely loved his design choices. Basically, it would've taken me weeks to get my blog to look this good with my subpar desgin skills. So, I forked the code and began hacking away.
+I then found a few blog posts that were quite helpful in figuring out how to add dark mode support for GatsbyJS sites. His blog site already had most of the features I wanted and he was kind enough to make the code open-source, and I absolutely loved his design choices. Basically, it would've taken me weeks to get my blog to look this good with my subpar design skills. So, I forked the code and began hacking away.
 
 ## Adding Features
 

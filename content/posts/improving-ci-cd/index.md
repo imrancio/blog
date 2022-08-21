@@ -1,7 +1,7 @@
 ---
 title: 'Improving CI/CD'
 date: 2022-08-09
-description: 'A comparison of several CI/CD platforms and overview of DevOps practices used to continously deliver full-stack web applications to end-users at Abyss Solutions'
+description: 'A comparison of several CI/CD platforms and overview of DevOps practices used to continuously deliver full-stack web applications to end-users at Abyss Solutions'
 tags:
   [
     'CI/CD',
@@ -167,7 +167,7 @@ For Fabric V2, we started on alpha (pre-release) builds with incrementing versio
 
 The frontend for Fabric V2 consists of a [React](https://reactjs.org/) application (`fabric-client-react`), built on top of the [Next.js](https://nextjs.org/) framework, various underlying React components the client app uses, and [Apollo Client](https://www.apollographql.com/docs/react/). `fabric-client-react` has a dependency on [**`abyss-3d-viewer`**](https://github.com/abyss-solutions/abyss-3d-viewer), which is a separate frontend React component/project. The 3d viewer has its own development/release cycle and it plugs into the client web application for Fabric V2.
 
-The developers for the 3d viewer project follow the same development practices described above and that project has an automated build/release cycle whenever new features are pushed to the `main` branch. The CD steps for the 3d viewer ensure that the latest 3d viewer component is published to a private node.js package registry called [GemFury](https://gemfury.com/). GemFury also supports hosting private packages for python, ruby, etc. This package can then easily be consumed in the `fabric-client-react` project by configuring your node.js package manager, like npm or yarn, and referencing the package namespace `@abyss/3d-viewer` and version in the project's pacakge.json file. The node.js API bundle for Fabric V2, including some helper CLI scripts, are also published to GemFury under the namespace `@abyss/fabric-api`.
+The developers for the 3d viewer project follow the same development practices described above and that project has an automated build/release cycle whenever new features are pushed to the `main` branch. The CD steps for the 3d viewer ensure that the latest 3d viewer component is published to a private node.js package registry called [GemFury](https://gemfury.com/). GemFury also supports hosting private packages for python, ruby, etc. This package can then easily be consumed in the `fabric-client-react` project by configuring your node.js package manager, like npm or yarn, and referencing the package namespace `@abyss/3d-viewer` and version in the project's package.json file. The node.js API bundle for Fabric V2, including some helper CLI scripts, are also published to GemFury under the namespace `@abyss/fabric-api`.
 
 ## Backend components
 
