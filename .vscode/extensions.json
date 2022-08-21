@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "EditorConfig.EditorConfig",
+    "eamodio.gitlens",
+    "ms-azuretools.vscode-docker",
+    "bierner.markdown-emoji",
+		"streetsidesoftware.code-spell-checker"
+  ]
+}

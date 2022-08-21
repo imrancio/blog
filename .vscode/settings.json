@@ -1,5 +1,4 @@
 {
-	"eslint.autoFixOnSave": true,
 	"editor.codeActionsOnSave": {
 		"source.fixAll.tslint": true,
 		"source.fixAll.eslint": true
