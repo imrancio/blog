@@ -107,7 +107,7 @@ For this version of the code, I can run `fib(9)`, `fib(99)`, `fib(999)` on my br
 Maximum call stack size exceeded
 ```
 
-It's the same result when I run `fib(9999)` with the python version of the code in a python rutime:
+It's the same result when I run `fib(9999)` with the python version of the code in a python runtime:
 
 ```
 maximum recursion depth exceeded in comparison
@@ -140,7 +140,7 @@ This solution is more optimal than the memoised recursive one because:
 
 3. We do not need to keep spawning new recursive functions in the call stack as the value of `n` increases
 
-4. The time taken to calulate `fib(n)` scales linearly with the size of `n`
+4. The time taken to calculate `fib(n)` scales linearly with the size of `n`
 
 Running this version of the code in my browser console, I get a result back for `fib(9999)` fairly quickly:
 
