@@ -177,7 +177,7 @@ There are also secondary backend components needed to make the Fabric V2 service
 
 ## Containerisation
 
-_Containerisation_ is a way to package software into standardised units for development, shipment and deployment. It is a form of OS virtualization that leverages the features of the host operating system to isolate processes and control their access to memory, disk space, and CPUs. It allows us to deploy multiple applications using the same operating system on a single virtual machine or server.
+_Containerisation_ is a way to package software into standardised units for development, shipment and deployment. It is a form of OS virtualisation that leverages the features of the host operating system to isolate processes and control their access to memory, disk space, and CPUs. It allows us to deploy multiple applications using the same operating system on a single virtual machine or server.
 
 In contrast, traditional _virtualisation_ (VMs) allows running multiple operating systems on the hardware of a single physical server.
 
