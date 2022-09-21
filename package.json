@@ -28,6 +28,7 @@
 		"gatsby-plugin-offline": "^5.14.1",
 		"gatsby-plugin-page-progress": "^2.2.1",
 		"gatsby-plugin-react-helmet": "^5.14.0",
+		"gatsby-plugin-s3": "^0.3.8",
 		"gatsby-plugin-sharp": "^4.14.1",
 		"gatsby-plugin-typography": "^4.14.0",
 		"gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.20",
@@ -75,6 +76,8 @@
 	"main": "n/a",
 	"scripts": {
 		"build": "gatsby build",
+		"predeploy": "yarn build",
+		"deploy": "gatsby-plugin-s3 deploy",
 		"develop": "gatsby develop",
 		"format": "prettier --write src/**/*.{js,jsx}",
 		"start": "yarn develop",
