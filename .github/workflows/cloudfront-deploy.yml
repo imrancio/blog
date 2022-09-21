@@ -24,7 +24,7 @@ jobs:
         with:
           node-version: 16
       - name: Build
-        run: yarn build
+        uses: bahmutov/npm-install@HEAD
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
