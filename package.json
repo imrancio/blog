@@ -77,7 +77,7 @@
 	"scripts": {
 		"build": "gatsby build",
 		"predeploy": "yarn build",
-		"deploy": "gatsby-plugin-s3 deploy",
+		"deploy": "gatsby-plugin-s3 deploy --yes",
 		"develop": "gatsby develop",
 		"format": "prettier --write src/**/*.{js,jsx}",
 		"start": "yarn develop",
