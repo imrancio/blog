@@ -5,7 +5,7 @@ module.exports = {
 		author: `Imran Chowdhury`,
 		description: `Personal blog of Imran Chowdhury`,
 		domain: 'imranc.io',
-		siteUrl: `https://imranc.io`,
+		siteUrl: `https://blog.imranc.io`,
 		repo: 'imrancio/blog',
 		social: {
 			linkedin: `https://www.linkedin.com/in/imrancio/`,
@@ -213,6 +213,15 @@ module.exports = {
 				height: 3,
 				prependToBody: false,
 				color: `salmon`,
+			},
+		},
+		{
+			resolve: `gatsby-plugin-s3`,
+			options: {
+				bucketName: "blog.imranc.io",
+				region: "ap-southeast-1",
+        protocol: "https",
+        hostname: "blog.imranc.io",
 			},
 		},
 	],
