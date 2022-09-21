@@ -59,7 +59,7 @@ def fib(n):
 
 As you can see in the above highlighted code, we call the `fib(n)` function recursively in the definition of the function `fib(n)`. The problem with this solution becomes apparent when we work through the recursive calls by hand for `fib(6)`.
 
-![fibonacci-recursive-tree](https://files.imranc.io/static/blog/posts/recursion-vs-iteration/fibonacci-recursive-tree.jpeg 'Fibonacci recursive tree diagram')
+![fibonacci-recursive-tree](https://cdn.imranc.io/static/blog/posts/recursion-vs-iteration/fibonacci-recursive-tree.jpeg 'Fibonacci recursive tree diagram')
 
 The diagram above is a binary tree of all the recursive calls to the `fib(n)` function that will be made. Note that some of the sub-solutions will be computed multiple times in different branches of the tree, such as `fib(2)`, `fib(3)`, and `fib(4)`. Such redundant computation wastefully increases memory and CPU usage.
 

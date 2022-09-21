@@ -53,7 +53,7 @@ This document will describe current CI/CD practices at Abyss Solutions for softw
 
 # Background
 
-![CI/CD](https://files.imranc.io/static/blog/posts/improving-ci-cd/ci-cd.png)
+![CI/CD](https://cdn.imranc.io/static/blog/posts/improving-ci-cd/ci-cd.png)
 
 CI/CD refers to automating workflows related to _continuous integration_ and _continuous delivery_ of software products. As software evolves and new features or capabilities are introduced, there are steps to _integrate_ these features or capabilities into the existing software or codebase. This integration may involve things like ensuring new features do not break existing features, ensuring that the software behaves as expected, ensuring source code is linted, etc.
 
@@ -85,7 +85,7 @@ We initially self-hosted the open-source [**Drone**](https://www.drone.io/) CI/C
 
 We moved to using a paid CI service called [**SemaphoreCI**](https://abyss.semaphoreci.com/) a little over a year ago. It connects to [Abyss Solutions' GitHub org](https://github.com/abyss-solutions/). With it, you can set up pipelines for individual repos in the Abyss GitHub org. These pipelines can run on GitHub triggers, like push to `main` branch. The results of running each pipeline can be seen easily in the GitHub web UI next to the pushed commits (:white_check_mark:) or (:x:). The pipelines run on SemaphoreCI infrastructure and are fairly performant for CI/CD tasks. You can usually see the results of a pipeline a few minutes after new code is pushed to GitHub.
 
-![SemaphoreCI dashboard](https://files.imranc.io/static/blog/posts/improving-ci-cd/semaphore-ci.png)
+![SemaphoreCI dashboard](https://cdn.imranc.io/static/blog/posts/improving-ci-cd/semaphore-ci.png)
 
 There are SemaphoreCI pipelines set up for a lot of Abyss software, but the pipelines being run differ vastly from one another. Part of this has to do with the variety of software being developed at Abyss with different programming languages and technologies and requirements under different teams who take ownership of their own CI/CD processes and pipelines.
 
@@ -101,7 +101,7 @@ There are SemaphoreCI pipelines set up for a lot of Abyss software, but the pipe
 
 [**Actions**](https://github.com/features/actions) is another managed CI/CD service we considered that is integrated directly into GitHub. It's very similar to SemaphoreCI in terms of the services offered and runs on Microsoft/GitHub infrastructure. The web UI is more lacking than the SemaphoreCI web UI in my opinion. But it has a much better templating system for common pipelines and individual steps in pipelines.
 
-![Github Actions](https://files.imranc.io/static/blog/posts/improving-ci-cd/github-actions.png)
+![Github Actions](https://cdn.imranc.io/static/blog/posts/improving-ci-cd/github-actions.png)
 
 The web UI suggests relevant templates for your repo based on the files found in your source code. You can usually Google and find complete workflows that do common CI/CD tasks for your particular tech stack and all you have to do is plug in any needed secrets for the pipelines on a per repo basis. Or you can reference action templates to let you do common steps in pipelines and build your own pipelines around those steps.
 
@@ -131,7 +131,7 @@ CD is handled differently depending on the type of application. For example, we 
 
 ### Feature branches
 
-![Feature branch](https://files.imranc.io/static/blog/posts/improving-ci-cd/feature-branch.svg)
+![Feature branch](https://cdn.imranc.io/static/blog/posts/improving-ci-cd/feature-branch.svg)
 
 We initially used a [feature branch workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/feature-branch-workflow) for both these repos. In this workflow, any time we want to introduce a new feature into the application, we make a feature branch off the _`main`_ branch, push commits into our feature branch until we're satisfied, then we merge the feature branch back into the `main` branch using a GitHub pull request (PR). This is a relatively simple Git workflow and allows us to run our CI pipelines on every pushed commit and CD pipelines whenever anything is merged to the `main` branch automatically.
 
@@ -141,11 +141,11 @@ During the code review process in GitHub, certain repo settings will also preven
 
 Recently, we started using another Git branching workflow, which is a variant of Atlassian's [GitFlow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow#:~:text=Gitflow%20is%20a%20legacy%20Git,software%20development%20and%20DevOps%20practices.). In this workflow, instead of tracking the _`main`_ branch only, we track another branch off `main`, called _`develop`_:
 
-![Gitflow branches](https://files.imranc.io/static/blog/posts/improving-ci-cd/gitflow-branches.svg)
+![Gitflow branches](https://cdn.imranc.io/static/blog/posts/improving-ci-cd/gitflow-branches.svg)
 
 Developers will push latest features to the _`develop`_ branch using the feature branch workflow described above. Whenever a new feature is merged to `develop`, we can run CD pipelines as before, but specifically for the _pre-production_ (or staging or dev) [deploy environments](https://en.wikipedia.org/wiki/Deployment_environment). These environments will always stay up-to-date with the latest version of the application.
 
-![Gitflow features](https://files.imranc.io/static/blog/posts/improving-ci-cd/gitflow-features.svg)
+![Gitflow features](https://cdn.imranc.io/static/blog/posts/improving-ci-cd/gitflow-features.svg)
 
 Once developers are happy with the stability of the pre-production deploy environments, they can periodically merge `develop` branch into _`main`_. Whenever `develop` is merged to `main`, we can run CD pipelines for the _production_ deploy environments. These environments will always stay up-to-date with the latest _stable_ version of the application.
 
@@ -217,7 +217,7 @@ Then, an experienced IT/DevOps professional could write terraform scripts (and s
 
 ### Serverless
 
-![Serverless dashboard](https://files.imranc.io/static/blog/posts/improving-ci-cd/serverless.png)
+![Serverless dashboard](https://cdn.imranc.io/static/blog/posts/improving-ci-cd/serverless.png)
 
 The [serverless framework](https://www.serverless.com/) (and [serverless components](https://github.com/serverless/components)) is another tool that can be used to automate and abstract away complexities of application deployments. It has a rich plugin ecosystem that lets developers rapidly deploy serverless apps for popular tech stacks without needing to be a cloud expert. The serverless framework can let you build your serverless functions in a cloud-agnostic way, such that it works with AWS Lambda or Google Cloud Functions or Azure Functions. It does not provide the same granular control over infrastructure resources as Terraform does, but can be more developer friendly.
 
@@ -235,12 +235,12 @@ Once you have multiple deployments of your application that is being consumed by
 
 ### Sentry.io
 
-![Sentry.io error](https://files.imranc.io/static/blog/posts/improving-ci-cd/sentry-error.png)
+![Sentry.io error](https://cdn.imranc.io/static/blog/posts/improving-ci-cd/sentry-error.png)
 
 We use [sentry.io](http://sentry.io/) to track the performance and status of deployed applications for Fabric web. Sentry has SDKs to plug into many different types of applications, like web apps, smartphone apps, desktop apps, etc. We use SemaphoreCI to integrate Sentry into our applications during the build/deploy process. Anytime a new version of an application is released and deployed, Sentry is notified.
 
 <p align="center">
-  <img src="https://files.imranc.io/static/blog/posts/improving-ci-cd/sentry-release.png" alt="Sentry.io release" />
+  <img src="https://cdn.imranc.io/static/blog/posts/improving-ci-cd/sentry-release.png" alt="Sentry.io release" />
 </p>
 
 All deployments are tagged under different environment names and versions. Sentry is able to show us stack trace for any exceptions or errors that occur during runtime/execution of our applications. It will try to suggest 'suspect commits' it thinks may have caused a regression in your application based on the error events. It will receive source maps for code so that debug logs show relevant source code (instead of transpiled or minified production code). For a sample of events/requests, Sentry will also monitor performance of your deployed applications.

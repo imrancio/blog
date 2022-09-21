@@ -198,6 +198,6 @@ Here is a list of all the services currently hosted on my domain:
 | ----------------------------------------------------- | ------------------- |
 | [vault.imranc.io](https://vault.imranc.io)            | password manager    |
 | [blog.imranc.io](https://blog.imranc.io)              | my personal blog    |
-| [files.imranc.io](https://files.imranc.io)            | static file hosting |
+| [cdn.imranc.io](https://cdn.imranc.io)                | static file hosting |
 | [notes.imranc.io](https://notes.imranc.io)            | standard notes      |
 | [proxy.imranc.io](https://proxy.imranc.io/dashboard/) | traefik dashboard   |
