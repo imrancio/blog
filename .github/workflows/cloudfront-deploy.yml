@@ -14,7 +14,7 @@ on:
 
 jobs:
   push_to_s3_origin:
-    name: Push production Gatsby build to S3 origin for CloudFront
+    name: Push Gatsby build to S3 origin for CloudFront
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
