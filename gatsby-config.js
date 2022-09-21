@@ -14,7 +14,7 @@ module.exports = {
 			youtube: `https://youtube.com/Imran51408s`,
 			email: `mailto:imran@imranc.io`,
 			stackoverflow: `https://stackoverflow.com/users/12705130/imran-chowdhury`,
-			resume: `https://files.imranc.io/static/resume.pdf`,
+			resume: `https://cdn.imranc.io/static/resume.pdf`,
 		},
 	},
 	plugins: [

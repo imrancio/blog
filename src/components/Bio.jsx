@@ -47,7 +47,7 @@ const Bio = () => {
 			}}
 		>
 			<StaticImage
-				src="https://files.imranc.io/static/blog/profile-pic.png"
+				src="https://cdn.imranc.io/static/blog/profile-pic.png"
 				alt={author}
 				layout="fixed"
 				placeholder="none"

@@ -44,7 +44,7 @@ _[GraphQL](https://graphql.org/)_ is a query language designed to source data fr
 
 #### GraphQL vs REST APIs
 
-![Rest](https://files.imranc.io/static/blog/posts/first-post/graphql.svg 'GraphQL')
+![Rest](https://cdn.imranc.io/static/blog/posts/first-post/graphql.svg 'GraphQL')
 
 _REST_ APIs are quite common, and I have been using them for my backend Express.js servers for some time now. I had to learn about _GraphQL_ as it's used by Gatsby to fetch data from many different sources, including CMSs, Markdown, APIs, databases, etc.
 
