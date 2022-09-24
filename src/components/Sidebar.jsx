@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { graphql, useStaticQuery } from 'gatsby';
+import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
 import { FiGithub, FiMail, FiLinkedin } from 'react-icons/fi';
 import { FaAddressCard } from 'react-icons/fa';
@@ -65,24 +65,26 @@ const Sidebar = () => {
 					},
 				}}
 			>
-				<StaticImage
-					src="https://cdn.imranc.io/static/blog/profile-pic.png"
-					alt={author}
-					layout="fixed"
-					placeholder="none"
-					width={128}
-					height={128}
-					imgStyle={{ borderRadius: '50%' }}
-					css={{
-						marginBottom: rhythm(0.8),
-						opacity: 0.87,
-						[mediaMax.small]: {
-							width: '64px !important',
-							height: '64px !important',
-							order: 1,
-						},
-					}}
-				/>
+				<Link to='/about/'>
+					<StaticImage
+						src="https://cdn.imranc.io/static/blog/profile-pic.png"
+						alt={author}
+						layout="fixed"
+						placeholder="none"
+						width={128}
+						height={128}
+						imgStyle={{ borderRadius: '50%' }}
+						css={{
+							marginBottom: rhythm(0.8),
+							opacity: 0.87,
+							[mediaMax.small]: {
+								width: '64px !important',
+								height: '64px !important',
+								order: 1,
+							},
+						}}
+					/>
+				</Link>
 				<h3>{author}</h3>
 			</div>
 			<p className="muted" css={{ color: muted }}>
