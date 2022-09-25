@@ -23,7 +23,7 @@ const SEO_QUERY = graphql`
 type SeoProps = {
 	title?: string;
 	description?: string;
-	meta?: { name: string; content: string }[];
+	meta?: ({ name: string; content: string } | { property: string; content: string })[];
 	image?: string;
 	children?: ReactNode;
 };
@@ -56,7 +56,7 @@ const Seo = ({ description, meta, title, image: imageProp, children }: SeoProps)
 			content: `website`,
 		},
 		{
-			name: 'og:image',
+			property: 'og:image',
 			content: ogImage,
 		},
 		{
@@ -84,8 +84,8 @@ const Seo = ({ description, meta, title, image: imageProp, children }: SeoProps)
 	return (
 		<>
 			<title>{ogTitle}</title>
-			{ogMeta.map(({ name, content }, index) => (
-				<meta key={index} name={name} content={content}></meta>
+			{ogMeta.map(({ name, property, content }, index) => (
+				<meta key={index} property={property} name={name} content={content}></meta>
 			))}
 			{children}
 		</>
