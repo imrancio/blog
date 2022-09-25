@@ -8,7 +8,7 @@ type ButtonProps = {
 	href?: string;
 	target?: string;
 	rel?: string;
-}
+};
 
 const Button = styled('button')<ButtonProps>((props) => ({
 	display: 'flex',

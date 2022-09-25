@@ -8,12 +8,14 @@ import { rhythm } from '../utils/typography';
 import ThemeContext from './ThemeContext';
 
 type TagsProps = {
-	list: readonly {
-		readonly fieldValue: string;
-		readonly totalCount: number;
-	}[] | readonly string[];
+	list:
+		| readonly {
+				readonly fieldValue: string;
+				readonly totalCount: number;
+		  }[]
+		| readonly string[];
 	cancel?: boolean;
-} & ScriptProps
+} & ScriptProps;
 
 const Tags = ({ list, cancel }: TagsProps) => {
 	const { theme } = useContext(ThemeContext);

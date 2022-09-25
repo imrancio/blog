@@ -65,7 +65,7 @@ const Sidebar = () => {
 					},
 				}}
 			>
-				<Link to='/about/'>
+				<Link to="/about/">
 					<StaticImage
 						src="https://cdn.imranc.io/static/blog/profile-pic.png"
 						alt={author}

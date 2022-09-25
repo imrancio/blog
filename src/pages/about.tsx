@@ -37,4 +37,4 @@ export const pageQuery = graphql`
 
 export default AboutPage;
 
-export const Head = () => (<Seo title="About" />);
+export const Head = () => <Seo title="About" />;

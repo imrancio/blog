@@ -32,9 +32,13 @@ type BlogPostPageContext = {
 			readonly external: string;
 		};
 	};
-}
+};
 
-const BlogPost = ({ data, pageContext, location }: PageProps<Queries.BlogPostQuery, BlogPostPageContext>) => {
+const BlogPost = ({
+	data,
+	pageContext,
+	location,
+}: PageProps<Queries.BlogPostQuery, BlogPostPageContext>) => {
 	const post = data.markdownRemark;
 	const siteTitle = data.site.siteMetadata.title;
 	const { previous, next } = pageContext;
@@ -45,10 +49,7 @@ const BlogPost = ({ data, pageContext, location }: PageProps<Queries.BlogPostQue
 				<ThemeContext.Consumer>
 					{({ theme }) => (
 						<Layout location={location} title={siteTitle}>
-							<BlogInfo
-								date={post.frontmatter.date}
-								timeToRead={post.timeToRead}
-							/>
+							<BlogInfo date={post.frontmatter.date} timeToRead={post.timeToRead} />
 							<h1
 								style={{
 									marginTop: rhythm(1 / 4),
@@ -167,14 +168,16 @@ export default BlogPost;
 
 export const Head = ({ data }: HeadProps<Queries.BlogPostQuery>) => {
 	const post = data.markdownRemark;
-	return <Seo
-		title={post.frontmatter.title}
-		description={post.frontmatter.description || post.excerpt}
-		image={
-			post.frontmatter.image &&
-			data.site.siteMetadata.siteUrl.concat(
-				post.frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src,
-			)
-		}
-	/>;
-}
+	return (
+		<Seo
+			title={post.frontmatter.title}
+			description={post.frontmatter.description || post.excerpt}
+			image={
+				post.frontmatter.image &&
+				data.site.siteMetadata.siteUrl.concat(
+					post.frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src,
+				)
+			}
+		/>
+	);
+};

@@ -18,15 +18,15 @@ const SEO_QUERY = graphql`
 			}
 		}
 	}
-`
+`;
 
 type SeoProps = {
 	title?: string;
 	description?: string;
-	meta?: { name: string, content: string }[];
+	meta?: { name: string; content: string }[];
 	image?: string;
 	children?: ReactNode;
-}
+};
 
 const Seo = ({ description, meta, title, image: imageProp, children }: SeoProps) => {
 	const { site, imageDefault } = useStaticQuery<Queries.SeoQuery>(SEO_QUERY);
@@ -84,11 +84,13 @@ const Seo = ({ description, meta, title, image: imageProp, children }: SeoProps)
 	return (
 		<>
 			<title>{ogTitle}</title>
-			{ogMeta.map(({ name, content }, index) => (<meta key={index} name={name} content={content}></meta>))}
+			{ogMeta.map(({ name, content }, index) => (
+				<meta key={index} name={name} content={content}></meta>
+			))}
 			{children}
 		</>
 	);
-}
+};
 
 Seo.defaultProps = {
 	meta: [],

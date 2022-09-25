@@ -87,4 +87,4 @@ export const pageQuery = graphql`
 
 export default BlogIndex;
 
-export const Head = () => (<Seo />)
+export const Head = () => <Seo />;

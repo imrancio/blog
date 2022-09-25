@@ -12,9 +12,13 @@ import { rhythm } from '../utils/typography';
 
 type TagsPageContext = {
 	tag: string;
-}
+};
 
-const TagsPage = ({ data, pageContext, location }: PageProps<Queries.TagsQuery, TagsPageContext>) => {
+const TagsPage = ({
+	data,
+	pageContext,
+	location,
+}: PageProps<Queries.TagsQuery, TagsPageContext>) => {
 	const { tag } = pageContext;
 	const posts = data.allMarkdownRemark.edges;
 
@@ -99,4 +103,4 @@ export default TagsPage;
 export const Head = ({ pageContext }: HeadProps<Queries.TagsQuery, TagsPageContext>) => {
 	const { tag } = pageContext;
 	return <Seo description={`Personal blog of Imran Chowdhury: ${tag} posts`} />;
-}
+};

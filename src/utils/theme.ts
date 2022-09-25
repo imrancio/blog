@@ -24,19 +24,15 @@ export interface ThemeInterface {
 export const useTheme = () => {
 	let prefersTheme: string;
 	if (typeof window !== 'undefined') {
-		const storedTheme = window.localStorage.getItem('theme')
+		const storedTheme = window.localStorage.getItem('theme');
 		const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-		prefersTheme = storedTheme
-      ? storedTheme
-			: prefersDark
-        ? 'dark'
-				: 'light';
+		prefersTheme = storedTheme ? storedTheme : prefersDark ? 'dark' : 'light';
 	} else {
 		prefersTheme = 'light';
 	}
 	const [theme, setTheme] = useState(prefersTheme);
 	const toggleTheme = () =>
-		setTheme(prevTheme => {
+		setTheme((prevTheme) => {
 			return prevTheme === 'light' ? 'dark' : 'light';
 		});
 	useEffect(() => {
@@ -58,7 +54,7 @@ export const getTheme = (theme: string): ThemeInterface =>
 				borderHoverColor: 'transparent',
 				chipColor: 'rgba(0, 0, 0, 0.1)',
 				chipHoverColor: 'rgba(0, 0, 0, 0.2)',
-      }
+		  }
 		: {
 				background: '#121212',
 				color: 'hsla(0, 0%, 100%, 0.87)',
@@ -68,4 +64,4 @@ export const getTheme = (theme: string): ThemeInterface =>
 				borderHoverColor: COLOR_PRIMARY,
 				chipColor: 'rgba(255, 255, 255, 0.1)',
 				chipHoverColor: 'rgba(255, 255, 255, 0.2)',
-      };
+		  };
