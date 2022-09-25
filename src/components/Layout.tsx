@@ -16,7 +16,7 @@ type LayoutProps = {
 	location: WindowLocation;
 	children: ReactNode;
 	title?: string;
-}
+};
 
 const Layout = ({ location, children }: LayoutProps) => {
 	const rootPath = `${__PATH_PREFIX__}/`;

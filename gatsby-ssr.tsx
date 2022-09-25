@@ -12,7 +12,10 @@ const applyDarkModeClass = `
 })();
 `;
 
-export const onRenderBody: GatsbySSR['onRenderBody'] = ({ setPreBodyComponents, setHtmlAttributes }) => {
+export const onRenderBody: GatsbySSR['onRenderBody'] = ({
+	setPreBodyComponents,
+	setHtmlAttributes,
+}) => {
 	const script = createElement('script', {
 		dangerouslySetInnerHTML: {
 			__html: applyDarkModeClass,

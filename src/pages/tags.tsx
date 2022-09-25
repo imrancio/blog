@@ -57,4 +57,4 @@ export const pageQuery = graphql`
 
 export default TagsIndex;
 
-export const Head = () => (<Seo />);
+export const Head = () => <Seo />;

@@ -7,7 +7,7 @@ import Coffee from './Coffee';
 type BlogInfoProps = {
 	timeToRead: number;
 	date: string;
-}
+};
 
 const BlogInfo = ({ timeToRead, date }: BlogInfoProps) => {
 	const { theme } = useContext(ThemeContext);
