@@ -1,4 +1,5 @@
 import type { GatsbyConfig } from 'gatsby';
+import { COLOR_PRIMARY } from './src/utils/theme';
 
 /**
  * @type {GatsbyConfig}
@@ -204,7 +205,7 @@ const gatsbyConfig: GatsbyConfig = {
 		{
 			resolve: `gatsby-plugin-nprogress`,
 			options: {
-				color: `salmon`,
+				color: COLOR_PRIMARY,
 			},
 		},
 		{
@@ -220,7 +221,7 @@ const gatsbyConfig: GatsbyConfig = {
 				includePaths: [{ regex: '^/posts' }],
 				height: 3,
 				prependToBody: false,
-				color: `salmon`,
+				color: COLOR_PRIMARY,
 			},
 		},
 		{
