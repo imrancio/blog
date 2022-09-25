@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import { mediaMax } from '@divyanshu013/media';
 import { FiTerminal, FiSun, FiMoon } from 'react-icons/fi';
 import { keyframes } from '@emotion/react';
-import { WindowLocation } from '@reach/router';
 
 import ThemeContext from './ThemeContext';
 import Button from './Button';
@@ -11,10 +10,9 @@ import Footer from './Footer';
 import { rhythm } from '../utils/typography';
 import { isIndexPage } from '../utils';
 import { BACKGROUND_TRANSITION_TIME, EASE_IN_OUT_TRANSITION, getTheme } from '../utils/theme';
-
 type LayoutProps = {
-	location: WindowLocation;
-	children: ReactNode;
+	location?: Location;
+	children?: ReactNode;
 	title?: string;
 };
 
