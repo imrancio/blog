@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import { object } from 'prop-types';
+import { Link, graphql, HeadProps, PageProps } from 'gatsby';
 import { mediaMax } from '@divyanshu013/media';
 
 import ThemeProvider from '../components/ThemeProvider';
@@ -8,9 +7,15 @@ import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import BlogInfo from '../components/BlogInfo';
+import Tags from '../components/Tags';
 import { rhythm } from '../utils/typography';
 
-const BlogIndex = ({ data, location }) => {
+type TagsPageContext = {
+	tag: string;
+}
+
+const TagsPage = ({ data, pageContext, location }: PageProps<Queries.TagsQuery, TagsPageContext>) => {
+	const { tag } = pageContext;
 	const posts = data.allMarkdownRemark.edges;
 
 	return (
@@ -32,7 +37,9 @@ const BlogIndex = ({ data, location }) => {
 			>
 				<Sidebar />
 				<Layout location={location}>
-					<Seo />
+					<div css={{ marginTop: rhythm(1) }}>
+						<Tags list={[tag]} cancel />
+					</div>
 					{posts.map(({ node }) => {
 						const title = node.frontmatter.title || node.fields.slug;
 						return (
@@ -63,16 +70,11 @@ const BlogIndex = ({ data, location }) => {
 	);
 };
 
-BlogIndex.propTypes = {
-	data: object.isRequired,
-	location: object.isRequired,
-};
-
 export const pageQuery = graphql`
-	query {
+	query Tags($tag: String) {
 		allMarkdownRemark(
-			filter: { frontmatter: { title: { ne: "About" } } }
 			sort: { fields: [frontmatter___date], order: DESC }
+			filter: { frontmatter: { tags: { in: [$tag] } } }
 		) {
 			edges {
 				node {
@@ -92,4 +94,9 @@ export const pageQuery = graphql`
 	}
 `;
 
-export default BlogIndex;
+export default TagsPage;
+
+export const Head = ({ pageContext }: HeadProps<Queries.TagsQuery, TagsPageContext>) => {
+	const { tag } = pageContext;
+	return <Seo description={`Personal blog of Imran Chowdhury: ${tag} posts`} />;
+}

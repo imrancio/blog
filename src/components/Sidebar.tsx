@@ -11,7 +11,7 @@ import { getTheme } from '../utils/theme';
 import ThemeContext from './ThemeContext';
 
 const SIDEBAR_QUERY = graphql`
-	{
+	query Sidebar {
 		site {
 			siteMetadata {
 				author
@@ -31,7 +31,7 @@ const SIDEBAR_QUERY = graphql`
 `;
 
 const Sidebar = () => {
-	const data = useStaticQuery(SIDEBAR_QUERY);
+	const data = useStaticQuery<Queries.SidebarQuery>(SIDEBAR_QUERY);
 	const { author, bio, social } = data.site.siteMetadata;
 	const { theme } = useContext(ThemeContext);
 	const { muted } = getTheme(theme);
