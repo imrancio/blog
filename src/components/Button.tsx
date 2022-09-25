@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 
-import { COLOR_PRIMARY, CUBIC_BEZIER_TRANSITION, ThemeInterface } from '../utils/theme';
+import { COLOR_PRIMARY, CUBIC_BEZIER_TRANSITION, ThemeInterface } from '../hooks/useTheme';
 
 type ButtonProps = {
 	circular: boolean;

@@ -1,5 +1,5 @@
 import type { GatsbyConfig } from 'gatsby';
-import { COLOR_PRIMARY } from './src/utils/theme';
+import { COLOR_PRIMARY } from './src/hooks/useTheme';
 
 /**
  * @type {GatsbyConfig}

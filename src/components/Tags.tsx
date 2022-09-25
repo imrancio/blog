@@ -3,9 +3,9 @@ import { Link, ScriptProps } from 'gatsby';
 import { kebabCase } from 'lodash';
 import { FaTimes } from 'react-icons/fa';
 
-import { getTheme, CUBIC_BEZIER_TRANSITION } from '../utils/theme';
+import { getTheme, CUBIC_BEZIER_TRANSITION } from '../hooks/useTheme';
 import { rhythm } from '../utils/typography';
-import ThemeContext from './ThemeContext';
+import { ThemeContext } from '../context/Theme';
 
 type TagsProps = {
 	list:

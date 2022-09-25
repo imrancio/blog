@@ -8,9 +8,8 @@ import Seo from '../components/Seo';
 import BlogInfo from '../components/BlogInfo';
 import Tags from '../components/Tags';
 import { rhythm } from '../utils/typography';
-import ThemeProvider from '../components/ThemeProvider';
-import ThemeContext from '../components/ThemeContext';
-import { getTheme } from '../utils/theme';
+import { ThemeContext, ThemeProvider } from '../context/Theme';
+import { getTheme } from '../hooks/useTheme';
 
 type BlogPostPageContext = {
 	slug: string;

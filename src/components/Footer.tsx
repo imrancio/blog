@@ -3,8 +3,8 @@ import { getRandom } from '@divyanshu013/inspirational-quotes';
 import { FaQuoteLeft } from 'react-icons/fa';
 import { mediaMin } from '@divyanshu013/media';
 
-import ThemeContext from './ThemeContext';
-import { getTheme } from '../utils/theme';
+import { ThemeContext } from '../context/Theme';
+import { getTheme } from '../hooks/useTheme';
 
 const Footer = () => {
 	const [quote, setQuote] = useState(null);

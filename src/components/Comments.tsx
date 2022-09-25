@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql } from 'gatsby';
 
-import ThemeContext from './ThemeContext';
+import { ThemeContext } from '../context/Theme';
 
 const REPO_QUERY = graphql`
 	query Repo {

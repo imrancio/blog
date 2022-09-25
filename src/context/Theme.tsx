@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import { Global, css, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
 import {
@@ -6,12 +6,18 @@ import {
 	getTheme,
 	CUBIC_BEZIER_TRANSITION,
 	BACKGROUND_TRANSITION_TIME,
-} from '../utils/theme';
+} from '../hooks/useTheme';
 import PRISM_THEME_LIGHT from '../styles/prism-theme-light';
 import PRISM_THEME_DARK from '../styles/prism-theme-dark';
-import ThemeContext from './ThemeContext';
 
-const ThemeProvider = ({ children }) => {
+export interface ThemeContextInterface {
+	theme: string;
+	toggleTheme: () => void;
+}
+
+export const ThemeContext = createContext<ThemeContextInterface | null>(null);
+
+export const ThemeProvider = ({ children }) => {
 	const [theme, toggleTheme] = useTheme();
 	const [key, forceUpdate] = useState(0);
 	const currentTheme = getTheme(theme);
@@ -73,5 +79,3 @@ const ThemeProvider = ({ children }) => {
 		</ThemeContext.Provider>
 	);
 };
-
-export default ThemeProvider;

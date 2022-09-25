@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { keyframes } from '@emotion/react';
 
-import ThemeContext from './ThemeContext';
-import { getTheme } from '../utils/theme';
+import { ThemeContext } from '../context/Theme';
+import { getTheme } from '../hooks/useTheme';
 
 const Coffee = (props) => {
 	const { theme } = useContext(ThemeContext);
