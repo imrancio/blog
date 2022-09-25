@@ -4,7 +4,10 @@ import { COLOR_PRIMARY, CUBIC_BEZIER_TRANSITION, ThemeInterface } from '../utils
 
 type ButtonProps = {
 	circular: boolean;
-	theme?: ThemeInterface
+	theme?: ThemeInterface;
+	href?: string;
+	target?: string;
+	rel?: string;
 }
 
 const Button = styled('button')<ButtonProps>((props) => ({
@@ -24,6 +27,6 @@ const Button = styled('button')<ButtonProps>((props) => ({
 		boxShadow: '0 1px 3px 0 rgba(0,0,0,0.1),0 1px 2px 0 rgba(0,0,0,0.06)',
 		borderColor: props.theme.borderHoverColor,
 	},
-})).withComponent('a');
+}));
 
 export default Button;
