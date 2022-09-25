@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import { object } from 'prop-types';
+import { Link, graphql, PageProps } from 'gatsby';
 import { mediaMax } from '@divyanshu013/media';
 
 import ThemeProvider from '../components/ThemeProvider';
@@ -10,7 +9,7 @@ import Seo from '../components/Seo';
 import Tags from '../components/Tags';
 import { rhythm } from '../utils/typography';
 
-const TagsIndex = ({ data, location }) => {
+const TagsIndex = ({ data, location }: PageProps<Queries.TagsIndexQuery>) => {
 	const tags = data.allMarkdownRemark.group;
 	return (
 		<ThemeProvider>
@@ -31,7 +30,6 @@ const TagsIndex = ({ data, location }) => {
 			>
 				<Sidebar />
 				<Layout location={location}>
-					<Seo />
 					<div css={{ marginTop: rhythm(1) }}>
 						<Tags list={tags} className="tags" />
 						<h4>
@@ -46,13 +44,8 @@ const TagsIndex = ({ data, location }) => {
 	);
 };
 
-TagsIndex.propTypes = {
-	data: object.isRequired,
-	location: object.isRequired,
-};
-
 export const pageQuery = graphql`
-	query {
+	query TagsIndex {
 		allMarkdownRemark {
 			group(field: frontmatter___tags) {
 				fieldValue
@@ -63,3 +56,5 @@ export const pageQuery = graphql`
 `;
 
 export default TagsIndex;
+
+export const Head = () => (<Seo />);

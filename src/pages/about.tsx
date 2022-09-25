@@ -1,19 +1,17 @@
 import React from 'react';
-import { graphql } from 'gatsby';
-import { object } from 'prop-types';
+import { graphql, PageProps } from 'gatsby';
 
 import ThemeProvider from '../components/ThemeProvider';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 
-const AboutPage = ({ data, location }) => {
+const AboutPage = ({ data, location }: PageProps<Queries.AboutQuery>) => {
 	const siteTitle = data.site.siteMetadata.title;
 
 	return (
 		<ThemeProvider>
 			<section css={{ height: '100%', minHeight: '100vh' }}>
 				<Layout location={location} title={siteTitle}>
-					<Seo title="About" />
 					<div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
 				</Layout>
 			</section>
@@ -21,13 +19,8 @@ const AboutPage = ({ data, location }) => {
 	);
 };
 
-AboutPage.propTypes = {
-	data: object.isRequired,
-	location: object.isRequired,
-};
-
 export const pageQuery = graphql`
-	query {
+	query About {
 		site {
 			siteMetadata {
 				title
@@ -43,3 +36,5 @@ export const pageQuery = graphql`
 `;
 
 export default AboutPage;
+
+export const Head = () => (<Seo title="About" />);

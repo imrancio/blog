@@ -1,9 +1,9 @@
-import React, { useContext } from 'react';
+import React, { ReactNode, useContext } from 'react';
 import { Link } from 'gatsby';
-import { node, object } from 'prop-types';
 import { mediaMax } from '@divyanshu013/media';
 import { FiTerminal, FiSun, FiMoon } from 'react-icons/fi';
 import { keyframes } from '@emotion/react';
+import { WindowLocation } from '@reach/router';
 
 import ThemeContext from './ThemeContext';
 import Button from './Button';
@@ -12,7 +12,13 @@ import { rhythm } from '../utils/typography';
 import { isIndexPage } from '../utils';
 import { BACKGROUND_TRANSITION_TIME, EASE_IN_OUT_TRANSITION, getTheme } from '../utils/theme';
 
-const Layout = ({ location, children }) => {
+type LayoutProps = {
+	location: WindowLocation;
+	children: ReactNode;
+	title?: string;
+}
+
+const Layout = ({ location, children }: LayoutProps) => {
 	const rootPath = `${__PATH_PREFIX__}/`;
 	let header;
 	const { theme, toggleTheme } = useContext(ThemeContext);
@@ -132,11 +138,6 @@ const Layout = ({ location, children }) => {
 			<Footer />
 		</div>
 	);
-};
-
-Layout.propTypes = {
-	location: object.isRequired,
-	children: node.isRequired,
 };
 
 export default Layout;

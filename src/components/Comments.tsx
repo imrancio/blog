@@ -4,7 +4,7 @@ import { useStaticQuery, graphql } from 'gatsby';
 import ThemeContext from './ThemeContext';
 
 const REPO_QUERY = graphql`
-	query RepoQuery {
+	query Repo {
 		site {
 			siteMetadata {
 				repo
