@@ -5,9 +5,6 @@ import { COLOR_PRIMARY, CUBIC_BEZIER_TRANSITION, ThemeInterface } from '../utils
 type ButtonProps = {
 	circular: boolean;
 	theme?: ThemeInterface;
-	href?: string;
-	target?: string;
-	rel?: string;
 };
 
 const Button = styled('button')<ButtonProps>((props) => ({

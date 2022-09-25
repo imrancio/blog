@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
+import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import { FiGithub, FiMail, FiLinkedin } from 'react-icons/fi';
 import { FaAddressCard } from 'react-icons/fa';
 import { mediaMax } from '@divyanshu013/media';
@@ -99,50 +100,46 @@ const Sidebar = () => {
 					justifyContent: 'start',
 				}}
 			>
-				<Button
-					className="no-highlights"
-					aria-label="Link to my LinkedIn"
-					as="a"
-					circular
+				<OutboundLink
 					href={social.linkedin}
 					target="_blank"
 					rel="noopener noreferrer"
+					style={{ color: 'inherit' }}
 				>
-					<FiLinkedin />
-				</Button>
-				<Button
-					className="no-highlights"
-					aria-label="Link to my GitHub"
-					as="a"
-					circular
+					<Button className="no-highlights" aria-label="Link to my LinkedIn" as="a" circular>
+						<FiLinkedin />
+					</Button>
+				</OutboundLink>
+				<OutboundLink
 					href={social.github}
 					target="_blank"
 					rel="noopener noreferrer"
+					style={{ color: 'inherit' }}
 				>
-					<FiGithub />
-				</Button>
-				<Button
-					className="no-highlights"
-					aria-label="Email me"
-					as="a"
-					circular
+					<Button className="no-highlights" aria-label="Link to my GitHub" as="a" circular>
+						<FiGithub />
+					</Button>
+				</OutboundLink>
+				<OutboundLink
 					href={social.email}
 					target="_blank"
 					rel="noopener noreferrer"
+					style={{ color: 'inherit' }}
 				>
-					<FiMail />
-				</Button>
-				<Button
-					className="no-highlights"
-					aria-label="Link to my Resume"
-					as="a"
-					circular
+					<Button className="no-highlights" aria-label="Email me" as="a" circular>
+						<FiMail />
+					</Button>
+				</OutboundLink>
+				<OutboundLink
 					href={social.resume}
 					target="_blank"
 					rel="noopener noreferrer"
+					style={{ color: 'inherit' }}
 				>
-					<FaAddressCard />
-				</Button>
+					<Button className="no-highlights" aria-label="Link to my Resume" as="a" circular>
+						<FaAddressCard />
+					</Button>
+				</OutboundLink>
 			</div>
 		</nav>
 	);
