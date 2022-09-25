@@ -84,7 +84,7 @@ const Seo = ({ description, meta, title, image: imageProp, children }: SeoProps)
 	return (
 		<>
 			<title>{ogTitle}</title>
-			{ogMeta.map(({ name, content }) => (<meta name={name} content={content}></meta>))}
+			{ogMeta.map(({ name, content }, index) => (<meta key={index} name={name} content={content}></meta>))}
 			{children}
 		</>
 	);
