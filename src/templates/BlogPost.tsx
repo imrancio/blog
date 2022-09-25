@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import { object } from 'prop-types';
+import { Link, graphql, PageProps, HeadProps } from 'gatsby';
 
 import Bio from '../components/Bio';
 import Comments from '../components/Comments';
@@ -13,7 +12,33 @@ import ThemeProvider from '../components/ThemeProvider';
 import ThemeContext from '../components/ThemeContext';
 import { getTheme } from '../utils/theme';
 
-const BlogPost = ({ data, pageContext, location }) => {
+type BlogPostPageContext = {
+	slug: string;
+	previous: {
+		readonly fields: {
+			readonly slug: string;
+		};
+		readonly frontmatter: {
+			readonly title: string;
+			readonly external: string;
+		};
+	};
+	next: {
+		readonly fields: {
+			readonly slug: string;
+		};
+		readonly frontmatter: {
+			readonly title: string;
+			readonly external: string;
+		};
+	};
+};
+
+const BlogPost = ({
+	data,
+	pageContext,
+	location,
+}: PageProps<Queries.BlogPostQuery, BlogPostPageContext>) => {
 	const post = data.markdownRemark;
 	const siteTitle = data.site.siteMetadata.title;
 	const { previous, next } = pageContext;
@@ -24,20 +49,7 @@ const BlogPost = ({ data, pageContext, location }) => {
 				<ThemeContext.Consumer>
 					{({ theme }) => (
 						<Layout location={location} title={siteTitle}>
-							<Seo
-								title={post.frontmatter.title}
-								description={post.frontmatter.description || post.excerpt}
-								image={
-									post.frontmatter.image &&
-									data.site.siteMetadata.siteUrl.concat(
-										post.frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src,
-									)
-								}
-							/>
-							<BlogInfo
-								date={post.frontmatter.date}
-								timeToRead={post.frontmatter.time || post.timeToRead}
-							/>
+							<BlogInfo date={post.frontmatter.date} timeToRead={post.timeToRead} />
 							<h1
 								style={{
 									marginTop: rhythm(1 / 4),
@@ -123,14 +135,8 @@ const BlogPost = ({ data, pageContext, location }) => {
 	);
 };
 
-BlogPost.propTypes = {
-	data: object.isRequired,
-	pageContext: object.isRequired,
-	location: object.isRequired,
-};
-
 export const pageQuery = graphql`
-	query BlogPostBySlug($slug: String!) {
+	query BlogPost($slug: String!) {
 		site {
 			siteMetadata {
 				title
@@ -159,3 +165,19 @@ export const pageQuery = graphql`
 `;
 
 export default BlogPost;
+
+export const Head = ({ data }: HeadProps<Queries.BlogPostQuery>) => {
+	const post = data.markdownRemark;
+	return (
+		<Seo
+			title={post.frontmatter.title}
+			description={post.frontmatter.description || post.excerpt}
+			image={
+				post.frontmatter.image &&
+				data.site.siteMetadata.siteUrl.concat(
+					post.frontmatter.image.childImageSharp.gatsbyImageData.images.fallback.src,
+				)
+			}
+		/>
+	);
+};

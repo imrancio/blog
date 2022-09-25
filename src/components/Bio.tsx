@@ -9,7 +9,7 @@ import { getTheme } from '../utils/theme';
 import ThemeContext from './ThemeContext';
 
 const BIO_QUERY = graphql`
-	query BioQuery {
+	query Bio {
 		site {
 			siteMetadata {
 				author
@@ -23,7 +23,7 @@ const BIO_QUERY = graphql`
 `;
 
 const Bio = () => {
-	const data = useStaticQuery(BIO_QUERY);
+	const data = useStaticQuery<Queries.BioQuery>(BIO_QUERY);
 
 	const { author, social } = data.site.siteMetadata;
 	const { theme } = useContext(ThemeContext);

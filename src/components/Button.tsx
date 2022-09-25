@@ -1,8 +1,13 @@
 import styled from '@emotion/styled';
 
-import { COLOR_PRIMARY, CUBIC_BEZIER_TRANSITION } from '../utils/theme';
+import { COLOR_PRIMARY, CUBIC_BEZIER_TRANSITION, ThemeInterface } from '../utils/theme';
 
-const Button = styled('button')((props) => ({
+type ButtonProps = {
+	circular: boolean;
+	theme?: ThemeInterface;
+};
+
+const Button = styled('button')<ButtonProps>((props) => ({
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'center',

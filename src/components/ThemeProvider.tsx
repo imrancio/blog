@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { node } from 'prop-types';
 import { Global, css, ThemeProvider as EmotionThemeProvider } from '@emotion/react';
 
-import ThemeContext from './ThemeContext';
 import {
 	useTheme,
 	getTheme,
@@ -11,6 +9,7 @@ import {
 } from '../utils/theme';
 import PRISM_THEME_LIGHT from '../styles/prism-theme-light';
 import PRISM_THEME_DARK from '../styles/prism-theme-dark';
+import ThemeContext from './ThemeContext';
 
 const ThemeProvider = ({ children }) => {
 	const [theme, toggleTheme] = useTheme();
@@ -73,10 +72,6 @@ const ThemeProvider = ({ children }) => {
 			</EmotionThemeProvider>
 		</ThemeContext.Provider>
 	);
-};
-
-ThemeProvider.propTypes = {
-	children: node.isRequired,
 };
 
 export default ThemeProvider;
