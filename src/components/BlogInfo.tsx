@@ -1,11 +1,15 @@
 import React, { useContext } from 'react';
-import { number, string } from 'prop-types';
 
 import { getTheme } from '../utils/theme';
 import ThemeContext from './ThemeContext';
 import Coffee from './Coffee';
 
-const BlogInfo = ({ timeToRead, date }) => {
+type BlogInfoProps = {
+	timeToRead: number;
+	date: string;
+};
+
+const BlogInfo = ({ timeToRead, date }: BlogInfoProps) => {
 	const { theme } = useContext(ThemeContext);
 	const { muted } = getTheme(theme);
 	return (
@@ -18,11 +22,6 @@ const BlogInfo = ({ timeToRead, date }) => {
 			))}
 		</div>
 	);
-};
-
-BlogInfo.propTypes = {
-	timeToRead: number.isRequired,
-	date: string.isRequired,
 };
 
 export default BlogInfo;

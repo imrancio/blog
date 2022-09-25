@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
-import { array, bool } from 'prop-types';
-import { Link } from 'gatsby';
+import { Link, ScriptProps } from 'gatsby';
 import { kebabCase } from 'lodash';
 import { FaTimes } from 'react-icons/fa';
 
@@ -8,7 +7,17 @@ import { getTheme, CUBIC_BEZIER_TRANSITION } from '../utils/theme';
 import { rhythm } from '../utils/typography';
 import ThemeContext from './ThemeContext';
 
-const Tags = ({ list, cancel }) => {
+type TagsProps = {
+	list:
+		| readonly {
+				readonly fieldValue: string;
+				readonly totalCount: number;
+		  }[]
+		| readonly string[];
+	cancel?: boolean;
+} & ScriptProps;
+
+const Tags = ({ list, cancel }: TagsProps) => {
 	const { theme } = useContext(ThemeContext);
 	const { muted } = getTheme(theme);
 	return Array.isArray(list) && list.length ? (
@@ -78,11 +87,6 @@ const Tags = ({ list, cancel }) => {
 			</div>
 		</div>
 	) : null;
-};
-
-Tags.propTypes = {
-	list: array,
-	cancel: bool,
 };
 
 export default Tags;

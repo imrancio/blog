@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, graphql } from 'gatsby';
-import { object } from 'prop-types';
+import { Link, graphql, PageProps } from 'gatsby';
 import { mediaMax } from '@divyanshu013/media';
 
 import ThemeProvider from '../components/ThemeProvider';
@@ -10,7 +9,7 @@ import Seo from '../components/Seo';
 import BlogInfo from '../components/BlogInfo';
 import { rhythm } from '../utils/typography';
 
-const BlogIndex = ({ data, location }) => {
+const BlogIndex = ({ data, location }: PageProps<Queries.BlogIndexQuery>) => {
 	const posts = data.allMarkdownRemark.edges;
 
 	return (
@@ -32,7 +31,6 @@ const BlogIndex = ({ data, location }) => {
 			>
 				<Sidebar />
 				<Layout location={location}>
-					<Seo />
 					{posts.map(({ node }) => {
 						const title = node.frontmatter.title || node.fields.slug;
 						return (
@@ -63,13 +61,8 @@ const BlogIndex = ({ data, location }) => {
 	);
 };
 
-BlogIndex.propTypes = {
-	data: object.isRequired,
-	location: object.isRequired,
-};
-
 export const pageQuery = graphql`
-	query {
+	query BlogIndex {
 		allMarkdownRemark(
 			filter: { frontmatter: { title: { ne: "About" } } }
 			sort: { fields: [frontmatter___date], order: DESC }
@@ -93,3 +86,5 @@ export const pageQuery = graphql`
 `;
 
 export default BlogIndex;
+
+export const Head = () => <Seo />;
