@@ -4,12 +4,12 @@ import { mediaMax } from '@divyanshu013/media';
 import { FiTerminal, FiSun, FiMoon } from 'react-icons/fi';
 import { keyframes } from '@emotion/react';
 
-import ThemeContext from './ThemeContext';
+import { ThemeContext } from '../context/Theme';
 import Button from './Button';
 import Footer from './Footer';
 import { rhythm } from '../utils/typography';
 import { isIndexPage } from '../utils';
-import { BACKGROUND_TRANSITION_TIME, EASE_IN_OUT_TRANSITION, getTheme } from '../utils/theme';
+import { BACKGROUND_TRANSITION_TIME, EASE_IN_OUT_TRANSITION, getTheme } from '../hooks/useTheme';
 type LayoutProps = {
 	location?: Location;
 	children?: ReactNode;

@@ -5,8 +5,8 @@ import { StaticImage } from 'gatsby-plugin-image';
 
 import { mediaMax } from '@divyanshu013/media';
 import { rhythm } from '../utils/typography';
-import { getTheme } from '../utils/theme';
-import ThemeContext from './ThemeContext';
+import { getTheme } from '../hooks/useTheme';
+import { ThemeContext } from '../context/Theme';
 
 const BIO_QUERY = graphql`
 	query Bio {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { graphql, PageProps } from 'gatsby';
 
-import ThemeProvider from '../components/ThemeProvider';
+import { ThemeProvider } from '../context/Theme';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 

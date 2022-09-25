@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, graphql, HeadProps, PageProps } from 'gatsby';
 import { mediaMax } from '@divyanshu013/media';
 
-import ThemeProvider from '../components/ThemeProvider';
+import { ThemeProvider } from '../context/Theme';
 import Sidebar from '../components/Sidebar';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';

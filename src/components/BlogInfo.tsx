@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
-import { getTheme } from '../utils/theme';
-import ThemeContext from './ThemeContext';
+import { getTheme } from '../hooks/useTheme';
+import { ThemeContext } from '../context/Theme';
 import Coffee from './Coffee';
 
 type BlogInfoProps = {
