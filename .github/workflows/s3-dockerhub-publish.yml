@@ -26,6 +26,8 @@ jobs:
           node-version-file: '.nvmrc'
       - name: Install Node.js Dependencies
         uses: bahmutov/npm-install@HEAD
+      - name: Run tests
+        run: yarn test
       - name: Cache Gatsby Build
         id: cache-gatsby-build
         uses: actions/cache@v3
