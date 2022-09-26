@@ -33,7 +33,7 @@ jobs:
           path: |
             public
             .cache
-          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('**/yarn.lock') }}
+          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('**/yarn.lock', '**/gatsby-config.ts') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
       - name: Build Gatsby Blog
