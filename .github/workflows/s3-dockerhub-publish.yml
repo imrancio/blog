@@ -43,7 +43,7 @@ jobs:
       - name: Store Build Artifact
         uses: actions/upload-artifact@v3
         with:
-          name: ${{ runner.os }}-gatsby-build-{{ github.run_id }}
+          name: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
           path: public
   # push blog build to aws s3
   push_blog_to_s3:
@@ -54,7 +54,8 @@ jobs:
       - name: Restore Build Artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ runner.os }}-gatsby-build-{{ github.run_id }}
+          name: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+          path: public
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
