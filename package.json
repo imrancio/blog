@@ -22,7 +22,6 @@
 		"@fontsource/cascadia-code": "^4.2.1",
 		"@fontsource/open-sans": "^4.5.11",
 		"@fontsource/zilla-slab": "^4.5.9",
-		"emotion-theming": "^11.0.0",
 		"gatsby": "^4.23.0",
 		"gatsby-plugin-catch-links": "^4.23.0",
 		"gatsby-plugin-emotion": "^7.23.0",
