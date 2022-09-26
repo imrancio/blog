@@ -1,8 +1,8 @@
 # Imran C’s Blog
 
 <p>
-  <a href="https://github.com/imrancio/blog/actions" target="blank">
-	  <img src="https://github.com/imrancio/blog/actions/workflows/docker-publish.yml/badge.svg" alt="docker workflow" />
+  <a href="https://github.com/imrancio/blog/actions/workflows/s3-dockerhub-publish.yml" target="blank">
+	  <img src="https://github.com/imrancio/blog/actions/workflows/s3-dockerhub-publish.yml/badge.svg" alt="docker workflow" />
 	</a>
 	<a href="https://www.paypal.com/donate/?business=57FBUW2NMP56G&no_recurring=0&currency_code=AUD" target="blank">
 	  <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="donate" />
