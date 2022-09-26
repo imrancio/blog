@@ -84,7 +84,7 @@
 		"prettier": "prettier --ignore-path .gitignore",
 		"start": "yarn develop",
 		"serve": "gatsby serve",
-		"test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+		"test": "concurrently -p \"[test - {name}]\" -n \"lint,type-check\" -c \"cyan.bold,blue.bold\" \"yarn lint\" \"yarn type-check\"",
 		"type-check": "tsc --project tsconfig.json --pretty --noEmit"
 	}
 }
