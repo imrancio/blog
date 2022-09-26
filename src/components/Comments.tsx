@@ -14,7 +14,7 @@ const REPO_QUERY = graphql`
 `;
 
 const Comments = () => {
-	const data = useStaticQuery(REPO_QUERY);
+	const data = useStaticQuery<Queries.RepoQuery>(REPO_QUERY);
 	const repo = data.site.siteMetadata.repo;
 	const { theme } = useContext(ThemeContext);
 

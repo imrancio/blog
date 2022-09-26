@@ -12,6 +12,7 @@ const gatsbyConfig: GatsbyConfig = {
 		description: `Personal blog of Imran Chowdhury`,
 		domain: 'imranc.io',
 		siteUrl: `https://blog.imranc.io`,
+		/** must be a public github repo with issues feature enabled and connected to [utteranc.es](https://github.com/apps/utterances)  */
 		repo: 'imrancio/blog',
 		social: {
 			linkedin: `https://www.linkedin.com/in/imrancio/`,
