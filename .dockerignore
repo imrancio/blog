@@ -1,11 +1,10 @@
 .cache/
 node_modules/
-public/
 .vscode/
 .github/
 CONTRIBUTING.md
 LICENSE*
 README.md
-.eslintrc
+.eslintrc*
 .prettierrc
 .editorconfig
