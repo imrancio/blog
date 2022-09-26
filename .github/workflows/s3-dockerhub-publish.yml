@@ -83,7 +83,7 @@ jobs:
       - name: Restore Build Artifact
         uses: actions/download-artifact@v3
         with:
-          name: ${{ runner.os }}-gatsby-build-{{ github.run_id }}
+          name: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
