@@ -20,9 +20,9 @@ jobs:
       - name: Check out the repo
         uses: actions/checkout@v3
       - name: Use Node.js
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: 16
+          node-version-file: '.nvmrc'
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -31,6 +31,16 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
       - name: Install Node.js Dependencies
         uses: bahmutov/npm-install@HEAD
+      - name: Cache Gatsby Build
+        id: cache-gatsby-build
+        uses: actions/cache@v3
+        with:
+          path: |
+            public
+            .cache
+          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
       - name: Build Gatsby Blog
         run: |
           yarn gatsby telemetry --disable 2> /dev/null
