@@ -37,6 +37,8 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
       - name: Build Gatsby Blog
+        env:
+          DISABLE_WEBPACK_ANALYSER: 'true'
         run: |
           yarn gatsby telemetry --disable 2> /dev/null
           yarn build
