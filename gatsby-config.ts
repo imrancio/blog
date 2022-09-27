@@ -216,6 +216,7 @@ const gatsbyConfig: GatsbyConfig = {
 			resolve: 'gatsby-plugin-webpack-bundle-analyser-v2',
 			options: {
 				devMode: false,
+				disable: Boolean(process.env.DISABLE_WEBPACK_ANALYSER),
 			},
 		},
 		'gatsby-plugin-catch-links',
