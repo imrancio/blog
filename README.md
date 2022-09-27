@@ -15,7 +15,7 @@ Personal blog of Imran Chowdhury
 
 I’m a software engineer currently working with [NextJS](https://nextjs.org/), [React](https://reactjs.org/), [NestJS](https://nestjs.com/), [Node](https://nodejs.org/en/), and [GraphQL](https://graphql.org/). I love learning about InfoSec, DevOps, ML, and Full Stack Web.
 
-You may follow me on [LinkedIn](https://www.linkedin.com/in/imran-chowdhury-110865196/) for latest updates.
+You may follow me on [LinkedIn](https://www.linkedin.com/in/imrancio/) for latest updates.
 
 ## Instructions
 
