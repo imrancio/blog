@@ -5,26 +5,13 @@ module.exports = {
 		[
 			'@semantic-release/commit-analyzer',
 			{
-				preset: 'conventionalcommits',
-				releaseRules: [
-					{ type: 'Blog', release: 'patch' },
-					{ type: 'post', release: 'patch' },
-				],
+				preset: 'angular',
+				releaseRules: [{ type: 'post', release: 'patch' }],
 			},
 		],
 		'@semantic-release/release-notes-generator',
-		'@semantic-release/changelog',
-		[
-			'@semantic-release/npm',
-			{
-				npmPublish: false,
-			},
-		],
-		[
-			'@semantic-release/git',
-			{
-				assets: ['CHANGELOG.md', 'package.json', 'yarn.lock', 'npm-shrinkwrap.json'],
-			},
-		],
+		['@semantic-release/changelog', { changelogFile: 'CHANGELOG.md' }],
+		['@semantic-release/git', { assets: ['CHANGELOG.md', 'package.json'] }],
+		// ['@semantic-release/github', { assets: [['path', '!**/*.map']] }],
 	],
 };
