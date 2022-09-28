@@ -49,11 +49,32 @@ jobs:
         with:
           name: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
           path: public
-  # push blog build to aws s3
-  push_blog_to_s3:
+  # release updates version/changelog in repo and pushes tags/release to github
+  release:
     needs: build_blog
+    name: Release
+    runs-on: ubuntu-latest
+    # GITHUB_TOKEN permissions for semantic-release
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      - name: Semantic Release
+        id: semantic
+        uses: codfish/semantic-release-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  # push blog release to aws s3
+  push_blog_to_s3:
+    needs: release
     name: Push Blog to S3
     runs-on: ubuntu-latest
+    if: needs.release.steps.semantic.outputs.new-release-published == 'true'
     steps:
       - name: Restore Build Artifact
         uses: actions/download-artifact@v3
@@ -71,11 +92,12 @@ jobs:
         with:
           dest-s3-bucket: blog.imranc.io
           cloudfront-id-to-invalidate: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID_BLOG }}
-  # push blog build to dockerhub
+  # push blog release to dockerhub
   push_blog_to_dockerhub:
-    needs: build_blog
+    needs: release
     name: Push Blog to Dockerhub
     runs-on: ubuntu-latest
+    if: needs.release.steps.semantic.outputs.new-release-published == 'true'
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
@@ -91,6 +113,7 @@ jobs:
           images: imrancio/blog
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{needs.release.steps.semantic.outputs.release-version}}
       - name: Restore Build Artifact
         uses: actions/download-artifact@v3
         with:
