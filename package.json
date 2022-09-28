@@ -89,7 +89,7 @@
 		"fix": "concurrently -p \"[fix - {name}]\" -n \"eslint,prettier\" -c \"yellow.bold,green.bold\" \"yarn eslint --fix .\" \"yarn prettier --write **/*.{yml,json,md}\"",
 		"lint": "concurrently -p \"[lint - {name}]\" -n \"eslint,prettier\" -c \"yellow.bold,green.bold\" \"yarn eslint .\" \"yarn prettier --check **/*.{yml,json,md}\"",
 		"prepare": "husky install",
-		"prettier": "prettier --ignore-path .gitignore",
+		"prettier": "prettier",
 		"start": "yarn develop",
 		"serve": "gatsby serve",
 		"test": "concurrently -p \"[test - {name}]\" -n \"lint,type-check\" -c \"cyan.bold,blue.bold\" \"yarn lint\" \"yarn type-check\"",
