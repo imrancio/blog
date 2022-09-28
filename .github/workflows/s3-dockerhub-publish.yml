@@ -113,6 +113,7 @@ jobs:
           images: imrancio/blog
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
+            type=semver,pattern={{needs.release.steps.semantic.outputs.release-version}}
       - name: Restore Build Artifact
         uses: actions/download-artifact@v3
         with:
