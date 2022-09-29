@@ -13,5 +13,11 @@ module.exports = {
 		['@semantic-release/changelog', { changelogFile: 'CHANGELOG.md' }],
 		['@semantic-release/git', { assets: ['CHANGELOG.md', 'package.json'] }],
 		// ['@semantic-release/github', { assets: [['path', '!**/*.map']] }],
+		[
+			'@semantic-release/exec',
+			{
+				prepareCmd: 'echo "::set-output name=release-version::${nextRelease.version}"',
+			},
+		],
 	],
 };
