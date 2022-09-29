@@ -65,6 +65,9 @@ jobs:
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
+        with:
+          # fetch all git history to speed up @semantic-release/commit-analyzer
+          fetch-depth: 0
       - name: Semantic Release
         id: semantic
         uses: codfish/semantic-release-action@v2
