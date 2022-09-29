@@ -58,9 +58,7 @@ jobs:
       contents: write
       pull-requests: write
       issues: write
-    # see https://github.com/codfish/semantic-release-action#outputs
     outputs:
-      new-release-published: ${{ steps.semantic.outputs.new-release-published }}
       release-version: ${{ steps.semantic.outputs.release-version }}
     steps:
       - name: Check out the repo
@@ -68,22 +66,24 @@ jobs:
         with:
           # fetch all git history to speed up @semantic-release/commit-analyzer
           fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version-file: '.nvmrc'
+      - name: Install Node.js Dependencies
+        uses: bahmutov/npm-install@HEAD
       - name: Semantic Release
         id: semantic
-        uses: codfish/semantic-release-action@v2
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          # remaining configuration from .releaserc.js
-          repository_url: ${{ github.repositoryUrl }}
-          additional_packages: |
-            ['@semantic-release/changelog', '@semantic-release/git']
+        run: |
+          yarn semantic-release -r ${{ github.repositoryUrl }}
   # push blog release to aws s3
   push_blog_to_s3:
     needs: [build_blog, release_blog]
     name: Push Blog to S3
     runs-on: ubuntu-latest
-    if: needs.release_blog.outputs.new-release-published == 'true'
+    if: needs.release_blog.outputs.release-version != ''
     steps:
       - name: Restore Build Artifact
         uses: actions/download-artifact@v3
@@ -106,7 +106,7 @@ jobs:
     needs: [build_blog, release_blog]
     name: Push Blog to Dockerhub
     runs-on: ubuntu-latest
-    if: needs.release_blog.outputs.new-release-published == 'true'
+    if: needs.release_blog.outputs.release-version != ''
     steps:
       - name: Check out the repo
         uses: actions/checkout@v3
