@@ -51,7 +51,6 @@ jobs:
           path: public
   # release updates version/changelog in repo and pushes tags/release to github
   release_blog:
-    needs: build_blog
     name: Release Blog
     runs-on: ubuntu-latest
     # GITHUB_TOKEN permissions for semantic-release
@@ -78,7 +77,7 @@ jobs:
             ['@semantic-release/changelog', '@semantic-release/git']
   # push blog release to aws s3
   push_blog_to_s3:
-    needs: release_blog
+    needs: [build_blog, release_blog]
     name: Push Blog to S3
     runs-on: ubuntu-latest
     if: needs.release_blog.outputs.new-release-published == 'true'
@@ -101,7 +100,7 @@ jobs:
           cloudfront-id-to-invalidate: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID_BLOG }}
   # push blog release to dockerhub
   push_blog_to_dockerhub:
-    needs: release_blog
+    needs: [build_blog, release_blog]
     name: Push Blog to Dockerhub
     runs-on: ubuntu-latest
     if: needs.release_blog.outputs.new-release-published == 'true'
