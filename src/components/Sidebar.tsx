@@ -5,6 +5,7 @@ import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import { FiGithub, FiMail, FiLinkedin } from 'react-icons/fi';
 import { FaAddressCard } from 'react-icons/fa';
 import { mediaMax } from '@divyanshu013/media';
+import { SearchBox } from 'react-instantsearch-hooks-web';
 
 import Button from './Button';
 import { rhythm } from '../utils/typography';
@@ -140,6 +141,9 @@ const Sidebar = () => {
 						<FaAddressCard />
 					</Button>
 				</OutboundLink>
+			</div>
+			<div css={{ marginTop: rhythm(1) }}>
+				<SearchBox />
 			</div>
 		</nav>
 	);

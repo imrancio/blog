@@ -9,6 +9,7 @@ import {
 } from '../hooks/useTheme';
 import PRISM_THEME_LIGHT from '../styles/prism-theme-light';
 import PRISM_THEME_DARK from '../styles/prism-theme-dark';
+import Search from '../components/Search';
 
 export interface ThemeContextInterface {
 	theme: string;
@@ -73,7 +74,7 @@ export const ThemeProvider = ({ children }) => {
 					}}
 					key={key}
 				>
-					{children}
+					<Search>{children}</Search>
 				</div>
 			</EmotionThemeProvider>
 		</ThemeContext.Provider>
