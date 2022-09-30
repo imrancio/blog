@@ -238,6 +238,49 @@ const gatsbyConfig: GatsbyConfig = {
 				hostname: 'blog.imranc.io',
 			},
 		},
+		{
+			resolve: `gatsby-plugin-algolia`,
+			options: {
+				appId: process.env.GATSBY_ALGOLIA_APP_ID,
+				apiKey: process.env.ALGOLIA_ADMIN_KEY,
+				queries: [
+					{
+						query: `{
+							posts: allMarkdownRemark(
+								filter: { frontmatter: { title: { ne: "About" } } }
+							) {
+								nodes {
+									id
+									fields {
+										slug
+									}
+									frontmatter {
+										date(formatString: "MMMM DD, YYYY")
+										title
+										description
+									}
+									excerpt(pruneLength: 5000)
+									timeToRead
+								}
+							}
+						}
+						`,
+						transformer: ({ data }) =>
+							data.posts.nodes.map(({ id, frontmatter, fields, ...rest }) => ({
+								objectID: id,
+								...frontmatter,
+								...fields,
+								...rest,
+							})),
+						indexName: process.env.GATSBY_ALGOLIA_INDEX_NAME,
+						enablePartialUpdates: true,
+						/* (optional) Fields to use for comparing if the index object is different from the new one */
+						/* By default it uses a field called "modified" which could be a boolean | datetime string */
+						matchFields: ['slug', 'modified'], // Array<String> default: ['modified']
+					},
+				],
+			},
+		},
 	],
 };
 
