@@ -6,3 +6,5 @@ import '@fontsource/open-sans/700.css';
 import '@fontsource/zilla-slab';
 import '@fontsource/zilla-slab/700.css';
 import '@fontsource/cascadia-code';
+import 'instantsearch.css/themes/satellite.css';
+import './src/styles/instantsearch-theme-overrides.css';

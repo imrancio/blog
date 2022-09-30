@@ -5,6 +5,14 @@ declare global {
 			NODE_ENV: 'development' | 'production' | 'test';
 			/** Disable webpack bundle analyser during build */
 			DISABLE_WEBPACK_ANALYSER: boolean;
+			/** Algolia application ID */
+			GATSBY_ALGOLIA_APP_ID: string;
+			/** Algolia index name */
+			GATSBY_ALGOLIA_INDEX_NAME: string;
+			/** Algolia search key */
+			GATSBY_ALGOLIA_SEARCH_KEY: string;
+			/** Algolia admin key */
+			ALGOLIA_ADMIN_KEY: string;
 		}
 	}
 }
