@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/imrancio/blog/compare/v1.0.0...v1.1.0) (2022-09-30)
+
+
+### Features
+
+* add algolia search to index page ([cc79e29](https://github.com/imrancio/blog/commit/cc79e29b3a0b76fed730cc4de6a62ece1b039f57))
+
 # 1.0.0 (2022-09-28)
 
 
