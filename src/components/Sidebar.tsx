@@ -142,9 +142,11 @@ const Sidebar = () => {
 					</Button>
 				</OutboundLink>
 			</div>
-			<div css={{ marginTop: rhythm(1) }}>
-				<SearchBox />
-			</div>
+			{!window.location.pathname.startsWith('/tags/') && (
+				<div css={{ marginTop: rhythm(1) }}>
+					<SearchBox />
+				</div>
+			)}
 		</nav>
 	);
 };
