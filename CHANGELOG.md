@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/imrancio/blog/compare/v1.1.0...v1.1.1) (2022-10-01)
+
+
+### Bug Fixes
+
+* remove search bar from tags pages ([d971bdd](https://github.com/imrancio/blog/commit/d971bddc87470b73e1900a2b6b4ade20952b9b6a))
+
 # [1.1.0](https://github.com/imrancio/blog/compare/v1.0.0...v1.1.0) (2022-09-30)
 
 
