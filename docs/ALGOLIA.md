@@ -8,9 +8,13 @@ This blog application uses Algolia for instant search.
 
 To be able to build/develop this blog application, you must first get Algolia credentials:
 
-1. [Sign up](https://www.algolia.com/doc/guides/getting-started/quick-start/#sign-up-for-an-algolia-account) for an Algolia account (for free).
+1. [Sign up](https://www.algolia.com/doc/guides/getting-started/quick-start/#sign-up-for-an-algolia-account) for a free Algolia account.
 2. Once in the Algolia dashboard, create a new index and note the index name
-3. From Algolia Settings -> API Keys, set the `*ALGOLIA*` environment variables
+3. From Algolia Settings -> API Keys, set the `*ALGOLIA*` environment variables in your terminal session
+4. Run `yarn build` to upload blog content to Algolia search index
+5. In Algolia dashboard -> Search -> Index -> Configuration, add Searchable attributes: `title`, `description`, `excerpt`
+6. From above Configuration -> Snippets, add `excerpt` as Attribute to snippet at `50` maximum words
+7. Run `yarn develop` to use search index via UI
 
 ### Environment variables
 
