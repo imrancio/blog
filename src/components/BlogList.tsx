@@ -6,7 +6,9 @@ import BlogPreview from './BlogPreview';
 import { rhythm } from '../utils/typography';
 
 type BlogListProps = {
-	posts: Queries.BlogIndexQuery['allMarkdownRemark']['nodes'];
+	posts:
+		| Queries.BlogIndexQuery['allMarkdownRemark']['nodes']
+		| Queries.TagsQuery['allMarkdownRemark']['nodes'];
 };
 
 const BlogList = ({ posts }: BlogListProps) => {
