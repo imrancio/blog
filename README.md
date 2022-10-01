@@ -30,6 +30,8 @@ First, install node dependencies:
 yarn
 ```
 
+Then, [setup Algolia](docs/ALGOLIA.md).
+
 For development server, run:
 
 ```bash
