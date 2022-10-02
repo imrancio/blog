@@ -53,6 +53,7 @@ export const ThemeProvider = ({ children }) => {
 								color: darkTheme.muted,
 							},
 						},
+						':root': { colorScheme: theme },
 					})}
 				/>
 				<Global styles={css(theme === 'dark' ? PRISM_THEME_DARK : PRISM_THEME_LIGHT)} />
