@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/imrancio/blog/compare/v1.1.1...v1.2.0) (2022-10-02)
+
+
+### Features
+
+* root color-scheme property to theme browser elements ([9b7020f](https://github.com/imrancio/blog/commit/9b7020fa771fc8c0916b9dc691201f23ac4e36e0))
+
 ## [1.1.1](https://github.com/imrancio/blog/compare/v1.1.0...v1.1.1) (2022-10-01)
 
 
