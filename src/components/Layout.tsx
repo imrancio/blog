@@ -1,18 +1,19 @@
 import React, { ReactNode, useContext } from 'react';
 import { Link } from 'gatsby';
 import { mediaMax } from '@divyanshu013/media';
-import { FiTerminal, FiSun, FiMoon } from 'react-icons/fi';
-import { keyframes } from '@emotion/react';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
-import { ThemeContext } from '../context/Theme';
+import Terminal from './Terminal';
 import Button from './Button';
 import Footer from './Footer';
+import { ThemeContext } from '../context/Theme';
 import { rhythm } from '../utils/typography';
 import { isIndexPage } from '../utils';
 import { BACKGROUND_TRANSITION_TIME, EASE_IN_OUT_TRANSITION, getTheme } from '../hooks/useTheme';
+
 type LayoutProps = {
-	location?: Location;
-	children?: ReactNode;
+	location: Location;
+	children: ReactNode;
 	title?: string;
 };
 
@@ -22,23 +23,6 @@ const Layout = ({ location, children }: LayoutProps) => {
 	const { theme, toggleTheme } = useContext(ThemeContext);
 	const { color, background, secondary } = getTheme(theme);
 	const darkTheme = getTheme('dark');
-
-	const terminalAnimation = keyframes({
-		from: {
-			stroke: color,
-		},
-		to: {
-			stroke: background,
-		},
-	});
-
-	const terminalStyles = {
-		marginRight: 8,
-		line: {
-			animation: `${terminalAnimation} 0.5s ease-in-out infinite`,
-			animationDirection: 'alternate',
-		},
-	};
 
 	if (!isIndexPage(location.pathname, rootPath)) {
 		header = (
@@ -57,7 +41,7 @@ const Layout = ({ location, children }: LayoutProps) => {
 					}}
 					to="/"
 				>
-					<FiTerminal css={{ terminalStyles }} /> Imran C’s Blog
+					<Terminal /> Imran C’s Blog
 				</Link>
 			</h2>
 		);
