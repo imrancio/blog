@@ -1,3 +1,16 @@
+# [1.3.0](https://github.com/imrancio/blog/compare/v1.2.0...v1.3.0) (2024-05-11)
+
+
+### Bug Fixes
+
+* terminal animation component ([a376bfb](https://github.com/imrancio/blog/commit/a376bfb3bae1d954a6c7cf89f0f54878b09a2fa8))
+
+
+### Features
+
+* add prismjs line numbers ([c7a71a6](https://github.com/imrancio/blog/commit/c7a71a6db73cf5ba1286fba6837e97b66c4024b7))
+* add prismjs shell prompts ([b1bfe6c](https://github.com/imrancio/blog/commit/b1bfe6c1427148f05833c3ff7f11507a925a0242))
+
 # [1.2.0](https://github.com/imrancio/blog/compare/v1.1.1...v1.2.0) (2022-10-02)
 
 
