@@ -252,6 +252,7 @@ const gatsbyConfig: GatsbyConfig = {
 									id
 									internal {
 										contentDigest
+									}
 									fields {
 										slug
 									}
