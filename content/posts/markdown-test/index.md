@@ -132,6 +132,22 @@ Syntax highlighting with line number starting at 5:
 console.log(foo(5));
 ```
 
+Syntax highlighting for shell script:
+
+```bash
+#!/bin/bash
+
+echo "Hello World"
+```
+
+Special prompt for bash / shell scripts:
+
+```bash{outputLines: 2-3}{promptUser:root}{promptHost: imranc.io}
+#!/bin/bash
+
+echo "Hello World"
+```
+
 ## Tables
 
 | Option | Description                                                               |

@@ -190,4 +190,25 @@ export default `
 	.gatsby-highlight pre[class*="language-"].line-numbers {
 		padding-left: 2.8em;
 	}
+
+	.command-line-prompt > span:before {
+		color: #000 ;
+		content: " ";
+		display: block;
+		padding-right: 0.8em;
+	}
+	
+	/* Prompt for all users */
+	.command-line-prompt > span[data-user]:before {
+		content: "[" attr(data-user) "@" attr(data-host) "] $";
+	}
+	
+	/* Prompt for root */
+	.command-line-prompt > span[data-user="root"]:before {
+		content: "[" attr(data-user) "@" attr(data-host) "] #";
+	}
+	
+	.command-line-prompt > span[data-prompt]:before {
+		content: attr(data-prompt);
+	}
 `;

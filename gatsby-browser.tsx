@@ -9,3 +9,4 @@ import '@fontsource/cascadia-code';
 import 'instantsearch.css/themes/satellite.css';
 import './src/styles/instantsearch-theme-overrides.css';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
+import 'prismjs/plugins/command-line/prism-command-line.css';
