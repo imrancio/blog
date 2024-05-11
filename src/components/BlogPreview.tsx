@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Highlight, Snippet } from 'react-instantsearch-hooks-web';
+import { Highlight, Snippet } from 'react-instantsearch';
 import type { Hit } from 'instantsearch.js';
 import type { SendEventForHits } from 'instantsearch.js/es/lib/utils';
 

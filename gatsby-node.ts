@@ -16,7 +16,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 			query CreatePages {
 				posts: allMarkdownRemark(
 					filter: { frontmatter: { title: { ne: "About" } } }
-					sort: { fields: [frontmatter___date], order: DESC }
+					sort: { frontmatter: { date: DESC } }
 					limit: 1000
 				) {
 					edges {
@@ -32,7 +32,7 @@ export const createPages: GatsbyNode['createPages'] = async ({ graphql, actions 
 					}
 				}
 				tags: allMarkdownRemark {
-					group(field: frontmatter___tags) {
+					group(field: { frontmatter: { tags: SELECT } }) {
 						fieldValue
 					}
 				}
