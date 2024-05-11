@@ -1,3 +1,10 @@
+## [1.3.1](https://github.com/imrancio/blog/compare/v1.3.0...v1.3.1) (2024-05-11)
+
+
+### Bug Fixes
+
+* gatsby-plugin-algolia contentDigest error ([70d274d](https://github.com/imrancio/blog/commit/70d274d1d9ac90459a4047a29fecb1cec06fdad6))
+
 # [1.3.0](https://github.com/imrancio/blog/compare/v1.2.0...v1.3.0) (2024-05-11)
 
 
