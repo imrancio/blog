@@ -116,6 +116,22 @@ var foo = function (bar) {
 console.log(foo(5));
 ```
 
+Syntax highlighting with line numbers
+
+```javascript{numberLines: true}
+var foo = function (bar) {
+	return bar++;
+};
+
+console.log(foo(5));
+```
+
+Syntax highlighting with line number starting at 5:
+
+```javascript{numberLines: 5}
+console.log(foo(5));
+```
+
 ## Tables
 
 | Option | Description                                                               |

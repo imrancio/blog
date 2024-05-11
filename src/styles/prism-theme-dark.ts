@@ -183,4 +183,9 @@ export default `
 		float: left; /* 1 */
 		min-width: 100%; /* 2 */
 	}
+
+	/* Adjust the position of the line numbers */
+	.gatsby-highlight pre[class*="language-"].line-numbers {
+		padding-left: 2.8em;
+	}
 `;
