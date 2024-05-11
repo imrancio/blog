@@ -6,7 +6,7 @@ import { COLOR_PRIMARY } from './src/hooks/useTheme';
  */
 const gatsbyConfig: GatsbyConfig = {
 	siteMetadata: {
-		bio: `Life, music, code and things in between…`,
+		bio: `Software Engineer`,
 		title: `Imran Chowdhury`,
 		author: `Imran Chowdhury`,
 		description: `Personal blog of Imran Chowdhury`,
