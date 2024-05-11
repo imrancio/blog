@@ -250,6 +250,8 @@ const gatsbyConfig: GatsbyConfig = {
 							) {
 								nodes {
 									id
+									internal {
+										contentDigest
 									fields {
 										slug
 									}
