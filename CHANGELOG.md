@@ -1,3 +1,10 @@
+## [1.3.2](https://github.com/imrancio/blog/compare/v1.3.1...v1.3.2) (2024-05-11)
+
+
+### Bug Fixes
+
+* gatsby-plugin-algolia query ([be3a6b2](https://github.com/imrancio/blog/commit/be3a6b251cdeaab45d09fae54f1d091315fb7d83))
+
 ## [1.3.1](https://github.com/imrancio/blog/compare/v1.3.0...v1.3.1) (2024-05-11)
 
 
