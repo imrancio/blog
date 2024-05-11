@@ -40,7 +40,7 @@ export const pageQuery = graphql`
 	query BlogIndex {
 		allMarkdownRemark(
 			filter: { frontmatter: { title: { ne: "About" } } }
-			sort: { fields: [frontmatter___date], order: DESC }
+			sort: { frontmatter: { date: DESC } }
 		) {
 			nodes {
 				excerpt

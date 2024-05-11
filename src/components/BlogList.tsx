@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { Hits, useInstantSearch } from 'react-instantsearch-hooks-web';
+import { Hits, useInstantSearch } from 'react-instantsearch';
 import BlogInfo from './BlogInfo';
 import BlogPreview from './BlogPreview';
 import { rhythm } from '../utils/typography';

@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import algoliasearch from 'algoliasearch/lite';
-import { InstantSearch } from 'react-instantsearch-hooks-web';
+import { InstantSearch } from 'react-instantsearch';
 import type { UiState } from 'instantsearch.js';
 import { history } from 'instantsearch.js/es/lib/routers';
 

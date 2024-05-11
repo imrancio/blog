@@ -4,7 +4,7 @@ This blog application uses Algolia for instant search.
 
 `gatsby-plugin-algolia` will build/update the blog content's Algolia search index during build of the Gatsby application.
 
-`react-instantsearch-hooks-web` has various react components and hooks to integrate Algolia's search API into Gatsby application.
+`react-instantsearch` has various react components and hooks to integrate Algolia's search API into Gatsby application.
 
 To be able to build/develop this blog application, you must first get Algolia credentials:
 

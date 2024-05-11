@@ -47,7 +47,7 @@ const TagsIndex = ({ data, location }: PageProps<Queries.TagsIndexQuery>) => {
 export const pageQuery = graphql`
 	query TagsIndex {
 		allMarkdownRemark {
-			group(field: frontmatter___tags) {
+			group(field: { frontmatter: { tags: SELECT } }) {
 				fieldValue
 				totalCount
 			}

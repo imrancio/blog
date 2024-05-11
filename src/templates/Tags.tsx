@@ -54,7 +54,7 @@ const TagsPage = ({
 export const pageQuery = graphql`
 	query Tags($tag: String) {
 		allMarkdownRemark(
-			sort: { fields: [frontmatter___date], order: DESC }
+			sort: { frontmatter: { date: DESC } }
 			filter: { frontmatter: { tags: { in: [$tag] } } }
 		) {
 			nodes {

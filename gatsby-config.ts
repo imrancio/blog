@@ -6,7 +6,7 @@ import { COLOR_PRIMARY } from './src/hooks/useTheme';
  */
 const gatsbyConfig: GatsbyConfig = {
 	siteMetadata: {
-		bio: `Life, music, code and things in between…`,
+		bio: `Software Engineer`,
 		title: `Imran Chowdhury`,
 		author: `Imran Chowdhury`,
 		description: `Personal blog of Imran Chowdhury`,
@@ -156,7 +156,7 @@ const gatsbyConfig: GatsbyConfig = {
 							});
 						},
 						query: `{
-							allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+							allMarkdownRemark(sort: {frontmatter: {date: DESC}}) {
 								nodes {
 									excerpt
 									html
@@ -169,8 +169,7 @@ const gatsbyConfig: GatsbyConfig = {
 									}
 								}
 							}
-						}
-						`,
+						}`,
 						output: '/rss.xml',
 						title: 'Imran C’s RSS Feed',
 						// optional configuration to insert feed reference in pages:
