@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/imrancio/blog/compare/v1.3.2...v1.4.0) (2024-05-12)
+
+
+### Features
+
+* add prismjs copy to clipboard ([2236e87](https://github.com/imrancio/blog/commit/2236e87b6ae921aca7fa3a740caf33c42ea5cdee))
+
 ## [1.3.2](https://github.com/imrancio/blog/compare/v1.3.1...v1.3.2) (2024-05-11)
 
 
