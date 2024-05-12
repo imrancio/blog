@@ -45,6 +45,7 @@
 		"gatsby-remark-external-links": "^0.0.4",
 		"gatsby-remark-images": "^7.13.1",
 		"gatsby-remark-prismjs": "^7.13.1",
+		"gatsby-remark-prismjs-copy-button": "^0.4.0",
 		"gatsby-remark-responsive-iframe": "^6.13.1",
 		"gatsby-remark-smartypants": "^6.13.1",
 		"gatsby-source-filesystem": "^5.13.1",
