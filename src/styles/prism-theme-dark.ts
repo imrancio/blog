@@ -189,6 +189,7 @@ export default `
 		padding-left: 2.8em;
 	}
 
+	/* Adjust shell prompt output */
 	.command-line-prompt > span:before {
 		color: #8ae234 ;
 		content: " ";
@@ -208,5 +209,24 @@ export default `
 	
 	.command-line-prompt > span[data-prompt]:before {
 		content: attr(data-prompt);
+	}
+
+	/* Copy to clipboard */
+	.gatsby-remark-prismjs-copy-button-container {
+		left: 0;
+		padding-right: 0;
+		top: 36px;
+	}
+
+	.gatsby-remark-prismjs-copy-button {
+		background: transparent;
+		border-radius: 0.3em;
+		color: hsla(0, 0%, 100%, 0.60);
+		user-select: none;
+		-webkit-tap-highlight-color: transparent;
+	}
+
+	.gatsby-remark-prismjs-copy-button:hover {
+		background: #c792ea;
 	}
 `;
