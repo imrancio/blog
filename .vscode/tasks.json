@@ -1,0 +1,31 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "install",
+			"problemMatcher": [],
+			"label": "npm: install",
+			"detail": "install dependencies from package",
+			"dependsOn": "npm: clean",
+			"dependsOrder": "sequence"
+		},
+		{
+			"type": "npm",
+			"script": "clean",
+			"problemMatcher": [],
+			"label": "npm: clean",
+			"detail": "gatsby clean",
+			"dependsOn": "npm: install - plugins/gatsby-remark-embed-stream",
+			"dependsOrder": "sequence"
+		},
+		{
+			"type": "npm",
+			"script": "install",
+			"path": "plugins/gatsby-remark-embed-stream",
+			"problemMatcher": [],
+			"label": "npm: install - plugins/gatsby-remark-embed-stream",
+			"detail": "install dependencies from package"
+		}
+	]
+}
