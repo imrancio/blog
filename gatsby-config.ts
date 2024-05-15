@@ -103,6 +103,23 @@ const gatsbyConfig: GatsbyConfig = {
 						},
 					},
 					{
+						resolve: `gatsby-remark-embed-stream`,
+						options: {
+							width: 800,
+							ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
+							height: 400, // Optional: Overrides optional.ratio
+							related: true, //Optional: Will remove related videos from the end of an embedded YouTube video.
+							noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
+							loadingStrategy: 'lazy', //Optional: Enable support for lazy-load offscreen iframes. Default is disabled.
+							urlOverrides: [
+								{
+									id: 'youtube',
+									embedURL: (videoId) => `https://www.youtube-nocookie.com/embed/${videoId}`,
+								},
+							], //Optional: Override URL of a service provider, e.g to enable youtube-nocookie support
+						},
+					},
+					{
 						resolve: `gatsby-remark-responsive-iframe`,
 						options: {
 							wrapperStyle: `margin-bottom: 1.0725rem`,

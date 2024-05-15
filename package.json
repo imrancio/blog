@@ -91,6 +91,7 @@
 	},
 	"scripts": {
 		"build": "gatsby build",
+		"clean": "gatsby clean",
 		"predeploy": "yarn build",
 		"deploy": "gatsby-plugin-s3 deploy --yes",
 		"develop": "gatsby develop",
