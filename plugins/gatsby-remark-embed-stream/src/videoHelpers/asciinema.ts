@@ -2,8 +2,9 @@
 import { URL } from 'url';
 
 import type { IVideoId } from '../interfaces';
+import { urlProcessor } from './index';
 
-const readAsciinemaURL = (url: URL): IVideoId | Record<string, never> => {
+function readAsciinemaURL(url: URL): IVideoId | Record<string, never> {
 	const pathSplit = url.pathname.split('/');
 	if (pathSplit[1] === 'a') {
 		// strip any extensions from URL ID
@@ -15,7 +16,7 @@ const readAsciinemaURL = (url: URL): IVideoId | Record<string, never> => {
 	}
 
 	return {};
-};
+}
 
 export function asciinemaProcessor(input: string): IVideoId | Record<string, never> {
 	try {
@@ -29,36 +30,27 @@ export function asciinemaProcessor(input: string): IVideoId | Record<string, nev
 }
 
 export function asciinemaUrl(id: string, url: URL): URL {
-	let newParameters: string[][] = [];
-	if (id.startsWith('http')) {
-		const originalParams = new URL(id);
-		// asciinema player attributes. See https://docs.asciinema.org/manual/server/embedding/#start-at
-		const playerOptions = new Set([
-			'autoplay',
-			'cols',
-			'idle-time-limit',
-			'loop',
-			'poster',
-			'preload',
-			'row',
-			'speed',
-			'start-at',
-			't',
-			'theme',
-		]);
-		newParameters = [...originalParams.searchParams.entries()]
-			.filter(([option]) => playerOptions.has(option))
-			.map(([option, val]) => {
-				if (option === 'start-at') {
-					// embed urls use the t keyword instead of 'start-at'
-					return ['t', val];
-				}
-				return [option, val];
-			});
-	}
-
-	newParameters.forEach((val) => {
-		url.searchParams.set(val[0], val[1]);
-	});
-	return url;
+	// asciinema player attributes. See https://docs.asciinema.org/manual/server/embedding/#start-at
+	const playerOptions = new Set([
+		'autoplay',
+		'cols',
+		'idle-time-limit',
+		'loop',
+		'poster',
+		'preload',
+		'row',
+		'speed',
+		'start-at',
+		't',
+		'theme',
+	]);
+	const filter = ([option]: [string, string]) => playerOptions.has(option);
+	const map = ([option, val]: [string, string]): [string, string] => {
+		if (option === 'start-at') {
+			// embed urls use the t keyword instead of 'start-at'
+			return ['t', val];
+		}
+		return [option, val];
+	};
+	return urlProcessor(id, url, filter, map);
 }

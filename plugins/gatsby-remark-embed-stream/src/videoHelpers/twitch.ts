@@ -2,8 +2,9 @@
 import { URL } from 'url';
 
 import type { IVideoId } from '../interfaces';
+import { urlProcessor } from './index';
 
-const readTwitchURL = (url: URL): IVideoId | Record<string, never> => {
+function readTwitchURL(url: URL): IVideoId | Record<string, never> {
 	const pathSplit = url.pathname.split('/');
 	if (pathSplit[2] === 'clip') {
 		return {
@@ -27,9 +28,9 @@ const readTwitchURL = (url: URL): IVideoId | Record<string, never> => {
 	}
 
 	return {};
-};
+}
 
-const readTwitchEmbedURL = (url: URL): IVideoId | Record<string, never> => {
+function readTwitchEmbedURL(url: URL): IVideoId | Record<string, never> {
 	const videoId = url.searchParams.get('video');
 	const channelId = url.searchParams.get('channel');
 	const collectionId = url.searchParams.get('collection');
@@ -59,9 +60,9 @@ const readTwitchEmbedURL = (url: URL): IVideoId | Record<string, never> => {
 		};
 	}
 	return {};
-};
+}
 
-const readTwitchClipURL = (url: URL): IVideoId | Record<string, never> => {
+function readTwitchClipURL(url: URL): IVideoId | Record<string, never> {
 	const pathSplit = url.pathname.split('/');
 	if (pathSplit[1]) {
 		return {
@@ -69,40 +70,28 @@ const readTwitchClipURL = (url: URL): IVideoId | Record<string, never> => {
 			service: 'twitchClip',
 		};
 	}
-};
-
-function twitchUrlHelper(id: string, url: URL, playerOpts: string[]): URL {
-	let newParameters: string[][] = [];
-	if (id.startsWith('http')) {
-		const originalParams = new URL(id);
-		// twitch live/vod player attributes. See https://dev.twitch.tv/docs/embed/video-and-clips/#non-interactive-inline-frames-for-live-streams-and-vods
-		const playerOptions = new Set(playerOpts);
-		newParameters = [...originalParams.searchParams.entries()]
-			.filter(([option]) => playerOptions.has(option))
-			.map(([option, val]) => {
-				if (option === 't') {
-					// embed urls use the time keyword instead of 't'
-					return ['time', val];
-				}
-				return [option, val];
-			});
-	}
-	newParameters.forEach((val) => {
-		url.searchParams.set(val[0], val[1]);
-	});
-	return url;
 }
+
+const map = ([option, val]: [string, string]): [string, string] => {
+	if (option === 't') {
+		// embed urls use the time keyword instead of 't'
+		return ['time', val];
+	}
+	return [option, val];
+};
 
 export function twitchUrl(id: string, url: URL): URL {
 	// twitch live/vod player attributes. See https://dev.twitch.tv/docs/embed/video-and-clips/#non-interactive-inline-frames-for-live-streams-and-vods
-	const playerOptions = ['autoplay', 'muted', 't', 'time'];
-	return twitchUrlHelper(id, url, playerOptions);
+	const playerOptions = new Set(['autoplay', 'muted', 't', 'time']);
+	const filter = ([option]: [string, string]) => playerOptions.has(option);
+	return urlProcessor(id, url, filter, map);
 }
 
 export function twitchClipUrl(id: string, url: URL): URL {
 	// twitch clips player attributes. See https://dev.twitch.tv/docs/embed/video-and-clips/#non-interactive-iframes-for-clips
-	const playerOptions = ['autoplay', 'muted'];
-	return twitchUrlHelper(id, url, playerOptions);
+	const playerOptions = new Set(['autoplay', 'muted']);
+	const filter = ([option]: [string, string]) => playerOptions.has(option);
+	return urlProcessor(id, url, filter, map);
 }
 
 export function twitchIdProcessor(input: string): IVideoId | Record<string, never> {
