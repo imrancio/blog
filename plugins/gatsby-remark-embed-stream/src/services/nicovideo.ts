@@ -1,9 +1,9 @@
 /* eslint-disable no-empty */
 import { URL } from 'url';
 
-import type { IVideoId } from '../interfaces';
+import type { IStreamId } from '../interfaces';
 
-export function nicoVideoProcessor(input: string): IVideoId | Record<string, never> {
+export function nicoVideoProcessor(input: string): IStreamId | Record<string, never> {
 	try {
 		const url = new URL(input);
 		if (url.hostname.includes('nicovideo')) {

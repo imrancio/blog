@@ -29,7 +29,7 @@ Based on [gatsby-remark-better-embed-video](https://github.com/ahmadawais/gatsby
 
 ### Add Custom CSS Styling
 
-You can style the videoIframe using `.embedVideo-container` or by specifying a custom class
+You can style the streamIframe using `.embedStream-container` or by specifying a custom class
 
 1.  Restart gatsby.
 
@@ -81,11 +81,11 @@ const config: GatsbyConfig = {
 							urlOverrides: [
 								{
 									id: 'youtube',
-									embedURL: (videoId: string) =>
-										`https://www.youtube-nocookie.com/embed/${videoId}`,
+									embedURL: (streamId: string) =>
+										`https://www.youtube-nocookie.com/embed/${streamId}`,
 								},
 							], //Optional: Override URL of a service provider, e.g to enable youtube-nocookie support
-							containerClass: 'embedVideo-container', //Optional: Custom CSS class for iframe container, for multiple classes separate them by space
+							containerClass: 'embedStream-container', //Optional: Custom CSS class for iframe container, for multiple classes separate them by space
 							iframeId: false, //Optional: if true, iframe's id will be set to what is provided after 'video:' (YouTube IFrame player API requires iframe id)
 							sandbox: 'allow-same-origin allow-scripts allow-presentation', // Optional: iframe sandbox options - Default: undefined
 						},
@@ -138,11 +138,11 @@ module.exports = {
               urlOverrides: [
                 {
                   id: "youtube",
-                  embedURL: videoId =>
-                    `https://www.youtube-nocookie.com/embed/${videoId}`,
+                  embedURL: streamId =>
+                    `https://www.youtube-nocookie.com/embed/${streamId}`,
                 },
               ], //Optional: Override URL of a service provider, e.g to enable youtube-nocookie support
-              containerClass: "embedVideo-container", //Optional: Custom CSS class for iframe container, for multiple classes separate them by space
+              containerClass: "embedStream-container", //Optional: Custom CSS class for iframe container, for multiple classes separate them by space
               iframeId: false, //Optional: if true, iframe's id will be set to what is provided after 'video:' (YouTube IFrame player API requires iframe id)
             },
              "gatsby-remark-responsive-iframe", //Optional: Must be loaded after gatsby-remark-embed-stream

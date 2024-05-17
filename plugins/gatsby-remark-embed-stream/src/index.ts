@@ -1,22 +1,22 @@
 import plugin from 'remark-burger';
 import visit from 'unist-util-visit';
 
-import type { IEmbedVideoOptions, Node } from './interfaces';
+import type { IEmbedStreamOptions, Node } from './interfaces';
 import { defaultOptions, knownPlatforms } from './config';
-import { embedVideoHTML } from './EmbedVideo';
-import { readTitle } from './indexHelpers';
+import { embedStreamHTML } from './embed';
+import { readTitle } from './utils';
 
-const overrideDefaultOptions = (options: IEmbedVideoOptions): IEmbedVideoOptions => {
-	const videoOptions = { ...defaultOptions, ...options };
+const overrideDefaultOptions = (options: IEmbedStreamOptions): IEmbedStreamOptions => {
+	const streamOptions = { ...defaultOptions, ...options };
 
-	if (!videoOptions.height) {
-		videoOptions.height = Math.round(videoOptions.width / videoOptions.ratio);
+	if (!streamOptions.height) {
+		streamOptions.height = Math.round(streamOptions.width / streamOptions.ratio);
 	}
 
-	return videoOptions;
+	return streamOptions;
 };
 
-const addVideoIframe = ({ markdownAST }: never, options: IEmbedVideoOptions): void => {
+const addStreamIframe = ({ markdownAST }: never, options: IEmbedStreamOptions): void => {
 	options = overrideDefaultOptions(options);
 
 	const match = (node: Node, v: string): void => {
@@ -30,13 +30,13 @@ const addVideoIframe = ({ markdownAST }: never, options: IEmbedVideoOptions): vo
 			options = { ...options, title };
 
 			node.type = `html`;
-			node.value = embedVideoHTML(type, id, options);
+			node.value = embedStreamHTML(type, id, options);
 		}
 	};
 
 	const { beginMarker, endMarker } = options;
 	if (beginMarker || endMarker) {
-		visit(markdownAST, `embedVideo`, (node: Node) => {
+		visit(markdownAST, `embedStream`, (node: Node) => {
 			const { data } = node;
 			match(node, data.content);
 		});
@@ -48,7 +48,7 @@ const addVideoIframe = ({ markdownAST }: never, options: IEmbedVideoOptions): vo
 	}
 };
 
-const setParserPlugins = (options: IEmbedVideoOptions) => {
+const setParserPlugins = (options: IEmbedStreamOptions) => {
 	options = overrideDefaultOptions(options);
 	const { beginMarker, endMarker } = options;
 	return [
@@ -58,11 +58,11 @@ const setParserPlugins = (options: IEmbedVideoOptions) => {
 				beginMarker,
 				endMarker,
 				onlyRunWithMarker: true,
-				pattyName: 'embedVideo',
+				pattyName: 'embedStream',
 			},
 		],
 	];
 };
 
-addVideoIframe.setParserPlugins = setParserPlugins;
-export default addVideoIframe;
+addStreamIframe.setParserPlugins = setParserPlugins;
+export default addStreamIframe;

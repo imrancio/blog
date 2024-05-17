@@ -1,9 +1,9 @@
 import { URL } from 'url';
 
-import type { IEmbedVideoOptions } from '../interfaces';
+import type { IEmbedStreamOptions } from '../interfaces';
 import { urlProcessor } from './index';
 
-export function youtubeUrl(id: string, url: URL, options: IEmbedVideoOptions): URL {
+export function youtubeUrl(id: string, url: URL, options: IEmbedStreamOptions): URL {
 	// see https://developers.google.com/youtube/player_parameters
 	const playerOptions = new Set([
 		'autoplay',

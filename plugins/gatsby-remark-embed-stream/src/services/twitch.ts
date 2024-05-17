@@ -1,10 +1,10 @@
 /* eslint-disable no-empty */
 import { URL } from 'url';
 
-import type { IVideoId } from '../interfaces';
+import type { IStreamId } from '../interfaces';
 import { urlProcessor } from './index';
 
-function readTwitchURL(url: URL): IVideoId | Record<string, never> {
+function readTwitchURL(url: URL): IStreamId | Record<string, never> {
 	const pathSplit = url.pathname.split('/');
 	if (pathSplit[2] === 'clip') {
 		return {
@@ -30,7 +30,7 @@ function readTwitchURL(url: URL): IVideoId | Record<string, never> {
 	return {};
 }
 
-function readTwitchEmbedURL(url: URL): IVideoId | Record<string, never> {
+function readTwitchEmbedURL(url: URL): IStreamId | Record<string, never> {
 	const videoId = url.searchParams.get('video');
 	const channelId = url.searchParams.get('channel');
 	const collectionId = url.searchParams.get('collection');
@@ -62,7 +62,7 @@ function readTwitchEmbedURL(url: URL): IVideoId | Record<string, never> {
 	return {};
 }
 
-function readTwitchClipURL(url: URL): IVideoId | Record<string, never> {
+function readTwitchClipURL(url: URL): IStreamId | Record<string, never> {
 	const pathSplit = url.pathname.split('/');
 	if (pathSplit[1]) {
 		return {
@@ -94,7 +94,7 @@ export function twitchClipUrl(id: string, url: URL): URL {
 	return urlProcessor(id, url, filter, map);
 }
 
-export function twitchIdProcessor(input: string): IVideoId | Record<string, never> {
+export function twitchIdProcessor(input: string): IStreamId | Record<string, never> {
 	try {
 		const url = new URL(input);
 		if (url.origin === 'https://www.twitch.tv') {

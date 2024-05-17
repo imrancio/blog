@@ -7,7 +7,7 @@ interface Node {
 	data: { content: string };
 }
 
-interface IEmbedVideoOptions extends RemarkBurgerOptions {
+interface IEmbedStreamOptions extends RemarkBurgerOptions {
 	width: number;
 	ratio: number;
 	related?: boolean;
@@ -26,17 +26,25 @@ interface IEmbedVideoOptions extends RemarkBurgerOptions {
 	sandbox?: string;
 }
 
-type VideoType = 'video' | 'channel' | 'collection';
+type StreamType =
+	| 'video'
+	| 'channel'
+	| 'collection'
+	| 'playlist'
+	| 'episode'
+	| 'track'
+	| 'artist'
+	| 'album';
 
-interface IVideoId {
+interface IStreamId {
 	id: string;
 	service: string;
-	type?: VideoType;
+	type?: StreamType;
 }
 
-interface IVideoService {
+interface IStreamService {
 	id: string;
-	embedUrl: (val: string, type?: VideoType) => string;
-	urlProcessing?: (originalUrl: string, embedUrl: URL, options?: IEmbedVideoOptions) => URL;
+	embedUrl: (val: string, type?: StreamType) => string;
+	urlProcessing?: (originalUrl: string, embedUrl: URL, options?: IEmbedStreamOptions) => URL;
 	additionalHTML?: string;
 }

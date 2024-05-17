@@ -1,10 +1,10 @@
 /* eslint-disable no-empty */
 import { URL } from 'url';
 
-import type { IVideoId } from '../interfaces';
+import type { IStreamId } from '../interfaces';
 import { urlProcessor } from './index';
 
-function readAsciinemaURL(url: URL): IVideoId | Record<string, never> {
+function readAsciinemaURL(url: URL): IStreamId | Record<string, never> {
 	const pathSplit = url.pathname.split('/');
 	if (pathSplit[1] === 'a') {
 		// strip any extensions from URL ID
@@ -18,7 +18,7 @@ function readAsciinemaURL(url: URL): IVideoId | Record<string, never> {
 	return {};
 }
 
-export function asciinemaProcessor(input: string): IVideoId | Record<string, never> {
+export function asciinemaProcessor(input: string): IStreamId | Record<string, never> {
 	try {
 		const url = new URL(input);
 		if (url.origin === 'https://asciinema.org') {
