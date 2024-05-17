@@ -25,7 +25,11 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - name: Install Node.js Dependencies
-        uses: bahmutov/npm-install@HEAD
+        uses: bahmutov/npm-install@v1
+      - name: Install Plugin Dependencies
+        uses: bahmutov/npm-install@v1
+        with:
+          working-directory: plugins/gatsby-remark-embed-stream
       - name: Cache Gatsby Build
         id: cache-gatsby-build
         uses: actions/cache@v4
@@ -33,7 +37,7 @@ jobs:
           path: |
             public
             .cache
-          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('yarn.lock', 'gatsby-config.ts') }}
+          key: ${{ runner.os }}-gatsby-build-${{ hashFiles('yarn.lock', 'gatsby-config.ts', 'plugins/gatsby-remark-embed-stream/src/config.ts') }}
           restore-keys: |
             ${{ runner.os }}-gatsby-build-
       - name: Build Gatsby Blog
@@ -75,7 +79,7 @@ jobs:
         with:
           node-version-file: '.nvmrc'
       - name: Install Node.js Dependencies
-        uses: bahmutov/npm-install@HEAD
+        uses: bahmutov/npm-install@v1
       - name: Semantic Release
         id: semantic
         env:
