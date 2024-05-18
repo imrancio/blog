@@ -1,3 +1,5 @@
+## [1.5.3](https://github.com/imrancio/blog/compare/v1.5.2...v1.5.3) (2024-05-18)
+
 ## [1.5.2](https://github.com/imrancio/blog/compare/v1.5.1...v1.5.2) (2024-05-18)
 
 
