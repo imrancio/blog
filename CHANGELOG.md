@@ -1,3 +1,10 @@
+## [1.5.2](https://github.com/imrancio/blog/compare/v1.5.1...v1.5.2) (2024-05-18)
+
+
+### Performance Improvements
+
+* gtag with partytown ([ac10a2e](https://github.com/imrancio/blog/commit/ac10a2e10e02d98c03ef466983d69702c22825cc))
+
 ## [1.5.1](https://github.com/imrancio/blog/compare/v1.5.0...v1.5.1) (2024-05-18)
 
 
