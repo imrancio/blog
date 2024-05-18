@@ -1,7 +1,7 @@
 {
 	"name": "gatsby-remark-embed-stream",
 	"version": "3.2.1",
-	"description": "Embed Videos (Youtube, Twitch, TikTok) in Gatsby via Markdown",
+	"description": "Embed Streams (Youtube, Spotify, Asciinema) in Gatsby via Markdown",
 	"main": "index.js",
 	"types": "dist/index.d.ts",
 	"author": "Imran Chowdhury <imran@imranc.io>",
