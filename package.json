@@ -16,6 +16,7 @@
 	],
 	"license": "MIT",
 	"dependencies": {
+		"@builder.io/partytown": "^0.10.2",
 		"@divyanshu013/inspirational-quotes": "^1.0.6",
 		"@divyanshu013/media": "^1.0.0",
 		"@emotion/react": "^11.11.4",
@@ -29,7 +30,6 @@
 		"gatsby-plugin-catch-links": "^5.13.1",
 		"gatsby-plugin-emotion": "^8.13.1",
 		"gatsby-plugin-feed": "^5.13.1",
-		"gatsby-plugin-google-gtag": "^5.13.1",
 		"gatsby-plugin-image": "^3.13.1",
 		"gatsby-plugin-manifest": "^5.13.1",
 		"gatsby-plugin-nprogress": "^5.13.1",
@@ -69,6 +69,7 @@
 		"@semantic-release/changelog": "^6.0.3",
 		"@semantic-release/exec": "^6.0.3",
 		"@semantic-release/git": "^10.0.1",
+		"@types/gtag.js": "^0.0.19",
 		"@types/node": "^20.12.11",
 		"@types/react": "^18.3.0",
 		"@types/react-dom": "^18.3.0",

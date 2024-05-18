@@ -2,6 +2,7 @@ import path from 'path';
 import { createFilePath } from 'gatsby-source-filesystem';
 import { kebabCase } from 'lodash';
 import type { GatsbyNode } from 'gatsby';
+import { copyLibFiles } from '@builder.io/partytown/utils';
 
 /**
  * @type {GatsbyNode['createPages']}
@@ -84,4 +85,8 @@ export const onCreateNode: GatsbyNode['onCreateNode'] = ({ node, actions, getNod
 			value: `/posts${value}`,
 		});
 	}
+};
+
+export const onPreBuild: GatsbyNode['onPreBuild'] = async () => {
+	await copyLibFiles(path.join(__dirname, 'static', '~partytown'));
 };
