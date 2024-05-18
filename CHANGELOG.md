@@ -1,3 +1,10 @@
+## [1.5.1](https://github.com/imrancio/blog/compare/v1.5.0...v1.5.1) (2024-05-18)
+
+
+### Bug Fixes
+
+* eslint excludes dist files ([637aa83](https://github.com/imrancio/blog/commit/637aa83ea1351c185091b032b58bb3963e5595e7))
+
 # [1.5.0](https://github.com/imrancio/blog/compare/v1.4.1...v1.5.0) (2024-05-18)
 
 
