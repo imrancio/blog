@@ -22,5 +22,6 @@
 		"**/bower_components": true,
 		"**/*.code-search": true,
 		"**/yarn.lock": true
-	}
+	},
+	"npm.packageManager": "yarn"
 }

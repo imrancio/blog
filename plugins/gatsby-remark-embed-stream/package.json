@@ -1,0 +1,43 @@
+{
+	"name": "gatsby-remark-embed-stream",
+	"version": "3.2.1",
+	"description": "Embed Streams (Youtube, Spotify, Asciinema) in Gatsby via Markdown",
+	"main": "index.js",
+	"types": "dist/index.d.ts",
+	"author": "Imran Chowdhury <imran@imranc.io>",
+	"license": "MIT",
+	"keywords": [
+		"gatsby",
+		"gatsby-plugin",
+		"remark"
+	],
+	"dependencies": {
+		"get-video-id": "^3.6.5",
+		"remark-burger": "^1.0.1",
+		"unist-util-visit": "^2.0.3"
+	},
+	"devDependencies": {
+		"@types/node": "^18.7.23",
+		"cross-env": "^7.0.3",
+		"cz-conventional-changelog": "^3.3.0",
+		"prettier": "^2.7.1",
+		"typescript": "^4.7.4"
+	},
+	"scripts": {
+		"build": "tsc",
+		"prepare": "cross-env NODE_ENV=production yarn build",
+		"watch": "tsc -w",
+		"commit": "npx git-cz",
+		"test": "echo 'No tests implemented'"
+	},
+	"homepage": "https://github.com/borgfriend/gatsby-remark-embed-stream#readme",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/borgfriend/gatsby-remark-embed-stream.git"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
+	}
+}
