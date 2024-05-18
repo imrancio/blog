@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { graphql, useStaticQuery, Link } from 'gatsby';
 import { StaticImage } from 'gatsby-plugin-image';
-import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import { FiGithub, FiMail, FiLinkedin } from 'react-icons/fi';
 import { FaAddressCard } from 'react-icons/fa';
 import { mediaMax } from '@divyanshu013/media';
@@ -101,7 +100,7 @@ const Sidebar = () => {
 					justifyContent: 'start',
 				}}
 			>
-				<OutboundLink
+				<a
 					href={social.linkedin}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -110,8 +109,8 @@ const Sidebar = () => {
 					<Button className="no-highlights" aria-label="Link to my LinkedIn" as="a" circular>
 						<FiLinkedin />
 					</Button>
-				</OutboundLink>
-				<OutboundLink
+				</a>
+				<a
 					href={social.github}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -120,8 +119,8 @@ const Sidebar = () => {
 					<Button className="no-highlights" aria-label="Link to my GitHub" as="a" circular>
 						<FiGithub />
 					</Button>
-				</OutboundLink>
-				<OutboundLink
+				</a>
+				<a
 					href={social.email}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -130,8 +129,8 @@ const Sidebar = () => {
 					<Button className="no-highlights" aria-label="Email me" as="a" circular>
 						<FiMail />
 					</Button>
-				</OutboundLink>
-				<OutboundLink
+				</a>
+				<a
 					href={social.resume}
 					target="_blank"
 					rel="noopener noreferrer"
@@ -140,7 +139,7 @@ const Sidebar = () => {
 					<Button className="no-highlights" aria-label="Link to my Resume" as="a" circular>
 						<FaAddressCard />
 					</Button>
-				</OutboundLink>
+				</a>
 			</div>
 			{!window.location.pathname.startsWith('/tags/') && (
 				<div css={{ marginTop: rhythm(1) }}>

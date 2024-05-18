@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { useStaticQuery, graphql, Link } from 'gatsby';
-import { OutboundLink } from 'gatsby-plugin-google-gtag';
 import { StaticImage } from 'gatsby-plugin-image';
 
 import { mediaMax } from '@divyanshu013/media';
@@ -71,14 +70,12 @@ const Bio = () => {
 			</Link>
 			<div css={{ fontSize: 16, color: secondary }}>
 				<p>
-					Personal blog of <OutboundLink href={social.linkedin}>{author}</OutboundLink>. I’m a{' '}
-					<OutboundLink href={social.github}>software engineer</OutboundLink> currently working with{' '}
-					<OutboundLink href="https://graphql.org/">GraphQL</OutboundLink>,{' '}
-					<OutboundLink href="https://nestjs.com/">NestJS</OutboundLink>,{' '}
-					<OutboundLink href="https://nodejs.org/en/">Node</OutboundLink>,{' '}
-					<OutboundLink href="https://nextjs.org/">NextJS</OutboundLink>, and{' '}
-					<OutboundLink href="https://reactjs.org/">React</OutboundLink>. I love learning about
-					InfoSec, DevOps, ML, and Full Stack Web.
+					Personal blog of <a href={social.linkedin}>{author}</a>. I’m a{' '}
+					<a href={social.github}>software engineer</a> currently working with{' '}
+					<a href="https://graphql.org/">GraphQL</a>, <a href="https://nestjs.com/">NestJS</a>,{' '}
+					<a href="https://nodejs.org/en/">Node</a>, <a href="https://nextjs.org/">NextJS</a>, and{' '}
+					<a href="https://reactjs.org/">React</a>. I love learning about InfoSec, DevOps, ML, and
+					Full Stack Web.
 				</p>
 			</div>
 		</div>
