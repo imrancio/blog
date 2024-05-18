@@ -2,9 +2,10 @@
 
 Embed video, audio, and text streams in your Markdown
 
-Based on [gatsby-remark-better-embed-video](https://github.com/ahmadawais/gatsby-remark-better-embed-video)
-
 ## Usage
+
+> [!NOTE]
+> You may change `width` and `height` of embedded streams by supplying them as query parameters in the stream URL
 
 ```markdown
 # Look at this Video:
@@ -21,8 +22,23 @@ Based on [gatsby-remark-better-embed-video](https://github.com/ahmadawais/gatsby
 
 `twitch: https://player.twitch.tv/?channel=dakotaz`
 `twitch: https://player.twitch.tv/?autoplay=false&video=v273436948`
-`twitch: 273436948`
-`twitchLive: dakotaz`
+`twitch: https://clips.twitch.tv/StylishScrumptiousBobaTheTarFu`
+```
+
+```markdown
+# Look at this Audio:
+
+`spotify: https://open.spotify.com/user/spotify/playlist/37i9dQZF1DZ06evO2ZpGiQ`
+
+`soundcloud: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1734891438`
+```
+
+```markdown
+# Look at this ASCII text:
+
+`asciinema: https://asciinema.org/a/bJMOlPe5F4mFLY0Rl6fiJSOp3?theme=solarized-dark`
+
+`asciinema: https://asciinema.org/a/335029?t=0:05&speed=2`
 ```
 
 ## Additional Features
@@ -132,7 +148,7 @@ module.exports = {
               width: 800,
               ratio: 1.77, // Optional: Defaults to 16/9 = 1.77
               height: 400, // Optional: Overrides optional.ratio
-              related: false, //Optional: Will remove related videos from the end of an embedded YouTube video.
+              related: false, //Optional: Will remove related results from the end of an embedded stream.
               noIframeBorder: true, //Optional: Disable insertion of <style> border: 0
               loadingStrategy: 'lazy', //Optional: Enable support for lazy-load offscreen iframes. Default is disabled.
               urlOverrides: [
@@ -177,7 +193,7 @@ plugins: [
 
 ## Special Thanks
 
-Inspired by [gatsby-remark-embed-youtube](https://github.com/ntwcklng/gatsby-remark-embed-youtube)
+Inspired by [gatsby-remark-embed-youtube](https://github.com/ntwcklng/gatsby-remark-embed-youtube) and [gatsby-remark-better-embed-video](https://github.com/ahmadawais/gatsby-remark-better-embed-video)
 
 ## License
 
