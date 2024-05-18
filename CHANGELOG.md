@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/imrancio/blog/compare/v1.4.1...v1.5.0) (2024-05-18)
+
+
+### Features
+
+* add gatsby-remark-embed-stream plugin ([0b671e0](https://github.com/imrancio/blog/commit/0b671e0ad2a71101325dfd3dd552c73462101bc0))
+
 ## [1.4.1](https://github.com/imrancio/blog/compare/v1.4.0...v1.4.1) (2024-05-12)
 
 # [1.4.0](https://github.com/imrancio/blog/compare/v1.3.2...v1.4.0) (2024-05-12)
