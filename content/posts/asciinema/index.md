@@ -31,11 +31,13 @@ I can also embed traditional video streams from sources like Loom, TikTok, Twitc
 
 `twitch: https://clips.twitch.tv/StylishScrumptiousBobaTheTarFu?height=450`
 
-Or embed audio streams from services like Spotify or SoundCloud:
+Or embed audio streams from services like Spotify or SoundCloud.
 
-`spotify: https://open.spotify.com/episode/7edwvm2c6Ieuzun4xtFYCJ?theme=0&height=182`
+`spotify: https://open.spotify.com/episode/7edwvm2c6Ieuzun4xtFYCJ?theme=0&height=430`
 
-`spotify: https://open.spotify.com/embed/playlist/2Tb8kSk3fyqLO8EhcSr1bp?autoplay=false&height=800`
+Including entire playlists.
+
+`spotify: https://open.spotify.com/embed/playlist/2Tb8kSk3fyqLO8EhcSr1bp?autoplay=false&height=1000`
 
 `soundcloud: https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/1711497186&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true`
 
@@ -44,7 +46,7 @@ All I have to do to embed various streams like above to my post is add some mark
 ```markdown
 `asciinema: https://asciinema.org/a/335029?height=459`
 
-`spotify: https://open.spotify.com/episode/7edwvm2c6Ieuzun4xtFYCJ?theme=0&height=182`
+`spotify: https://open.spotify.com/episode/7edwvm2c6Ieuzun4xtFYCJ?theme=0&height=430`
 
 `twitch: https://clips.twitch.tv/StylishScrumptiousBobaTheTarFu?height=450`
 
